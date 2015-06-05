@@ -2,7 +2,6 @@
 --------------------------------
 -- @module MenuItemFont
 -- @extend MenuItemLabel
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#MenuItemFont] getFontSizeObj 

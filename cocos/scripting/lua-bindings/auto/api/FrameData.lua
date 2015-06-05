@@ -2,7 +2,6 @@
 --------------------------------
 -- @module FrameData
 -- @extend BaseData
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#FrameData] copy 

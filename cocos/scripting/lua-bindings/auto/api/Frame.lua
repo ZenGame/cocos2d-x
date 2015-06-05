@@ -2,12 +2,11 @@
 --------------------------------
 -- @module Frame
 -- @extend Ref
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#Frame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#Frame] setNode 
@@ -17,7 +16,7 @@
 --------------------------------
 -- @function [parent=#Frame] setTimeline 
 -- @param self
--- @param #ccs.Timeline timeline
+-- @param #ccs.timeline::Timeline timeline
         
 --------------------------------
 -- @function [parent=#Frame] getFrameIndex 
@@ -47,7 +46,7 @@
 --------------------------------
 -- @function [parent=#Frame] getTimeline 
 -- @param self
--- @return Timeline#Timeline ret (return value: ccs.Timeline)
+-- @return timeline::Timeline#timeline::Timeline ret (return value: ccs.timeline::Timeline)
         
 --------------------------------
 -- @function [parent=#Frame] getNode 

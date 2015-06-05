@@ -2,12 +2,14 @@
 --------------------------------
 -- @module ScaleBy
 -- @extend ScaleTo
--- @parent_module cc
 
 --------------------------------
--- @overload self, float, float, float         
--- @overload self, float, float         
--- @overload self, float, float, float, float         
+-- overload function: create(float, float, float)
+--          
+-- overload function: create(float, float)
+--          
+-- overload function: create(float, float, float, float)
+--          
 -- @function [parent=#ScaleBy] create
 -- @param self
 -- @param #float float

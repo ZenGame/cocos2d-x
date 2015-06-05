@@ -2,7 +2,6 @@
 --------------------------------
 -- @module MovementData
 -- @extend Ref
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#MovementData] getMovementBoneData 

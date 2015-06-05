@@ -2,7 +2,6 @@
 --------------------------------
 -- @module RichElementText
 -- @extend RichElement
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#RichElementText] init 

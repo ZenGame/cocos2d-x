@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TextAtlas
 -- @extend Widget
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#TextAtlas] getStringLength 
@@ -33,8 +32,10 @@
 -- @param self
         
 --------------------------------
--- @overload self, string, string, int, int, string         
--- @overload self         
+-- overload function: create(string, string, int, int, string)
+--          
+-- overload function: create()
+--          
 -- @function [parent=#TextAtlas] create
 -- @param self
 -- @param #string str

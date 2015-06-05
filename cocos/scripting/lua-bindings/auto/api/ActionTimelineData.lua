@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ActionTimelineData
 -- @extend Ref
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ActionTimelineData] setActionTag 
@@ -18,6 +17,6 @@
 -- @function [parent=#ActionTimelineData] create 
 -- @param self
 -- @param #int int
--- @return ActionTimelineData#ActionTimelineData ret (return value: ccs.ActionTimelineData)
+-- @return timeline::ActionTimelineData#timeline::ActionTimelineData ret (return value: ccs.timeline::ActionTimelineData)
         
 return nil

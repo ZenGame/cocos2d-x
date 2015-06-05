@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EventListenerPhysicsContactWithBodies
 -- @extend EventListenerPhysicsContact
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EventListenerPhysicsContactWithBodies] hitTest 

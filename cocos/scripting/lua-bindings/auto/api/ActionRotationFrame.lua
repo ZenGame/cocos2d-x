@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ActionRotationFrame
 -- @extend ActionFrame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ActionRotationFrame] setRotation 
@@ -10,8 +9,10 @@
 -- @param #float float
         
 --------------------------------
--- @overload self, float, ccs.ActionFrame         
--- @overload self, float         
+-- overload function: getAction(float, ccs.ActionFrame)
+--          
+-- overload function: getAction(float)
+--          
 -- @function [parent=#ActionRotationFrame] getAction
 -- @param self
 -- @param #float float

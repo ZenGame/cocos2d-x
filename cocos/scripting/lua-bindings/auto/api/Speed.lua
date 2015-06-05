@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Speed
 -- @extend Action
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Speed] setInnerAction 

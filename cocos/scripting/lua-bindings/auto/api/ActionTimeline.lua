@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ActionTimeline
 -- @extend Action
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ActionTimeline] getTimelines 
@@ -40,7 +39,7 @@
 --------------------------------
 -- @function [parent=#ActionTimeline] addTimeline 
 -- @param self
--- @param #ccs.Timeline timeline
+-- @param #ccs.timeline::Timeline timeline
         
 --------------------------------
 -- @function [parent=#ActionTimeline] getEndFrame 
@@ -83,10 +82,14 @@
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
--- @overload self, int, bool         
--- @overload self, int         
--- @overload self, int, int, bool         
--- @overload self, int, int, int, bool         
+-- overload function: gotoFrameAndPlay(int, bool)
+--          
+-- overload function: gotoFrameAndPlay(int)
+--          
+-- overload function: gotoFrameAndPlay(int, int, bool)
+--          
+-- overload function: gotoFrameAndPlay(int, int, int, bool)
+--          
 -- @function [parent=#ActionTimeline] gotoFrameAndPlay
 -- @param self
 -- @param #int int
@@ -97,7 +100,7 @@
 --------------------------------
 -- @function [parent=#ActionTimeline] removeTimeline 
 -- @param self
--- @param #ccs.Timeline timeline
+-- @param #ccs.timeline::Timeline timeline
         
 --------------------------------
 -- @function [parent=#ActionTimeline] clearFrameEventCallFunc 
@@ -106,7 +109,7 @@
 --------------------------------
 -- @function [parent=#ActionTimeline] create 
 -- @param self
--- @return ActionTimeline#ActionTimeline ret (return value: ccs.ActionTimeline)
+-- @return timeline::ActionTimeline#timeline::ActionTimeline ret (return value: ccs.timeline::ActionTimeline)
         
 --------------------------------
 -- @function [parent=#ActionTimeline] step 
@@ -121,12 +124,12 @@
 --------------------------------
 -- @function [parent=#ActionTimeline] clone 
 -- @param self
--- @return ActionTimeline#ActionTimeline ret (return value: ccs.ActionTimeline)
+-- @return timeline::ActionTimeline#timeline::ActionTimeline ret (return value: ccs.timeline::ActionTimeline)
         
 --------------------------------
 -- @function [parent=#ActionTimeline] reverse 
 -- @param self
--- @return ActionTimeline#ActionTimeline ret (return value: ccs.ActionTimeline)
+-- @return timeline::ActionTimeline#timeline::ActionTimeline ret (return value: ccs.timeline::ActionTimeline)
         
 --------------------------------
 -- @function [parent=#ActionTimeline] isDone 

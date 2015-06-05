@@ -2,32 +2,31 @@
 --------------------------------
 -- @module Touch
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Touch] getPreviousLocationInView 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Touch] getLocation 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Touch] getDelta 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Touch] getStartLocationInView 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Touch] getStartLocation 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Touch] getID 
@@ -44,12 +43,12 @@
 --------------------------------
 -- @function [parent=#Touch] getLocationInView 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Touch] getPreviousLocation 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Touch] Touch 

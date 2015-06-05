@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ActionInterval
 -- @extend FiniteTimeAction
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#ActionInterval] getAmplitudeRate 

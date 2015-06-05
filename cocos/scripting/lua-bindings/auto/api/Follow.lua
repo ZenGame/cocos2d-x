@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Follow
 -- @extend Action
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Follow] setBoudarySet 

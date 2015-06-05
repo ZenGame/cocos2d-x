@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ProgressTimer
 -- @extend Node
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#ProgressTimer] isReverseDirection 
@@ -12,7 +11,7 @@
 --------------------------------
 -- @function [parent=#ProgressTimer] setBarChangeRate 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#ProgressTimer] getPercentage 
@@ -27,7 +26,7 @@
 --------------------------------
 -- @function [parent=#ProgressTimer] getType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return ProgressTimer::Type#ProgressTimer::Type ret (return value: cc.ProgressTimer::Type)
         
 --------------------------------
 -- @function [parent=#ProgressTimer] getSprite 
@@ -37,16 +36,18 @@
 --------------------------------
 -- @function [parent=#ProgressTimer] setMidpoint 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#ProgressTimer] getBarChangeRate 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
--- @overload self, bool         
--- @overload self, bool         
+-- overload function: setReverseDirection(bool)
+--          
+-- overload function: setReverseDirection(bool)
+--          
 -- @function [parent=#ProgressTimer] setReverseDirection
 -- @param self
 -- @param #bool bool
@@ -54,7 +55,7 @@
 --------------------------------
 -- @function [parent=#ProgressTimer] getMidpoint 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#ProgressTimer] setPercentage 
@@ -64,7 +65,7 @@
 --------------------------------
 -- @function [parent=#ProgressTimer] setType 
 -- @param self
--- @param #int type
+-- @param #cc.ProgressTimer::Type type
         
 --------------------------------
 -- @function [parent=#ProgressTimer] create 
@@ -75,13 +76,13 @@
 --------------------------------
 -- @function [parent=#ProgressTimer] setAnchorPoint 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#ProgressTimer] draw 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------

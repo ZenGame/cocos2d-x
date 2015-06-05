@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EventFrame
 -- @extend Frame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#EventFrame] setEvent 
@@ -17,12 +16,12 @@
 --------------------------------
 -- @function [parent=#EventFrame] create 
 -- @param self
--- @return EventFrame#EventFrame ret (return value: ccs.EventFrame)
+-- @return timeline::EventFrame#timeline::EventFrame ret (return value: ccs.timeline::EventFrame)
         
 --------------------------------
 -- @function [parent=#EventFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#EventFrame] EventFrame 

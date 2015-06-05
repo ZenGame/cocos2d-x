@@ -2,21 +2,22 @@
 --------------------------------
 -- @module TurnOffTiles
 -- @extend TiledGrid3DAction
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TurnOffTiles] turnOnTile 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#TurnOffTiles] turnOffTile 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
--- @overload self, float, size_table, unsigned int         
--- @overload self, float, size_table         
+-- overload function: create(float, size_table, unsigned int)
+--          
+-- overload function: create(float, size_table)
+--          
 -- @function [parent=#TurnOffTiles] create
 -- @param self
 -- @param #float float

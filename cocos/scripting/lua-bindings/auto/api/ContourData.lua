@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ContourData
 -- @extend Ref
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ContourData] init 
@@ -12,7 +11,7 @@
 --------------------------------
 -- @function [parent=#ContourData] addVertex 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#ContourData] create 

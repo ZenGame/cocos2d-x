@@ -2,17 +2,12 @@
 --------------------------------
 -- @module TextureCache
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TextureCache] reloadTexture 
 -- @param self
 -- @param #string str
 -- @return bool#bool ret (return value: bool)
-        
---------------------------------
--- @function [parent=#TextureCache] textures_lock 
--- @param self
         
 --------------------------------
 -- @function [parent=#TextureCache] unbindAllImageAsync 
@@ -48,8 +43,10 @@
 -- @return string#string ret (return value: string)
         
 --------------------------------
--- @overload self, cc.Image, string         
--- @overload self, string         
+-- overload function: addImage(cc.Image, string)
+--          
+-- overload function: addImage(string)
+--          
 -- @function [parent=#TextureCache] addImage
 -- @param self
 -- @param #cc.Image image
@@ -57,15 +54,15 @@
 -- @return Texture2D#Texture2D ret (retunr value: cc.Texture2D)
 
 --------------------------------
+-- @function [parent=#TextureCache] unbindImageAsync 
+-- @param self
+-- @param #string str
+        
+--------------------------------
 -- @function [parent=#TextureCache] isEtcRender 
 -- @param self
 -- @param #char char
 -- @return bool#bool ret (return value: bool)
-        
---------------------------------
--- @function [parent=#TextureCache] unbindImageAsync 
--- @param self
--- @param #string str
         
 --------------------------------
 -- @function [parent=#TextureCache] getTextureForKey 
@@ -84,6 +81,10 @@
         
 --------------------------------
 -- @function [parent=#TextureCache] removeUnusedTextures 
+-- @param self
+        
+--------------------------------
+-- @function [parent=#TextureCache] textures_lock 
 -- @param self
         
 --------------------------------

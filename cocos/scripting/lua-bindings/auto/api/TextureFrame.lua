@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TextureFrame
 -- @extend Frame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#TextureFrame] getTextureName 
@@ -22,12 +21,12 @@
 --------------------------------
 -- @function [parent=#TextureFrame] create 
 -- @param self
--- @return TextureFrame#TextureFrame ret (return value: ccs.TextureFrame)
+-- @return timeline::TextureFrame#timeline::TextureFrame ret (return value: ccs.timeline::TextureFrame)
         
 --------------------------------
 -- @function [parent=#TextureFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#TextureFrame] TextureFrame 

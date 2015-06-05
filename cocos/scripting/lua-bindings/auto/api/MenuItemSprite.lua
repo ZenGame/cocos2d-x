@@ -2,7 +2,6 @@
 --------------------------------
 -- @module MenuItemSprite
 -- @extend MenuItem
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#MenuItemSprite] setEnabled 

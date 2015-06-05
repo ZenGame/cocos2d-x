@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Slider
 -- @extend Widget
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#Slider] setPercent 
@@ -13,25 +12,25 @@
 -- @function [parent=#Slider] loadSlidBallTextureDisabled 
 -- @param self
 -- @param #string str
--- @param #int texturerestype
+-- @param #ccui.Widget::TextureResType texturerestype
         
 --------------------------------
 -- @function [parent=#Slider] loadSlidBallTextureNormal 
 -- @param self
 -- @param #string str
--- @param #int texturerestype
+-- @param #ccui.Widget::TextureResType texturerestype
         
 --------------------------------
 -- @function [parent=#Slider] loadBarTexture 
 -- @param self
 -- @param #string str
--- @param #int texturerestype
+-- @param #ccui.Widget::TextureResType texturerestype
         
 --------------------------------
 -- @function [parent=#Slider] loadProgressBarTexture 
 -- @param self
 -- @param #string str
--- @param #int texturerestype
+-- @param #ccui.Widget::TextureResType texturerestype
         
 --------------------------------
 -- @function [parent=#Slider] loadSlidBallTextures 
@@ -39,7 +38,7 @@
 -- @param #string str
 -- @param #string str
 -- @param #string str
--- @param #int texturerestype
+-- @param #ccui.Widget::TextureResType texturerestype
         
 --------------------------------
 -- @function [parent=#Slider] setCapInsetProgressBarRebderer 
@@ -75,7 +74,7 @@
 -- @function [parent=#Slider] loadSlidBallTexturePressed 
 -- @param self
 -- @param #string str
--- @param #int texturerestype
+-- @param #ccui.Widget::TextureResType texturerestype
         
 --------------------------------
 -- @function [parent=#Slider] isScale9Enabled 
@@ -120,7 +119,7 @@
 --------------------------------
 -- @function [parent=#Slider] hitTest 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------

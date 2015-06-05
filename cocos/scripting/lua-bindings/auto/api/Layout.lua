@@ -2,22 +2,21 @@
 --------------------------------
 -- @module Layout
 -- @extend Widget,LayoutProtocol
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#Layout] setBackGroundColorVector 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#Layout] setClippingType 
 -- @param self
--- @param #int clippingtype
+-- @param #ccui.Layout::ClippingType clippingtype
         
 --------------------------------
 -- @function [parent=#Layout] setBackGroundColorType 
 -- @param self
--- @param #int backgroundcolortype
+-- @param #ccui.Layout::BackGroundColorType backgroundcolortype
         
 --------------------------------
 -- @function [parent=#Layout] setLoopFocus 
@@ -32,12 +31,12 @@
 --------------------------------
 -- @function [parent=#Layout] getBackGroundColorVector 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Layout] getClippingType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Layout::ClippingType#Layout::ClippingType ret (return value: ccui.Layout::ClippingType)
         
 --------------------------------
 -- @function [parent=#Layout] isLoopFocus 
@@ -67,11 +66,13 @@
 -- @function [parent=#Layout] setBackGroundImage 
 -- @param self
 -- @param #string str
--- @param #int texturerestype
+-- @param #ccui.Widget::TextureResType texturerestype
         
 --------------------------------
--- @overload self, color3b_table, color3b_table         
--- @overload self, color3b_table         
+-- overload function: setBackGroundColor(color3b_table, color3b_table)
+--          
+-- overload function: setBackGroundColor(color3b_table)
+--          
 -- @function [parent=#Layout] setBackGroundColor
 -- @param self
 -- @param #color3b_table color3b
@@ -109,7 +110,7 @@
 --------------------------------
 -- @function [parent=#Layout] getBackGroundColorType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Layout::BackGroundColorType#Layout::BackGroundColorType ret (return value: ccui.Layout::BackGroundColorType)
         
 --------------------------------
 -- @function [parent=#Layout] getBackGroundEndColor 
@@ -144,7 +145,7 @@
 --------------------------------
 -- @function [parent=#Layout] getLayoutType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Layout::Type#Layout::Type ret (return value: ccui.Layout::Type)
         
 --------------------------------
 -- @function [parent=#Layout] setPassFocusToChild 
@@ -164,7 +165,7 @@
 --------------------------------
 -- @function [parent=#Layout] setLayoutType 
 -- @param self
--- @param #int type
+-- @param #ccui.Layout::Type type
         
 --------------------------------
 -- @function [parent=#Layout] create 
@@ -177,10 +178,14 @@
 -- @return Ref#Ref ret (return value: cc.Ref)
         
 --------------------------------
--- @overload self, cc.Node, int         
--- @overload self, cc.Node         
--- @overload self, cc.Node, int, int         
--- @overload self, cc.Node, int, string         
+-- overload function: addChild(cc.Node, int)
+--          
+-- overload function: addChild(cc.Node)
+--          
+-- overload function: addChild(cc.Node, int, int)
+--          
+-- overload function: addChild(cc.Node, int, string)
+--          
 -- @function [parent=#Layout] addChild
 -- @param self
 -- @param #cc.Node node
@@ -204,7 +209,7 @@
 --------------------------------
 -- @function [parent=#Layout] findNextFocusedWidget 
 -- @param self
--- @param #int focusdirection
+-- @param #ccui.Widget::FocusDirection focusdirection
 -- @param #ccui.Widget widget
 -- @return Widget#Widget ret (return value: ccui.Widget)
         

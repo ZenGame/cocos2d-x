@@ -2,7 +2,6 @@
 --------------------------------
 -- @module RichText
 -- @extend Widget
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#RichText] insertElement 
@@ -13,7 +12,7 @@
 --------------------------------
 -- @function [parent=#RichText] setAnchorPoint 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#RichText] pushBackElement 
@@ -35,8 +34,10 @@
 -- @param self
         
 --------------------------------
--- @overload self, ccui.RichElement         
--- @overload self, int         
+-- overload function: removeElement(ccui.RichElement)
+--          
+-- overload function: removeElement(int)
+--          
 -- @function [parent=#RichText] removeElement
 -- @param self
 -- @param #int int

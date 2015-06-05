@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TransitionProgressRadialCCW
 -- @extend TransitionProgress
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TransitionProgressRadialCCW] create 

@@ -2,25 +2,30 @@
 --------------------------------
 -- @module GLProgramState
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
--- @overload self, string, unsigned int         
--- @overload self, string, cc.Texture2D         
--- @overload self, int, cc.Texture2D         
--- @overload self, int, unsigned int         
+-- overload function: setUniformTexture(string, unsigned int)
+--          
+-- overload function: setUniformTexture(string, cc.Texture2D)
+--          
+-- overload function: setUniformTexture(int, cc.Texture2D)
+--          
+-- overload function: setUniformTexture(int, unsigned int)
+--          
 -- @function [parent=#GLProgramState] setUniformTexture
 -- @param self
 -- @param #int int
 -- @param #unsigned int int
 
 --------------------------------
--- @overload self, int, mat4_table         
--- @overload self, string, mat4_table         
+-- overload function: setUniformMat4(int, cc.Mat4)
+--          
+-- overload function: setUniformMat4(string, cc.Mat4)
+--          
 -- @function [parent=#GLProgramState] setUniformMat4
 -- @param self
 -- @param #string str
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 
 --------------------------------
 -- @function [parent=#GLProgramState] applyUniforms 
@@ -29,7 +34,7 @@
 --------------------------------
 -- @function [parent=#GLProgramState] applyGLProgram 
 -- @param self
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
         
 --------------------------------
 -- @function [parent=#GLProgramState] getUniformCount 
@@ -41,24 +46,30 @@
 -- @param self
         
 --------------------------------
--- @overload self, int, float         
--- @overload self, string, float         
+-- overload function: setUniformFloat(int, float)
+--          
+-- overload function: setUniformFloat(string, float)
+--          
 -- @function [parent=#GLProgramState] setUniformFloat
 -- @param self
 -- @param #string str
 -- @param #float float
 
 --------------------------------
--- @overload self, int, vec3_table         
--- @overload self, string, vec3_table         
+-- overload function: setUniformVec3(int, cc.Vec3)
+--          
+-- overload function: setUniformVec3(string, cc.Vec3)
+--          
 -- @function [parent=#GLProgramState] setUniformVec3
 -- @param self
 -- @param #string str
--- @param #vec3_table vec3
+-- @param #cc.Vec3 vec3
 
 --------------------------------
--- @overload self, int, int         
--- @overload self, string, int         
+-- overload function: setUniformInt(int, int)
+--          
+-- overload function: setUniformInt(string, int)
+--          
 -- @function [parent=#GLProgramState] setUniformInt
 -- @param self
 -- @param #string str
@@ -70,12 +81,14 @@
 -- @return long#long ret (return value: long)
         
 --------------------------------
--- @overload self, int, vec4_table         
--- @overload self, string, vec4_table         
+-- overload function: setUniformVec4(int, cc.Vec4)
+--          
+-- overload function: setUniformVec4(string, cc.Vec4)
+--          
 -- @function [parent=#GLProgramState] setUniformVec4
 -- @param self
 -- @param #string str
--- @param #vec4_table vec4
+-- @param #cc.Vec4 vec4
 
 --------------------------------
 -- @function [parent=#GLProgramState] setGLProgram 
@@ -83,12 +96,14 @@
 -- @param #cc.GLProgram glprogram
         
 --------------------------------
--- @overload self, int, vec2_table         
--- @overload self, string, vec2_table         
+-- overload function: setUniformVec2(int, cc.Vec2)
+--          
+-- overload function: setUniformVec2(string, cc.Vec2)
+--          
 -- @function [parent=#GLProgramState] setUniformVec2
 -- @param self
 -- @param #string str
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 
 --------------------------------
 -- @function [parent=#GLProgramState] getVertexAttribsFlags 
@@ -98,7 +113,7 @@
 --------------------------------
 -- @function [parent=#GLProgramState] apply 
 -- @param self
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
         
 --------------------------------
 -- @function [parent=#GLProgramState] getGLProgram 

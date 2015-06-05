@@ -2,12 +2,11 @@
 --------------------------------
 -- @module EventController
 -- @extend Event
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EventController] getControllerEventType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return EventController::ControllerEventType#EventController::ControllerEventType ret (return value: cc.EventController::ControllerEventType)
         
 --------------------------------
 -- @function [parent=#EventController] setConnectStatus 
@@ -35,11 +34,13 @@
 -- @return int#int ret (return value: int)
         
 --------------------------------
--- @overload self, int, cc.Controller, bool         
--- @overload self, int, cc.Controller, int         
+-- overload function: EventController(cc.EventController::ControllerEventType, cc.Controller, bool)
+--          
+-- overload function: EventController(cc.EventController::ControllerEventType, cc.Controller, int)
+--          
 -- @function [parent=#EventController] EventController
 -- @param self
--- @param #int controllereventtype
+-- @param #cc.EventController::ControllerEventType controllereventtype
 -- @param #cc.Controller controller
 -- @param #int int
 

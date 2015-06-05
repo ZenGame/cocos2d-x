@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EaseCircleActionInOut
 -- @extend ActionEase
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EaseCircleActionInOut] create 

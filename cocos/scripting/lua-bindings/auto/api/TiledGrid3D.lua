@@ -2,11 +2,12 @@
 --------------------------------
 -- @module TiledGrid3D
 -- @extend GridBase
--- @parent_module cc
 
 --------------------------------
--- @overload self, size_table         
--- @overload self, size_table, cc.Texture2D, bool         
+-- overload function: create(size_table)
+--          
+-- overload function: create(size_table, cc.Texture2D, bool)
+--          
 -- @function [parent=#TiledGrid3D] create
 -- @param self
 -- @param #size_table size

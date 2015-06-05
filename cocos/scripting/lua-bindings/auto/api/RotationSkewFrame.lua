@@ -2,12 +2,11 @@
 --------------------------------
 -- @module RotationSkewFrame
 -- @extend SkewFrame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#RotationSkewFrame] create 
 -- @param self
--- @return RotationSkewFrame#RotationSkewFrame ret (return value: ccs.RotationSkewFrame)
+-- @return timeline::RotationSkewFrame#timeline::RotationSkewFrame ret (return value: ccs.timeline::RotationSkewFrame)
         
 --------------------------------
 -- @function [parent=#RotationSkewFrame] apply 
@@ -17,7 +16,7 @@
 --------------------------------
 -- @function [parent=#RotationSkewFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#RotationSkewFrame] RotationSkewFrame 

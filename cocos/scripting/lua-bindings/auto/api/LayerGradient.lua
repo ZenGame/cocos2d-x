@@ -2,7 +2,6 @@
 --------------------------------
 -- @module LayerGradient
 -- @extend LayerColor
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#LayerGradient] getStartColor 
@@ -22,7 +21,7 @@
 --------------------------------
 -- @function [parent=#LayerGradient] setVector 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#LayerGradient] setStartOpacity 
@@ -42,7 +41,7 @@
 --------------------------------
 -- @function [parent=#LayerGradient] getVector 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#LayerGradient] setEndColor 
@@ -65,14 +64,17 @@
 -- @param #color3b_table color3b
         
 --------------------------------
--- @overload self, color4b_table, color4b_table         
--- @overload self         
--- @overload self, color4b_table, color4b_table, vec2_table         
+-- overload function: create(color4b_table, color4b_table)
+--          
+-- overload function: create()
+--          
+-- overload function: create(color4b_table, color4b_table, cc.Vec2)
+--          
 -- @function [parent=#LayerGradient] create
 -- @param self
 -- @param #color4b_table color4b
 -- @param #color4b_table color4b
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return LayerGradient#LayerGradient ret (retunr value: cc.LayerGradient)
 
 --------------------------------

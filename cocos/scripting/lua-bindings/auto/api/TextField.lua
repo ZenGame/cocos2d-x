@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TextField
 -- @extend Widget
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#TextField] setAttachWithIME 
@@ -57,7 +56,7 @@
 --------------------------------
 -- @function [parent=#TextField] setTextVerticalAlignment 
 -- @param self
--- @param #int textvalignment
+-- @param #cc.TextVAlignment textvalignment
         
 --------------------------------
 -- @function [parent=#TextField] addEventListener 
@@ -130,7 +129,7 @@
 --------------------------------
 -- @function [parent=#TextField] setTextHorizontalAlignment 
 -- @param self
--- @param #int texthalignment
+-- @param #cc.TextHAlignment texthalignment
         
 --------------------------------
 -- @function [parent=#TextField] getMaxLength 
@@ -160,7 +159,7 @@
 --------------------------------
 -- @function [parent=#TextField] hitTest 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
@@ -179,8 +178,10 @@
 -- @return size_table#size_table ret (return value: size_table)
         
 --------------------------------
--- @overload self, string, string, int         
--- @overload self         
+-- overload function: create(string, string, int)
+--          
+-- overload function: create()
+--          
 -- @function [parent=#TextField] create
 -- @param self
 -- @param #string str

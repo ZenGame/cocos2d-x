@@ -2,7 +2,6 @@
 --------------------------------
 -- @module DisplayData
 -- @extend Ref
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#DisplayData] copy 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module AnimationData
 -- @extend Ref
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#AnimationData] getMovement 

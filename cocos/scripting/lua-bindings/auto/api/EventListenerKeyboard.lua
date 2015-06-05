@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EventListenerKeyboard
 -- @extend EventListener
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EventListenerKeyboard] clone 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ClippingNode
 -- @extend Node
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#ClippingNode] isInverted 
@@ -35,8 +34,10 @@
 -- @param #float float
         
 --------------------------------
--- @overload self, cc.Node         
--- @overload self         
+-- overload function: create(cc.Node)
+--          
+-- overload function: create()
+--          
 -- @function [parent=#ClippingNode] create
 -- @param self
 -- @param #cc.Node node
@@ -46,7 +47,7 @@
 -- @function [parent=#ClippingNode] visit 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 return nil

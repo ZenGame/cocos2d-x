@@ -2,11 +2,12 @@
 --------------------------------
 -- @module Sprite3D
 -- @extend Node,BlendProtocol
--- @parent_module cc
 
 --------------------------------
--- @overload self, cc.Texture2D         
--- @overload self, string         
+-- overload function: setTexture(cc.Texture2D)
+--          
+-- overload function: setTexture(string)
+--          
 -- @function [parent=#Sprite3D] setTexture
 -- @param self
 -- @param #string str
@@ -27,8 +28,10 @@
 -- @param #cc.BlendFunc blendfunc
         
 --------------------------------
--- @overload self, string, string         
--- @overload self, string         
+-- overload function: create(string, string)
+--          
+-- overload function: create(string)
+--          
 -- @function [parent=#Sprite3D] create
 -- @param self
 -- @param #string str

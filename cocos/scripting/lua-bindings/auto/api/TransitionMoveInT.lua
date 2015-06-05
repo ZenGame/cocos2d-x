@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TransitionMoveInT
 -- @extend TransitionMoveInL
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TransitionMoveInT] create 

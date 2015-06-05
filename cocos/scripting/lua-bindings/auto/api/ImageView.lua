@@ -2,13 +2,12 @@
 --------------------------------
 -- @module ImageView
 -- @extend Widget
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#ImageView] loadTexture 
 -- @param self
 -- @param #string str
--- @param #int texturerestype
+-- @param #ccui.Widget::TextureResType texturerestype
         
 --------------------------------
 -- @function [parent=#ImageView] setScale9Enabled 
@@ -36,12 +35,14 @@
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
--- @overload self, string, int         
--- @overload self         
+-- overload function: create(string, ccui.Widget::TextureResType)
+--          
+-- overload function: create()
+--          
 -- @function [parent=#ImageView] create
 -- @param self
 -- @param #string str
--- @param #int texturerestype
+-- @param #ccui.Widget::TextureResType texturerestype
 -- @return ImageView#ImageView ret (retunr value: ccui.ImageView)
 
 --------------------------------

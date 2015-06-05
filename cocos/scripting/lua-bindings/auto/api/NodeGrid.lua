@@ -2,7 +2,6 @@
 --------------------------------
 -- @module NodeGrid
 -- @extend Node
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#NodeGrid] setTarget 
@@ -10,8 +9,10 @@
 -- @param #cc.Node node
         
 --------------------------------
--- @overload self         
--- @overload self         
+-- overload function: getGrid()
+--          
+-- overload function: getGrid()
+--          
 -- @function [parent=#NodeGrid] getGrid
 -- @param self
 -- @return GridBase#GridBase ret (retunr value: cc.GridBase)
@@ -30,7 +31,7 @@
 -- @function [parent=#NodeGrid] visit 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 return nil

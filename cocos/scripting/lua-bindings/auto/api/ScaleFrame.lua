@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ScaleFrame
 -- @extend Frame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ScaleFrame] setScaleY 
@@ -32,7 +31,7 @@
 --------------------------------
 -- @function [parent=#ScaleFrame] create 
 -- @param self
--- @return ScaleFrame#ScaleFrame ret (return value: ccs.ScaleFrame)
+-- @return timeline::ScaleFrame#timeline::ScaleFrame ret (return value: ccs.timeline::ScaleFrame)
         
 --------------------------------
 -- @function [parent=#ScaleFrame] apply 
@@ -42,7 +41,7 @@
 --------------------------------
 -- @function [parent=#ScaleFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#ScaleFrame] ScaleFrame 

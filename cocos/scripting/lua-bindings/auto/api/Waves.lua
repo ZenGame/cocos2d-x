@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Waves
 -- @extend Grid3DAction
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Waves] getAmplitudeRate 

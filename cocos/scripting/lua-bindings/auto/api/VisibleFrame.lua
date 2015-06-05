@@ -2,7 +2,6 @@
 --------------------------------
 -- @module VisibleFrame
 -- @extend Frame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#VisibleFrame] isVisible 
@@ -17,12 +16,12 @@
 --------------------------------
 -- @function [parent=#VisibleFrame] create 
 -- @param self
--- @return VisibleFrame#VisibleFrame ret (return value: ccs.VisibleFrame)
+-- @return timeline::VisibleFrame#timeline::VisibleFrame ret (return value: ccs.timeline::VisibleFrame)
         
 --------------------------------
 -- @function [parent=#VisibleFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#VisibleFrame] VisibleFrame 

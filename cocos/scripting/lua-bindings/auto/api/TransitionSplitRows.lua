@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TransitionSplitRows
 -- @extend TransitionSplitCols
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TransitionSplitRows] create 

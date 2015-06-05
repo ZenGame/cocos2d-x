@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Timer
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Timer] getInterval 

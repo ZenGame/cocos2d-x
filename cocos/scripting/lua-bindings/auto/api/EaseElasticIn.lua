@@ -2,11 +2,12 @@
 --------------------------------
 -- @module EaseElasticIn
 -- @extend EaseElastic
--- @parent_module cc
 
 --------------------------------
--- @overload self, cc.ActionInterval         
--- @overload self, cc.ActionInterval, float         
+-- overload function: create(cc.ActionInterval)
+--          
+-- overload function: create(cc.ActionInterval, float)
+--          
 -- @function [parent=#EaseElasticIn] create
 -- @param self
 -- @param #cc.ActionInterval actioninterval

@@ -1,12 +1,11 @@
 
 --------------------------------
 -- @module Application
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Application] getTargetPlatform 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return ApplicationProtocol::Platform#ApplicationProtocol::Platform ret (return value: cc.ApplicationProtocol::Platform)
         
 --------------------------------
 -- @function [parent=#Application] getCurrentLanguageCode 
@@ -16,7 +15,7 @@
 --------------------------------
 -- @function [parent=#Application] getCurrentLanguage 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return LanguageType#LanguageType ret (return value: cc.LanguageType)
         
 --------------------------------
 -- @function [parent=#Application] setAnimationInterval 

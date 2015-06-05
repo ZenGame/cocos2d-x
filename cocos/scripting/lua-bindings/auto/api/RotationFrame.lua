@@ -2,7 +2,6 @@
 --------------------------------
 -- @module RotationFrame
 -- @extend Frame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#RotationFrame] setRotation 
@@ -17,7 +16,7 @@
 --------------------------------
 -- @function [parent=#RotationFrame] create 
 -- @param self
--- @return RotationFrame#RotationFrame ret (return value: ccs.RotationFrame)
+-- @return timeline::RotationFrame#timeline::RotationFrame ret (return value: ccs.timeline::RotationFrame)
         
 --------------------------------
 -- @function [parent=#RotationFrame] apply 
@@ -27,7 +26,7 @@
 --------------------------------
 -- @function [parent=#RotationFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#RotationFrame] RotationFrame 

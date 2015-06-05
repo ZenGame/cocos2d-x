@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EventListenerTouchAllAtOnce
 -- @extend EventListener
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EventListenerTouchAllAtOnce] clone 

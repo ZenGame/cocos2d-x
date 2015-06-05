@@ -2,12 +2,11 @@
 --------------------------------
 -- @module ActionMoveFrame
 -- @extend ActionFrame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ActionMoveFrame] setPosition 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#ActionMoveFrame] getAction 
@@ -18,7 +17,7 @@
 --------------------------------
 -- @function [parent=#ActionMoveFrame] getPosition 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#ActionMoveFrame] ActionMoveFrame 

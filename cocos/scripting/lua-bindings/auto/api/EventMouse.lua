@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EventMouse
 -- @extend Event
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EventMouse] getMouseButton 
@@ -49,6 +48,6 @@
 --------------------------------
 -- @function [parent=#EventMouse] EventMouse 
 -- @param self
--- @param #int mouseeventtype
+-- @param #cc.EventMouse::MouseEventType mouseeventtype
         
 return nil

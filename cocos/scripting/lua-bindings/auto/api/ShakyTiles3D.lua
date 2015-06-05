@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ShakyTiles3D
 -- @extend TiledGrid3DAction
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#ShakyTiles3D] create 

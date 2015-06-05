@@ -2,13 +2,12 @@
 --------------------------------
 -- @module TMXLayer
 -- @extend Node
--- @parent_module ccexp
 
 --------------------------------
 -- @function [parent=#TMXLayer] getPositionAt 
 -- @param self
--- @param #vec2_table vec2
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @param #cc.Vec2 vec2
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#TMXLayer] setLayerOrientation 
@@ -43,11 +42,13 @@
 --------------------------------
 -- @function [parent=#TMXLayer] removeTileAt 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
--- @overload self         
--- @overload self         
+-- overload function: getProperties()
+--          
+-- overload function: getProperties()
+--          
 -- @function [parent=#TMXLayer] getProperties
 -- @param self
 -- @return map_table#map_table ret (retunr value: map_table)
@@ -60,17 +61,19 @@
 -- @function [parent=#TMXLayer] setupTileSprite 
 -- @param self
 -- @param #cc.Sprite sprite
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @param #int int
         
 --------------------------------
--- @overload self, int, vec2_table, int         
--- @overload self, int, vec2_table         
+-- overload function: setTileGID(int, cc.Vec2, cc.TMXTileFlags_)
+--          
+-- overload function: setTileGID(int, cc.Vec2)
+--          
 -- @function [parent=#TMXLayer] setTileGID
 -- @param self
 -- @param #int int
--- @param #vec2_table vec2
--- @param #int tmxtileflags_
+-- @param #cc.Vec2 vec2
+-- @param #cc.TMXTileFlags_ tmxtileflags_
 
 --------------------------------
 -- @function [parent=#TMXLayer] getMapTileSize 
@@ -106,7 +109,7 @@
 --------------------------------
 -- @function [parent=#TMXLayer] getTileAt 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return Sprite#Sprite ret (return value: cc.Sprite)
         
 --------------------------------
@@ -127,7 +130,7 @@
 -- @function [parent=#TMXLayer] draw 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------

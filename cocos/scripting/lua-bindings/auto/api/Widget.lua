@@ -2,12 +2,11 @@
 --------------------------------
 -- @module Widget
 -- @extend ProtectedNode,LayoutParameterProtocol
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#Widget] setSizePercent 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#Widget] getCustomSize 
@@ -32,12 +31,12 @@
 --------------------------------
 -- @function [parent=#Widget] getSizePercent 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Widget] setPositionPercent 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#Widget] getLayoutSize 
@@ -52,7 +51,7 @@
 --------------------------------
 -- @function [parent=#Widget] setPositionType 
 -- @param self
--- @param #int positiontype
+-- @param #ccui.Widget::PositionType positiontype
         
 --------------------------------
 -- @function [parent=#Widget] isIgnoreContentAdaptWithSize 
@@ -77,14 +76,14 @@
 --------------------------------
 -- @function [parent=#Widget] findNextFocusedWidget 
 -- @param self
--- @param #int focusdirection
+-- @param #ccui.Widget::FocusDirection focusdirection
 -- @param #ccui.Widget widget
 -- @return Widget#Widget ret (return value: ccui.Widget)
         
 --------------------------------
 -- @function [parent=#Widget] getPositionType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Widget::PositionType#Widget::PositionType ret (return value: ccui.Widget::PositionType)
         
 --------------------------------
 -- @function [parent=#Widget] getTopBoundary 
@@ -109,7 +108,7 @@
 --------------------------------
 -- @function [parent=#Widget] getTouchBeganPosition 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Widget] isTouchEnabled 
@@ -124,7 +123,7 @@
 --------------------------------
 -- @function [parent=#Widget] getWorldPosition 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Widget] setFocused 
@@ -159,7 +158,7 @@
 --------------------------------
 -- @function [parent=#Widget] setBrightStyle 
 -- @param self
--- @param #int brightstyle
+-- @param #ccui.Widget::BrightStyle brightstyle
         
 --------------------------------
 -- @function [parent=#Widget] setLayoutParameter 
@@ -196,8 +195,10 @@
 -- @param self
         
 --------------------------------
--- @overload self, size_table         
--- @overload self         
+-- overload function: updateSizeAndPosition(size_table)
+--          
+-- overload function: updateSizeAndPosition()
+--          
 -- @function [parent=#Widget] updateSizeAndPosition
 -- @param self
 -- @param #size_table size
@@ -205,12 +206,12 @@
 --------------------------------
 -- @function [parent=#Widget] getTouchMovePosition 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Widget] getSizeType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Widget::SizeType#Widget::SizeType ret (return value: ccui.Widget::SizeType)
         
 --------------------------------
 -- @function [parent=#Widget] addTouchEventListener 
@@ -220,17 +221,17 @@
 --------------------------------
 -- @function [parent=#Widget] getTouchEndPosition 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Widget] getPositionPercent 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Widget] hitTest 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
@@ -246,13 +247,13 @@
 --------------------------------
 -- @function [parent=#Widget] isClippingParentContainsPoint 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
 -- @function [parent=#Widget] setSizeType 
 -- @param self
--- @param #int sizetype
+-- @param #ccui.Widget::SizeType sizetype
         
 --------------------------------
 -- @function [parent=#Widget] setBright 
@@ -282,7 +283,7 @@
 --------------------------------
 -- @function [parent=#Widget] setPosition 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#Widget] setContentSize 

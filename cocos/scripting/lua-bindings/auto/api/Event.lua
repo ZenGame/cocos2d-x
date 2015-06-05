@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Event
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Event] isStopped 
@@ -12,7 +11,7 @@
 --------------------------------
 -- @function [parent=#Event] getType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Event::Type#Event::Type ret (return value: cc.Event::Type)
         
 --------------------------------
 -- @function [parent=#Event] getCurrentTarget 

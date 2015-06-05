@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Bone
 -- @extend Node
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#Bone] isTransformDirty 
@@ -60,7 +59,7 @@
 --------------------------------
 -- @function [parent=#Bone] getDisplayRenderNodeType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return DisplayType#DisplayType ret (return value: ccs.DisplayType)
         
 --------------------------------
 -- @function [parent=#Bone] removeDisplay 
@@ -73,8 +72,10 @@
 -- @param #ccs.BoneData bonedata
         
 --------------------------------
--- @overload self, string         
--- @overload self         
+-- overload function: init(string)
+--          
+-- overload function: init()
+--          
 -- @function [parent=#Bone] init
 -- @param self
 -- @param #string str
@@ -86,8 +87,10 @@
 -- @param #ccs.Bone bone
         
 --------------------------------
--- @overload self, cc.Node, int         
--- @overload self, ccs.DisplayData, int         
+-- overload function: addDisplay(cc.Node, int)
+--          
+-- overload function: addDisplay(ccs.DisplayData, int)
+--          
 -- @function [parent=#Bone] addDisplay
 -- @param self
 -- @param #ccs.DisplayData displaydata
@@ -149,7 +152,7 @@
 --------------------------------
 -- @function [parent=#Bone] getNodeToArmatureTransform 
 -- @param self
--- @return mat4_table#mat4_table ret (return value: mat4_table)
+-- @return Mat4#Mat4 ret (return value: cc.Mat4)
         
 --------------------------------
 -- @function [parent=#Bone] getDisplayManager 
@@ -167,8 +170,10 @@
 -- @return BoneData#BoneData ret (return value: ccs.BoneData)
         
 --------------------------------
--- @overload self, string         
--- @overload self         
+-- overload function: create(string)
+--          
+-- overload function: create()
+--          
 -- @function [parent=#Bone] create
 -- @param self
 -- @param #string str
@@ -187,7 +192,7 @@
 --------------------------------
 -- @function [parent=#Bone] getNodeToWorldTransform 
 -- @param self
--- @return mat4_table#mat4_table ret (return value: mat4_table)
+-- @return Mat4#Mat4 ret (return value: cc.Mat4)
         
 --------------------------------
 -- @function [parent=#Bone] update 

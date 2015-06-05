@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TableViewCell
 -- @extend Node
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TableViewCell] reset 

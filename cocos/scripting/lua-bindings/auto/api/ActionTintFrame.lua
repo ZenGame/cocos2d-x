@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ActionTintFrame
 -- @extend ActionFrame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ActionTintFrame] getColor 

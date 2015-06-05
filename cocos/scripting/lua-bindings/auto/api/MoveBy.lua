@@ -2,13 +2,12 @@
 --------------------------------
 -- @module MoveBy
 -- @extend ActionInterval
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#MoveBy] create 
 -- @param self
 -- @param #float float
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return MoveBy#MoveBy ret (return value: cc.MoveBy)
         
 --------------------------------

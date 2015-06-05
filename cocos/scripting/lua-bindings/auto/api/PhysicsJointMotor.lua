@@ -2,7 +2,6 @@
 --------------------------------
 -- @module PhysicsJointMotor
 -- @extend PhysicsJoint
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#PhysicsJointMotor] setRate 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ScrollView
 -- @extend Layout
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#ScrollView] scrollToTop 
@@ -25,14 +24,14 @@
 --------------------------------
 -- @function [parent=#ScrollView] scrollToPercentBothDirection 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @param #float float
 -- @param #bool bool
         
 --------------------------------
 -- @function [parent=#ScrollView] getDirection 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return ScrollView::Direction#ScrollView::Direction ret (return value: ccui.ScrollView::Direction)
         
 --------------------------------
 -- @function [parent=#ScrollView] scrollToBottomLeft 
@@ -52,7 +51,7 @@
 --------------------------------
 -- @function [parent=#ScrollView] setDirection 
 -- @param self
--- @param #int direction
+-- @param #ccui.ScrollView::Direction direction
         
 --------------------------------
 -- @function [parent=#ScrollView] scrollToTopLeft 
@@ -129,7 +128,7 @@
 --------------------------------
 -- @function [parent=#ScrollView] jumpToPercentBothDirection 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#ScrollView] scrollToPercentVertical 
@@ -181,10 +180,14 @@
 -- @return Ref#Ref ret (return value: cc.Ref)
         
 --------------------------------
--- @overload self, cc.Node, int         
--- @overload self, cc.Node         
--- @overload self, cc.Node, int, int         
--- @overload self, cc.Node, int, string         
+-- overload function: addChild(cc.Node, int)
+--          
+-- overload function: addChild(cc.Node)
+--          
+-- overload function: addChild(cc.Node, int, int)
+--          
+-- overload function: addChild(cc.Node, int, string)
+--          
 -- @function [parent=#ScrollView] addChild
 -- @param self
 -- @param #cc.Node node
@@ -210,7 +213,7 @@
 --------------------------------
 -- @function [parent=#ScrollView] getLayoutType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Layout::Type#Layout::Type ret (return value: ccui.Layout::Type)
         
 --------------------------------
 -- @function [parent=#ScrollView] removeAllChildrenWithCleanup 
@@ -224,7 +227,7 @@
 --------------------------------
 -- @function [parent=#ScrollView] findNextFocusedWidget 
 -- @param self
--- @param #int focusdirection
+-- @param #ccui.Widget::FocusDirection focusdirection
 -- @param #ccui.Widget widget
 -- @return Widget#Widget ret (return value: ccui.Widget)
         
@@ -235,8 +238,10 @@
 -- @param #bool bool
         
 --------------------------------
--- @overload self         
--- @overload self         
+-- overload function: getChildren()
+--          
+-- overload function: getChildren()
+--          
 -- @function [parent=#ScrollView] getChildren
 -- @param self
 -- @return array_table#array_table ret (retunr value: array_table)
@@ -255,7 +260,7 @@
 --------------------------------
 -- @function [parent=#ScrollView] setLayoutType 
 -- @param self
--- @param #int type
+-- @param #ccui.Layout::Type type
         
 --------------------------------
 -- @function [parent=#ScrollView] ScrollView 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EventListenerTouchOneByOne
 -- @extend EventListener
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EventListenerTouchOneByOne] isSwallowTouches 

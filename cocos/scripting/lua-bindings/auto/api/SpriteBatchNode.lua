@@ -2,7 +2,6 @@
 --------------------------------
 -- @module SpriteBatchNode
 -- @extend Node,TextureProtocol
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#SpriteBatchNode] appendChild 
@@ -109,8 +108,10 @@
 -- @return SpriteBatchNode#SpriteBatchNode ret (return value: cc.SpriteBatchNode)
         
 --------------------------------
--- @overload self, cc.Node, int, string         
--- @overload self, cc.Node, int, int         
+-- overload function: addChild(cc.Node, int, string)
+--          
+-- overload function: addChild(cc.Node, int, int)
+--          
 -- @function [parent=#SpriteBatchNode] addChild
 -- @param self
 -- @param #cc.Node node
@@ -121,7 +122,7 @@
 -- @function [parent=#SpriteBatchNode] draw 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------
@@ -133,7 +134,7 @@
 -- @function [parent=#SpriteBatchNode] visit 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module CallFunc
 -- @extend ActionInstant
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#CallFunc] execute 

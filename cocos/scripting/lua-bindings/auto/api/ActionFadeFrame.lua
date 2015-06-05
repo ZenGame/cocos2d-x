@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ActionFadeFrame
 -- @extend ActionFrame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ActionFadeFrame] getOpacity 

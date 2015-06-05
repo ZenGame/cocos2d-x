@@ -1,7 +1,6 @@
 
 --------------------------------
 -- @module FileUtils
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#FileUtils] fullPathForFilename 

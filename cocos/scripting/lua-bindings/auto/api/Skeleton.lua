@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Skeleton
 -- @extend Node,BlendProtocol
--- @parent_module sp
 
 --------------------------------
 -- @function [parent=#Skeleton] setToSetupPose 
@@ -16,7 +15,7 @@
 --------------------------------
 -- @function [parent=#Skeleton] onDraw 
 -- @param self
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------

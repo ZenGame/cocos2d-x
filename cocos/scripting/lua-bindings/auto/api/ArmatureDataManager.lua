@@ -2,8 +2,12 @@
 --------------------------------
 -- @module ArmatureDataManager
 -- @extend Ref
--- @parent_module ccs
 
+--------------------------------
+-- @function [parent=#ArmatureDataManager] getAnimationDatas 
+-- @param self
+-- @return map_table#map_table ret (return value: map_table)
+        
 --------------------------------
 -- @function [parent=#ArmatureDataManager] removeAnimationData 
 -- @param self
@@ -17,8 +21,10 @@
 -- @param #string str
         
 --------------------------------
--- @overload self, string, string, string         
--- @overload self, string         
+-- overload function: addArmatureFileInfo(string, string, string)
+--          
+-- overload function: addArmatureFileInfo(string)
+--          
 -- @function [parent=#ArmatureDataManager] addArmatureFileInfo
 -- @param self
 -- @param #string str
@@ -99,11 +105,6 @@
 -- @param #string str
 -- @param #ccs.TextureData texturedata
 -- @param #string str
-        
---------------------------------
--- @function [parent=#ArmatureDataManager] getAnimationDatas 
--- @param self
--- @return map_table#map_table ret (return value: map_table)
         
 --------------------------------
 -- @function [parent=#ArmatureDataManager] isAutoLoadSpriteFile 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Component
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Component] setEnabled 

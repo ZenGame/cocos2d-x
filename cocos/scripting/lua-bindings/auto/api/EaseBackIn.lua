@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EaseBackIn
 -- @extend ActionEase
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EaseBackIn] create 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module OrbitCamera
 -- @extend ActionCamera
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#OrbitCamera] create 

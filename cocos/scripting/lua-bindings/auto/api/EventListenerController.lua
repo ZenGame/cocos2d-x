@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EventListenerController
 -- @extend EventListener
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EventListenerController] create 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ComRender
 -- @extend Component
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ComRender] setNode 
@@ -15,8 +14,10 @@
 -- @return Node#Node ret (return value: cc.Node)
         
 --------------------------------
--- @overload self, cc.Node, char         
--- @overload self         
+-- overload function: create(cc.Node, char)
+--          
+-- overload function: create()
+--          
 -- @function [parent=#ComRender] create
 -- @param self
 -- @param #cc.Node node

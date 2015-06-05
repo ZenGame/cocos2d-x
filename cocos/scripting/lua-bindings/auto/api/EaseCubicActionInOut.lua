@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EaseCubicActionInOut
 -- @extend ActionEase
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EaseCubicActionInOut] create 

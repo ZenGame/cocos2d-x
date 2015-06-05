@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EventListenerFocus
 -- @extend EventListener
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EventListenerFocus] clone 

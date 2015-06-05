@@ -2,7 +2,6 @@
 --------------------------------
 -- @module VideoPlayer
 -- @extend Widget
--- @parent_module ccexp
 
 --------------------------------
 -- @function [parent=#VideoPlayer] getFileName 
@@ -84,7 +83,7 @@
 -- @function [parent=#VideoPlayer] draw 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------

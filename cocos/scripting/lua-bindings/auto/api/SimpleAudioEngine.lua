@@ -1,7 +1,6 @@
 
 --------------------------------
 -- @module SimpleAudioEngine
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#SimpleAudioEngine] preloadBackgroundMusic 

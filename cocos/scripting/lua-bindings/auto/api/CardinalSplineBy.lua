@@ -2,7 +2,6 @@
 --------------------------------
 -- @module CardinalSplineBy
 -- @extend CardinalSplineTo
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#CardinalSplineBy] startWithTarget 
@@ -17,7 +16,7 @@
 --------------------------------
 -- @function [parent=#CardinalSplineBy] updatePosition 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#CardinalSplineBy] reverse 

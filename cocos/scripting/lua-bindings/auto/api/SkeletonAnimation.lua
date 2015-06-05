@@ -2,7 +2,6 @@
 --------------------------------
 -- @module SkeletonAnimation
 -- @extend Skeleton
--- @parent_module sp
 
 --------------------------------
 -- @function [parent=#SkeletonAnimation] setMix 

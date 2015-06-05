@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ParticleDisplayData
 -- @extend DisplayData
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ParticleDisplayData] create 

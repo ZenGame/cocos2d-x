@@ -2,11 +2,12 @@
 --------------------------------
 -- @module VBox
 -- @extend Layout
--- @parent_module ccui
 
 --------------------------------
--- @overload self, size_table         
--- @overload self         
+-- overload function: create(size_table)
+--          
+-- overload function: create()
+--          
 -- @function [parent=#VBox] create
 -- @param self
 -- @param #size_table size

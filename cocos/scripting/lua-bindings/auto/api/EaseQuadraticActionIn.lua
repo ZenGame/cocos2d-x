@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EaseQuadraticActionIn
 -- @extend ActionEase
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EaseQuadraticActionIn] create 

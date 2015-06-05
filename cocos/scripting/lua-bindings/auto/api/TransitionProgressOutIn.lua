@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TransitionProgressOutIn
 -- @extend TransitionProgress
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TransitionProgressOutIn] create 

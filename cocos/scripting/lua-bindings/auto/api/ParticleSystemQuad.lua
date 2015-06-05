@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ParticleSystemQuad
 -- @extend ParticleSystem
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#ParticleSystemQuad] setDisplayFrame 
@@ -21,9 +20,12 @@
 -- @param #cc.EventCustom eventcustom
         
 --------------------------------
--- @overload self, string         
--- @overload self         
--- @overload self, map_table         
+-- overload function: create(string)
+--          
+-- overload function: create()
+--          
+-- overload function: create(map_table)
+--          
 -- @function [parent=#ParticleSystemQuad] create
 -- @param self
 -- @param #map_table map

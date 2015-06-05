@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TransitionFadeTR
 -- @extend TransitionScene,TransitionEaseScene
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TransitionFadeTR] easeActionWithAction 
@@ -27,7 +26,7 @@
 -- @function [parent=#TransitionFadeTR] draw 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 return nil

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module GridAction
 -- @extend ActionInterval
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#GridAction] getGrid 

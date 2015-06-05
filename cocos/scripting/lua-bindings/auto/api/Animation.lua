@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Animation
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Animation] getLoops 
@@ -76,8 +75,10 @@
 -- @param #rect_table rect
         
 --------------------------------
--- @overload self, array_table, float, unsigned int         
--- @overload self         
+-- overload function: create(array_table, float, unsigned int)
+--          
+-- overload function: create()
+--          
 -- @function [parent=#Animation] create
 -- @param self
 -- @param #array_table array

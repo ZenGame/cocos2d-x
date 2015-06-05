@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ParticleFire
 -- @extend ParticleSystemQuad
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#ParticleFire] create 

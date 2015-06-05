@@ -2,7 +2,6 @@
 --------------------------------
 -- @module DisplayManager
 -- @extend Ref
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#DisplayManager] getDisplayRenderNode 
@@ -12,7 +11,7 @@
 --------------------------------
 -- @function [parent=#DisplayManager] getAnchorPointInPoints 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#DisplayManager] getMaxSize 
@@ -22,7 +21,7 @@
 --------------------------------
 -- @function [parent=#DisplayManager] getDisplayRenderNodeType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return DisplayType#DisplayType ret (return value: ccs.DisplayType)
         
 --------------------------------
 -- @function [parent=#DisplayManager] removeDisplay 
@@ -51,16 +50,20 @@
 -- @return rect_table#rect_table ret (return value: rect_table)
         
 --------------------------------
--- @overload self, cc.Node, int         
--- @overload self, ccs.DisplayData, int         
+-- overload function: addDisplay(cc.Node, int)
+--          
+-- overload function: addDisplay(ccs.DisplayData, int)
+--          
 -- @function [parent=#DisplayManager] addDisplay
 -- @param self
 -- @param #ccs.DisplayData displaydata
 -- @param #int int
 
 --------------------------------
--- @overload self, float, float         
--- @overload self, vec2_table         
+-- overload function: containPoint(float, float)
+--          
+-- overload function: containPoint(cc.Vec2)
+--          
 -- @function [parent=#DisplayManager] containPoint
 -- @param self
 -- @param #float float
@@ -92,7 +95,7 @@
 --------------------------------
 -- @function [parent=#DisplayManager] getAnchorPoint 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#DisplayManager] getDecorativeDisplayList 

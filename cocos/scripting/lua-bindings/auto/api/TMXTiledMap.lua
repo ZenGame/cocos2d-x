@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TMXTiledMap
 -- @extend Node
--- @parent_module ccexp
 
 --------------------------------
 -- @function [parent=#TMXTiledMap] setObjectGroups 
@@ -27,8 +26,10 @@
 -- @return TMXObjectGroup#TMXObjectGroup ret (return value: cc.TMXObjectGroup)
         
 --------------------------------
--- @overload self         
--- @overload self         
+-- overload function: getObjectGroups()
+--          
+-- overload function: getObjectGroups()
+--          
 -- @function [parent=#TMXTiledMap] getObjectGroups
 -- @param self
 -- @return array_table#array_table ret (retunr value: array_table)

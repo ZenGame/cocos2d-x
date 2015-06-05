@@ -2,7 +2,6 @@
 --------------------------------
 -- @module BoneData
 -- @extend BaseData
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#BoneData] getDisplayData 

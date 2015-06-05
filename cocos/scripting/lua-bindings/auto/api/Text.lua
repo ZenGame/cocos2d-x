@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Text
 -- @extend Widget
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#Text] getStringLength 
@@ -33,7 +32,7 @@
 --------------------------------
 -- @function [parent=#Text] getTextVerticalAlignment 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return TextVAlignment#TextVAlignment ret (return value: cc.TextVAlignment)
         
 --------------------------------
 -- @function [parent=#Text] getString 
@@ -52,12 +51,12 @@
 --------------------------------
 -- @function [parent=#Text] getTextHorizontalAlignment 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return TextHAlignment#TextHAlignment ret (return value: cc.TextHAlignment)
         
 --------------------------------
 -- @function [parent=#Text] setTextVerticalAlignment 
 -- @param self
--- @param #int textvalignment
+-- @param #cc.TextVAlignment textvalignment
         
 --------------------------------
 -- @function [parent=#Text] enableGlow 
@@ -72,7 +71,7 @@
 --------------------------------
 -- @function [parent=#Text] setTextHorizontalAlignment 
 -- @param self
--- @param #int texthalignment
+-- @param #cc.TextHAlignment texthalignment
         
 --------------------------------
 -- @function [parent=#Text] setFontSize 
@@ -87,7 +86,7 @@
 --------------------------------
 -- @function [parent=#Text] getType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Text::Type#Text::Type ret (return value: ccui.Text::Type)
         
 --------------------------------
 -- @function [parent=#Text] disableEffect 
@@ -104,8 +103,10 @@
 -- @param #size_table size
         
 --------------------------------
--- @overload self, string, string, int         
--- @overload self         
+-- overload function: create(string, string, int)
+--          
+-- overload function: create()
+--          
 -- @function [parent=#Text] create
 -- @param self
 -- @param #string str

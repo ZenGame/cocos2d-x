@@ -2,7 +2,6 @@
 --------------------------------
 -- @module GLProgramCache
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#GLProgramCache] addGLProgram 

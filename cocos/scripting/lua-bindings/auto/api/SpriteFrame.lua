@@ -2,7 +2,6 @@
 --------------------------------
 -- @module SpriteFrame
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#SpriteFrame] clone 
@@ -22,7 +21,7 @@
 --------------------------------
 -- @function [parent=#SpriteFrame] getOffset 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#SpriteFrame] setRectInPixels 
@@ -42,7 +41,7 @@
 --------------------------------
 -- @function [parent=#SpriteFrame] setOffsetInPixels 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#SpriteFrame] getRectInPixels 
@@ -67,7 +66,7 @@
 --------------------------------
 -- @function [parent=#SpriteFrame] setOffset 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#SpriteFrame] isRotated 
@@ -82,7 +81,7 @@
 --------------------------------
 -- @function [parent=#SpriteFrame] getOffsetInPixels 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#SpriteFrame] getOriginalSize 
@@ -90,26 +89,30 @@
 -- @return size_table#size_table ret (return value: size_table)
         
 --------------------------------
--- @overload self, string, rect_table, bool, vec2_table, size_table         
--- @overload self, string, rect_table         
+-- overload function: create(string, rect_table, bool, cc.Vec2, size_table)
+--          
+-- overload function: create(string, rect_table)
+--          
 -- @function [parent=#SpriteFrame] create
 -- @param self
 -- @param #string str
 -- @param #rect_table rect
 -- @param #bool bool
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @param #size_table size
 -- @return SpriteFrame#SpriteFrame ret (retunr value: cc.SpriteFrame)
 
 --------------------------------
--- @overload self, cc.Texture2D, rect_table, bool, vec2_table, size_table         
--- @overload self, cc.Texture2D, rect_table         
+-- overload function: createWithTexture(cc.Texture2D, rect_table, bool, cc.Vec2, size_table)
+--          
+-- overload function: createWithTexture(cc.Texture2D, rect_table)
+--          
 -- @function [parent=#SpriteFrame] createWithTexture
 -- @param self
 -- @param #cc.Texture2D texture2d
 -- @param #rect_table rect
 -- @param #bool bool
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @param #size_table size
 -- @return SpriteFrame#SpriteFrame ret (retunr value: cc.SpriteFrame)
 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TransitionJumpZoom
 -- @extend TransitionScene
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TransitionJumpZoom] create 

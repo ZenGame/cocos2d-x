@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Label
 -- @extend SpriteBatchNode,LabelProtocol
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Label] isClipMarginEnabled 
@@ -57,7 +56,7 @@
 --------------------------------
 -- @function [parent=#Label] getHorizontalAlignment 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return TextHAlignment#TextHAlignment ret (return value: cc.TextHAlignment)
         
 --------------------------------
 -- @function [parent=#Label] setClipMarginEnabled 
@@ -78,7 +77,7 @@
 -- @function [parent=#Label] setBMFontFilePath 
 -- @param self
 -- @param #string str
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
@@ -127,9 +126,12 @@
 -- @return float#float ret (return value: float)
         
 --------------------------------
--- @overload self, cc.Texture2D, int, int, int         
--- @overload self, string, int, int, int         
--- @overload self, string         
+-- overload function: setCharMap(cc.Texture2D, int, int, int)
+--          
+-- overload function: setCharMap(string, int, int, int)
+--          
+-- overload function: setCharMap(string)
+--          
 -- @function [parent=#Label] setCharMap
 -- @param self
 -- @param #string str
@@ -156,7 +158,7 @@
 --------------------------------
 -- @function [parent=#Label] setVerticalAlignment 
 -- @param self
--- @param #int textvalignment
+-- @param #cc.TextVAlignment textvalignment
         
 --------------------------------
 -- @function [parent=#Label] getLineHeight 
@@ -171,7 +173,7 @@
 --------------------------------
 -- @function [parent=#Label] getVerticalAlignment 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return TextVAlignment#TextVAlignment ret (return value: cc.TextVAlignment)
         
 --------------------------------
 -- @function [parent=#Label] setTextColor 
@@ -212,7 +214,7 @@
 --------------------------------
 -- @function [parent=#Label] getTextAlignment 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return TextHAlignment#TextHAlignment ret (return value: cc.TextHAlignment)
         
 --------------------------------
 -- @function [parent=#Label] getBMFontFilePath 
@@ -222,24 +224,26 @@
 --------------------------------
 -- @function [parent=#Label] setHorizontalAlignment 
 -- @param self
--- @param #int texthalignment
+-- @param #cc.TextHAlignment texthalignment
         
 --------------------------------
--- @overload self, int, int         
--- @overload self, int         
+-- overload function: setAlignment(cc.TextHAlignment, cc.TextVAlignment)
+--          
+-- overload function: setAlignment(cc.TextHAlignment)
+--          
 -- @function [parent=#Label] setAlignment
 -- @param self
--- @param #int texthalignment
--- @param #int textvalignment
+-- @param #cc.TextHAlignment texthalignment
+-- @param #cc.TextVAlignment textvalignment
 
 --------------------------------
 -- @function [parent=#Label] createWithBMFont 
 -- @param self
 -- @param #string str
 -- @param #string str
--- @param #int texthalignment
+-- @param #cc.TextHAlignment texthalignment
 -- @param #int int
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return Label#Label ret (return value: cc.Label)
         
 --------------------------------
@@ -248,9 +252,12 @@
 -- @return Label#Label ret (return value: cc.Label)
         
 --------------------------------
--- @overload self, cc.Texture2D, int, int, int         
--- @overload self, string, int, int, int         
--- @overload self, string         
+-- overload function: createWithCharMap(cc.Texture2D, int, int, int)
+--          
+-- overload function: createWithCharMap(string, int, int, int)
+--          
+-- overload function: createWithCharMap(string)
+--          
 -- @function [parent=#Label] createWithCharMap
 -- @param self
 -- @param #string str
@@ -266,15 +273,15 @@
 -- @param #string str
 -- @param #float float
 -- @param #size_table size
--- @param #int texthalignment
--- @param #int textvalignment
+-- @param #cc.TextHAlignment texthalignment
+-- @param #cc.TextVAlignment textvalignment
 -- @return Label#Label ret (return value: cc.Label)
         
 --------------------------------
 -- @function [parent=#Label] draw 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------
@@ -313,7 +320,7 @@
 -- @function [parent=#Label] visit 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------

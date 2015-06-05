@@ -2,7 +2,6 @@
 --------------------------------
 -- @module FadeIn
 -- @extend FadeTo
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#FadeIn] setReverseAction 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Control
 -- @extend Layer
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Control] setEnabled 
@@ -18,7 +17,7 @@
 --------------------------------
 -- @function [parent=#Control] getState 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Control::State#Control::State ret (return value: cc.Control::State)
         
 --------------------------------
 -- @function [parent=#Control] onTouchEnded 
@@ -29,7 +28,7 @@
 --------------------------------
 -- @function [parent=#Control] sendActionsForControlEvents 
 -- @param self
--- @param #int eventtype
+-- @param #cc.Control::EventType eventtype
         
 --------------------------------
 -- @function [parent=#Control] setSelected 
@@ -83,7 +82,7 @@
 -- @function [parent=#Control] getTouchLocation 
 -- @param self
 -- @param #cc.Touch touch
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Control] isHighlighted 

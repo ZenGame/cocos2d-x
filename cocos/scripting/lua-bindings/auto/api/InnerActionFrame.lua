@@ -2,12 +2,11 @@
 --------------------------------
 -- @module InnerActionFrame
 -- @extend Frame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#InnerActionFrame] getInnerActionType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return timeline::InnerActionType#timeline::InnerActionType ret (return value: ccs.timeline::InnerActionType)
         
 --------------------------------
 -- @function [parent=#InnerActionFrame] setStartFrameIndex 
@@ -17,7 +16,7 @@
 --------------------------------
 -- @function [parent=#InnerActionFrame] setInnerActionType 
 -- @param self
--- @param #int inneractiontype
+-- @param #ccs.timeline::InnerActionType inneractiontype
         
 --------------------------------
 -- @function [parent=#InnerActionFrame] getStartFrameIndex 
@@ -27,12 +26,12 @@
 --------------------------------
 -- @function [parent=#InnerActionFrame] create 
 -- @param self
--- @return InnerActionFrame#InnerActionFrame ret (return value: ccs.InnerActionFrame)
+-- @return timeline::InnerActionFrame#timeline::InnerActionFrame ret (return value: ccs.timeline::InnerActionFrame)
         
 --------------------------------
 -- @function [parent=#InnerActionFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#InnerActionFrame] InnerActionFrame 

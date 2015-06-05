@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TableView
 -- @extend ScrollView,ScrollViewDelegate
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TableView] updateCellAtIndex 
@@ -12,7 +11,12 @@
 --------------------------------
 -- @function [parent=#TableView] setVerticalFillOrder 
 -- @param self
--- @param #int verticalfillorder
+-- @param #cc.TableView::VerticalFillOrder verticalfillorder
+        
+--------------------------------
+-- @function [parent=#TableView] scrollViewDidZoom 
+-- @param self
+-- @param #cc.ScrollView scrollview
         
 --------------------------------
 -- @function [parent=#TableView] _updateContentSize 
@@ -21,7 +25,7 @@
 --------------------------------
 -- @function [parent=#TableView] getVerticalFillOrder 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return TableView::VerticalFillOrder#TableView::VerticalFillOrder ret (return value: cc.TableView::VerticalFillOrder)
         
 --------------------------------
 -- @function [parent=#TableView] removeCellAtIndex 
@@ -43,11 +47,6 @@
 --------------------------------
 -- @function [parent=#TableView] reloadData 
 -- @param self
-        
---------------------------------
--- @function [parent=#TableView] scrollViewDidZoom 
--- @param self
--- @param #cc.ScrollView scrollview
         
 --------------------------------
 -- @function [parent=#TableView] insertCellAtIndex 

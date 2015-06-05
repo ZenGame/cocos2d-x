@@ -2,7 +2,6 @@
 --------------------------------
 -- @module GLProgram
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#GLProgram] getFragmentShaderLog 
@@ -33,11 +32,13 @@
 -- @return string#string ret (return value: string)
         
 --------------------------------
--- @overload self, mat4_table         
--- @overload self         
+-- overload function: setUniformsForBuiltins(cc.Mat4)
+--          
+-- overload function: setUniformsForBuiltins()
+--          
 -- @function [parent=#GLProgram] setUniformsForBuiltins
 -- @param self
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 
 --------------------------------
 -- @function [parent=#GLProgram] updateUniforms 

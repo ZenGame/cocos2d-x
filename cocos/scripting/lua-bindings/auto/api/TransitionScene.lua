@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TransitionScene
 -- @extend Scene
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TransitionScene] finish 
@@ -23,7 +22,7 @@
 -- @function [parent=#TransitionScene] draw 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------

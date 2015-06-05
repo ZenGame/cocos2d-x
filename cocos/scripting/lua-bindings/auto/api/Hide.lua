@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Hide
 -- @extend ActionInstant
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Hide] create 

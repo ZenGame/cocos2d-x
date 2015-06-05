@@ -2,7 +2,6 @@
 --------------------------------
 -- @module CatmullRomBy
 -- @extend CardinalSplineBy
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#CatmullRomBy] initWithDuration 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module TileMapAtlas
 -- @extend AtlasNode
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TileMapAtlas] initWithTileFile 
@@ -20,14 +19,14 @@
 --------------------------------
 -- @function [parent=#TileMapAtlas] getTileAt 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @return color3b_table#color3b_table ret (return value: color3b_table)
         
 --------------------------------
 -- @function [parent=#TileMapAtlas] setTile 
 -- @param self
 -- @param #color3b_table color3b
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#TileMapAtlas] create 

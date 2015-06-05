@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Texture2D
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Texture2D] getMaxT 
@@ -15,12 +14,14 @@
 -- @return char#char ret (return value: char)
         
 --------------------------------
--- @overload self, cc.Image, int         
--- @overload self, cc.Image         
+-- overload function: initWithImage(cc.Image, cc.Texture2D::PixelFormat)
+--          
+-- overload function: initWithImage(cc.Image)
+--          
 -- @function [parent=#Texture2D] initWithImage
 -- @param self
 -- @param #cc.Image image
--- @param #int pixelformat
+-- @param #cc.Texture2D::PixelFormat pixelformat
 -- @return bool#bool ret (retunr value: bool)
 
 --------------------------------
@@ -43,11 +44,13 @@
 -- @return int#int ret (return value: int)
         
 --------------------------------
--- @overload self, int         
--- @overload self         
+-- overload function: getBitsPerPixelForFormat(cc.Texture2D::PixelFormat)
+--          
+-- overload function: getBitsPerPixelForFormat()
+--          
 -- @function [parent=#Texture2D] getBitsPerPixelForFormat
 -- @param self
--- @param #int pixelformat
+-- @param #cc.Texture2D::PixelFormat pixelformat
 -- @return unsigned int#unsigned int ret (retunr value: unsigned int)
 
 --------------------------------
@@ -56,16 +59,18 @@
 -- @return unsigned int#unsigned int ret (return value: unsigned int)
         
 --------------------------------
--- @overload self, char, cc.FontDefinition         
--- @overload self, char, string, float, size_table, int, int         
+-- overload function: initWithString(char, cc.FontDefinition)
+--          
+-- overload function: initWithString(char, string, float, size_table, cc.TextHAlignment, cc.TextVAlignment)
+--          
 -- @function [parent=#Texture2D] initWithString
 -- @param self
 -- @param #char char
 -- @param #string str
 -- @param #float float
 -- @param #size_table size
--- @param #int texthalignment
--- @param #int textvalignment
+-- @param #cc.TextHAlignment texthalignment
+-- @param #cc.TextVAlignment textvalignment
 -- @return bool#bool ret (retunr value: bool)
 
 --------------------------------
@@ -103,7 +108,7 @@
 --------------------------------
 -- @function [parent=#Texture2D] getPixelFormat 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Texture2D::PixelFormat#Texture2D::PixelFormat ret (return value: cc.Texture2D::PixelFormat)
         
 --------------------------------
 -- @function [parent=#Texture2D] setGLProgram 
@@ -128,7 +133,7 @@
 --------------------------------
 -- @function [parent=#Texture2D] drawAtPoint 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#Texture2D] getGLProgram 
@@ -148,12 +153,12 @@
 --------------------------------
 -- @function [parent=#Texture2D] setDefaultAlphaPixelFormat 
 -- @param self
--- @param #int pixelformat
+-- @param #cc.Texture2D::PixelFormat pixelformat
         
 --------------------------------
 -- @function [parent=#Texture2D] getDefaultAlphaPixelFormat 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Texture2D::PixelFormat#Texture2D::PixelFormat ret (return value: cc.Texture2D::PixelFormat)
         
 --------------------------------
 -- @function [parent=#Texture2D] PVRImagesHavePremultipliedAlpha 

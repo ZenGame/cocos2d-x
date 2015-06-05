@@ -2,27 +2,26 @@
 --------------------------------
 -- @module AnchorPointFrame
 -- @extend Frame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#AnchorPointFrame] setAnchorPoint 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#AnchorPointFrame] getAnchorPoint 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#AnchorPointFrame] create 
 -- @param self
--- @return AnchorPointFrame#AnchorPointFrame ret (return value: ccs.AnchorPointFrame)
+-- @return timeline::AnchorPointFrame#timeline::AnchorPointFrame ret (return value: ccs.timeline::AnchorPointFrame)
         
 --------------------------------
 -- @function [parent=#AnchorPointFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#AnchorPointFrame] AnchorPointFrame 

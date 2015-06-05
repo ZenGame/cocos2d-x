@@ -1,13 +1,12 @@
 
 --------------------------------
 -- @module ActionTimelineCache
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ActionTimelineCache] createAction 
 -- @param self
 -- @param #string str
--- @return ActionTimeline#ActionTimeline ret (return value: ccs.ActionTimeline)
+-- @return timeline::ActionTimeline#timeline::ActionTimeline ret (return value: ccs.timeline::ActionTimeline)
         
 --------------------------------
 -- @function [parent=#ActionTimelineCache] purge 
@@ -22,13 +21,13 @@
 -- @param self
 -- @param #string str
 -- @param #string str
--- @return ActionTimeline#ActionTimeline ret (return value: ccs.ActionTimeline)
+-- @return timeline::ActionTimeline#timeline::ActionTimeline ret (return value: ccs.timeline::ActionTimeline)
         
 --------------------------------
 -- @function [parent=#ActionTimelineCache] loadAnimationActionWithFile 
 -- @param self
 -- @param #string str
--- @return ActionTimeline#ActionTimeline ret (return value: ccs.ActionTimeline)
+-- @return timeline::ActionTimeline#timeline::ActionTimeline ret (return value: ccs.timeline::ActionTimeline)
         
 --------------------------------
 -- @function [parent=#ActionTimelineCache] removeAction 

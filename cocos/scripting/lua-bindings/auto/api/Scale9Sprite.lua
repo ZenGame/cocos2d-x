@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Scale9Sprite
 -- @extend Node
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Scale9Sprite] resizableSpriteWithCapInsets 
@@ -16,8 +15,10 @@
 -- @param #float float
         
 --------------------------------
--- @overload self, string         
--- @overload self, string, rect_table         
+-- overload function: initWithSpriteFrameName(string)
+--          
+-- overload function: initWithSpriteFrameName(string, rect_table)
+--          
 -- @function [parent=#Scale9Sprite] initWithSpriteFrameName
 -- @param self
 -- @param #string str
@@ -45,8 +46,10 @@
 -- @param #cc.SpriteFrame spriteframe
         
 --------------------------------
--- @overload self, cc.SpriteBatchNode, rect_table, rect_table         
--- @overload self, cc.SpriteBatchNode, rect_table, bool, rect_table         
+-- overload function: initWithBatchNode(cc.SpriteBatchNode, rect_table, rect_table)
+--          
+-- overload function: initWithBatchNode(cc.SpriteBatchNode, rect_table, bool, rect_table)
+--          
 -- @function [parent=#Scale9Sprite] initWithBatchNode
 -- @param self
 -- @param #cc.SpriteBatchNode spritebatchnode
@@ -85,10 +88,14 @@
 -- @return size_table#size_table ret (return value: size_table)
         
 --------------------------------
--- @overload self, string, rect_table         
--- @overload self, string, rect_table, rect_table         
--- @overload self, rect_table, string         
--- @overload self, string         
+-- overload function: initWithFile(string, rect_table)
+--          
+-- overload function: initWithFile(string, rect_table, rect_table)
+--          
+-- overload function: initWithFile(rect_table, string)
+--          
+-- overload function: initWithFile(string)
+--          
 -- @function [parent=#Scale9Sprite] initWithFile
 -- @param self
 -- @param #string str
@@ -107,8 +114,10 @@
 -- @param #float float
         
 --------------------------------
--- @overload self, cc.SpriteFrame         
--- @overload self, cc.SpriteFrame, rect_table         
+-- overload function: initWithSpriteFrame(cc.SpriteFrame)
+--          
+-- overload function: initWithSpriteFrame(cc.SpriteFrame, rect_table)
+--          
 -- @function [parent=#Scale9Sprite] initWithSpriteFrame
 -- @param self
 -- @param #cc.SpriteFrame spriteframe
@@ -136,11 +145,16 @@
 -- @param #float float
         
 --------------------------------
--- @overload self, string, rect_table, rect_table         
--- @overload self         
--- @overload self, rect_table, string         
--- @overload self, string, rect_table         
--- @overload self, string         
+-- overload function: create(string, rect_table, rect_table)
+--          
+-- overload function: create()
+--          
+-- overload function: create(rect_table, string)
+--          
+-- overload function: create(string, rect_table)
+--          
+-- overload function: create(string)
+--          
 -- @function [parent=#Scale9Sprite] create
 -- @param self
 -- @param #string str
@@ -149,8 +163,10 @@
 -- @return Scale9Sprite#Scale9Sprite ret (retunr value: cc.Scale9Sprite)
 
 --------------------------------
--- @overload self, string, rect_table         
--- @overload self, string         
+-- overload function: createWithSpriteFrameName(string, rect_table)
+--          
+-- overload function: createWithSpriteFrameName(string)
+--          
 -- @function [parent=#Scale9Sprite] createWithSpriteFrameName
 -- @param self
 -- @param #string str
@@ -158,8 +174,10 @@
 -- @return Scale9Sprite#Scale9Sprite ret (retunr value: cc.Scale9Sprite)
 
 --------------------------------
--- @overload self, cc.SpriteFrame, rect_table         
--- @overload self, cc.SpriteFrame         
+-- overload function: createWithSpriteFrame(cc.SpriteFrame, rect_table)
+--          
+-- overload function: createWithSpriteFrame(cc.SpriteFrame)
+--          
 -- @function [parent=#Scale9Sprite] createWithSpriteFrame
 -- @param self
 -- @param #cc.SpriteFrame spriteframe

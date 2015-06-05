@@ -2,7 +2,6 @@
 --------------------------------
 -- @module LayoutParameter
 -- @extend Ref
--- @parent_module ccui
 
 --------------------------------
 -- @function [parent=#LayoutParameter] clone 
@@ -12,7 +11,7 @@
 --------------------------------
 -- @function [parent=#LayoutParameter] getLayoutType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return LayoutParameter::Type#LayoutParameter::Type ret (return value: ccui.LayoutParameter::Type)
         
 --------------------------------
 -- @function [parent=#LayoutParameter] createCloneInstance 

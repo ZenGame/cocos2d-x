@@ -2,11 +2,12 @@
 --------------------------------
 -- @module TargetedAction
 -- @extend ActionInterval
--- @parent_module cc
 
 --------------------------------
--- @overload self         
--- @overload self         
+-- overload function: getForcedTarget()
+--          
+-- overload function: getForcedTarget()
+--          
 -- @function [parent=#TargetedAction] getForcedTarget
 -- @param self
 -- @return Node#Node ret (retunr value: cc.Node)

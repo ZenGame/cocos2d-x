@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ControlSlider
 -- @extend Control
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#ControlSlider] getSelectedThumbSprite 
@@ -13,7 +12,7 @@
 -- @function [parent=#ControlSlider] locationFromTouch 
 -- @param self
 -- @param #cc.Touch touch
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#ControlSlider] setSelectedThumbSprite 
@@ -80,8 +79,10 @@
 -- @return Sprite#Sprite ret (return value: cc.Sprite)
         
 --------------------------------
--- @overload self, cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite         
--- @overload self, cc.Sprite, cc.Sprite, cc.Sprite         
+-- overload function: initWithSprites(cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite)
+--          
+-- overload function: initWithSprites(cc.Sprite, cc.Sprite, cc.Sprite)
+--          
 -- @function [parent=#ControlSlider] initWithSprites
 -- @param self
 -- @param #cc.Sprite sprite
@@ -127,10 +128,14 @@
 -- @param #float float
         
 --------------------------------
--- @overload self, cc.Sprite, cc.Sprite, cc.Sprite         
--- @overload self, char, char, char         
--- @overload self, char, char, char, char         
--- @overload self, cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite         
+-- overload function: create(cc.Sprite, cc.Sprite, cc.Sprite)
+--          
+-- overload function: create(char, char, char)
+--          
+-- overload function: create(char, char, char, char)
+--          
+-- overload function: create(cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite)
+--          
 -- @function [parent=#ControlSlider] create
 -- @param self
 -- @param #cc.Sprite sprite

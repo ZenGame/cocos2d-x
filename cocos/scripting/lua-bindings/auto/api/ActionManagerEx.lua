@@ -2,8 +2,14 @@
 --------------------------------
 -- @module ActionManagerEx
 -- @extend Ref
--- @parent_module ccs
 
+--------------------------------
+-- @function [parent=#ActionManagerEx] getActionByName 
+-- @param self
+-- @param #char char
+-- @param #char char
+-- @return ActionObject#ActionObject ret (return value: ccs.ActionObject)
+        
 --------------------------------
 -- @function [parent=#ActionManagerEx] releaseActionForFile 
 -- @param self
@@ -22,13 +28,6 @@
 -- @param #cc.CallFunc callfunc
 -- @return ActionObject#ActionObject ret (retunr value: ccs.ActionObject)
 
---------------------------------
--- @function [parent=#ActionManagerEx] getActionByName 
--- @param self
--- @param #char char
--- @param #char char
--- @return ActionObject#ActionObject ret (return value: ccs.ActionObject)
-        
 --------------------------------
 -- @function [parent=#ActionManagerEx] releaseActions 
 -- @param self

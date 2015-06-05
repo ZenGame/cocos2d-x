@@ -2,11 +2,12 @@
 --------------------------------
 -- @module TransitionFade
 -- @extend TransitionScene
--- @parent_module cc
 
 --------------------------------
--- @overload self, float, cc.Scene         
--- @overload self, float, cc.Scene, color3b_table         
+-- overload function: create(float, cc.Scene)
+--          
+-- overload function: create(float, cc.Scene, color3b_table)
+--          
 -- @function [parent=#TransitionFade] create
 -- @param self
 -- @param #float float

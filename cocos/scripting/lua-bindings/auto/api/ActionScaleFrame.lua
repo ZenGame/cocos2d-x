@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ActionScaleFrame
 -- @extend ActionFrame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ActionScaleFrame] setScaleY 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EaseExponentialInOut
 -- @extend ActionEase
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EaseExponentialInOut] create 

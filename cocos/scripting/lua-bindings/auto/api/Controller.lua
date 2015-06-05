@@ -1,7 +1,6 @@
 
 --------------------------------
 -- @module Controller
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Controller] receiveExternalKeyEvent 

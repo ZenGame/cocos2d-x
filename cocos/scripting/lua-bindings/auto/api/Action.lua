@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Action
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Action] startWithTarget 

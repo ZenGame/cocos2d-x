@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EaseBounce
 -- @extend ActionEase
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EaseBounce] clone 

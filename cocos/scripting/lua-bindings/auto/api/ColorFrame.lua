@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ColorFrame
 -- @extend Frame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ColorFrame] getAlpha 
@@ -27,7 +26,7 @@
 --------------------------------
 -- @function [parent=#ColorFrame] create 
 -- @param self
--- @return ColorFrame#ColorFrame ret (return value: ccs.ColorFrame)
+-- @return timeline::ColorFrame#timeline::ColorFrame ret (return value: ccs.timeline::ColorFrame)
         
 --------------------------------
 -- @function [parent=#ColorFrame] apply 
@@ -37,7 +36,7 @@
 --------------------------------
 -- @function [parent=#ColorFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#ColorFrame] ColorFrame 

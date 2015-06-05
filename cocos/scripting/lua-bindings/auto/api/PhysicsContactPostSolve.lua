@@ -1,7 +1,6 @@
 
 --------------------------------
 -- @module PhysicsContactPostSolve
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#PhysicsContactPostSolve] getFriction 
@@ -11,7 +10,7 @@
 --------------------------------
 -- @function [parent=#PhysicsContactPostSolve] getSurfaceVelocity 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#PhysicsContactPostSolve] getRestitution 

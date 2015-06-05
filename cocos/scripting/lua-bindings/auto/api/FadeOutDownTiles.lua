@@ -2,7 +2,6 @@
 --------------------------------
 -- @module FadeOutDownTiles
 -- @extend FadeOutUpTiles
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#FadeOutDownTiles] create 

@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Animation3D
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Animation3D] getDuration 

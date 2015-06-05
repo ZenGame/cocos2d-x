@@ -2,7 +2,6 @@
 --------------------------------
 -- @module PhysicsJointRatchet
 -- @extend PhysicsJoint
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#PhysicsJointRatchet] getAngle 

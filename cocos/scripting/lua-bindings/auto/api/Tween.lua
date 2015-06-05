@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Tween
 -- @extend ProcessBase
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#Tween] getAnimation 

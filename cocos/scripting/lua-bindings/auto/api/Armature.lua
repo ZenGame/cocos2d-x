@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Armature
 -- @extend Node,BlendProtocol
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#Armature] getBone 
@@ -59,9 +58,12 @@
 -- @return BatchNode#BatchNode ret (return value: ccs.BatchNode)
         
 --------------------------------
--- @overload self, string         
--- @overload self         
--- @overload self, string, ccs.Bone         
+-- overload function: init(string)
+--          
+-- overload function: init()
+--          
+-- overload function: init(string, ccs.Bone)
+--          
 -- @function [parent=#Armature] init
 -- @param self
 -- @param #string str
@@ -114,9 +116,12 @@
 -- @return map_table#map_table ret (return value: map_table)
         
 --------------------------------
--- @overload self, string         
--- @overload self         
--- @overload self, string, ccs.Bone         
+-- overload function: create(string)
+--          
+-- overload function: create()
+--          
+-- overload function: create(string, ccs.Bone)
+--          
 -- @function [parent=#Armature] create
 -- @param self
 -- @param #string str
@@ -126,19 +131,19 @@
 --------------------------------
 -- @function [parent=#Armature] setAnchorPoint 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#Armature] draw 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #mat4_table mat4
+-- @param #cc.Mat4 mat4
 -- @param #unsigned int int
         
 --------------------------------
 -- @function [parent=#Armature] getAnchorPointInPoints 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Armature] update 
@@ -148,7 +153,7 @@
 --------------------------------
 -- @function [parent=#Armature] getNodeToParentTransform 
 -- @param self
--- @return mat4_table#mat4_table ret (return value: mat4_table)
+-- @return Mat4#Mat4 ret (return value: cc.Mat4)
         
 --------------------------------
 -- @function [parent=#Armature] getBoundingBox 

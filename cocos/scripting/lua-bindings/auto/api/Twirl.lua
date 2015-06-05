@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Twirl
 -- @extend Grid3DAction
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Twirl] setAmplitudeRate 
@@ -27,19 +26,19 @@
 --------------------------------
 -- @function [parent=#Twirl] setPosition 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#Twirl] getPosition 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#Twirl] create 
 -- @param self
 -- @param #float float
 -- @param #size_table size
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
 -- @param #unsigned int int
 -- @param #float float
 -- @return Twirl#Twirl ret (return value: cc.Twirl)

@@ -2,12 +2,11 @@
 --------------------------------
 -- @module Timeline
 -- @extend Ref
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#Timeline] clone 
 -- @param self
--- @return Timeline#Timeline ret (return value: ccs.Timeline)
+-- @return timeline::Timeline#timeline::Timeline ret (return value: ccs.timeline::Timeline)
         
 --------------------------------
 -- @function [parent=#Timeline] gotoFrame 
@@ -22,12 +21,12 @@
 --------------------------------
 -- @function [parent=#Timeline] getActionTimeline 
 -- @param self
--- @return ActionTimeline#ActionTimeline ret (return value: ccs.ActionTimeline)
+-- @return timeline::ActionTimeline#timeline::ActionTimeline ret (return value: ccs.timeline::ActionTimeline)
         
 --------------------------------
 -- @function [parent=#Timeline] insertFrame 
 -- @param self
--- @param #ccs.Frame frame
+-- @param #ccs.timeline::Frame frame
 -- @param #int int
         
 --------------------------------
@@ -38,7 +37,7 @@
 --------------------------------
 -- @function [parent=#Timeline] addFrame 
 -- @param self
--- @param #ccs.Frame frame
+-- @param #ccs.timeline::Frame frame
         
 --------------------------------
 -- @function [parent=#Timeline] getFrames 
@@ -58,12 +57,12 @@
 --------------------------------
 -- @function [parent=#Timeline] removeFrame 
 -- @param self
--- @param #ccs.Frame frame
+-- @param #ccs.timeline::Frame frame
         
 --------------------------------
 -- @function [parent=#Timeline] setActionTimeline 
 -- @param self
--- @param #ccs.ActionTimeline actiontimeline
+-- @param #ccs.timeline::ActionTimeline actiontimeline
         
 --------------------------------
 -- @function [parent=#Timeline] stepToFrame 
@@ -73,7 +72,7 @@
 --------------------------------
 -- @function [parent=#Timeline] create 
 -- @param self
--- @return Timeline#Timeline ret (return value: ccs.Timeline)
+-- @return timeline::Timeline#timeline::Timeline ret (return value: ccs.timeline::Timeline)
         
 --------------------------------
 -- @function [parent=#Timeline] Timeline 

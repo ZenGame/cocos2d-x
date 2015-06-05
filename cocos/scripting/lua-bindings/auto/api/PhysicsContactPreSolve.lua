@@ -1,7 +1,6 @@
 
 --------------------------------
 -- @module PhysicsContactPreSolve
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#PhysicsContactPreSolve] getFriction 
@@ -25,12 +24,12 @@
 --------------------------------
 -- @function [parent=#PhysicsContactPreSolve] getSurfaceVelocity 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#PhysicsContactPreSolve] setSurfaceVelocity 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#PhysicsContactPreSolve] setRestitution 

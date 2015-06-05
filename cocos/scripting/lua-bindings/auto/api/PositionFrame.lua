@@ -2,7 +2,6 @@
 --------------------------------
 -- @module PositionFrame
 -- @extend Frame
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#PositionFrame] getX 
@@ -17,7 +16,7 @@
 --------------------------------
 -- @function [parent=#PositionFrame] setPosition 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#PositionFrame] setX 
@@ -32,12 +31,12 @@
 --------------------------------
 -- @function [parent=#PositionFrame] getPosition 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#PositionFrame] create 
 -- @param self
--- @return PositionFrame#PositionFrame ret (return value: ccs.PositionFrame)
+-- @return timeline::PositionFrame#timeline::PositionFrame ret (return value: ccs.timeline::PositionFrame)
         
 --------------------------------
 -- @function [parent=#PositionFrame] apply 
@@ -47,7 +46,7 @@
 --------------------------------
 -- @function [parent=#PositionFrame] clone 
 -- @param self
--- @return Frame#Frame ret (return value: ccs.Frame)
+-- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
         
 --------------------------------
 -- @function [parent=#PositionFrame] PositionFrame 

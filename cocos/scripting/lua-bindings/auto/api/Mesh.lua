@@ -2,7 +2,6 @@
 --------------------------------
 -- @module Mesh
 -- @extend Ref
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#Mesh] restore 
@@ -16,7 +15,7 @@
 --------------------------------
 -- @function [parent=#Mesh] getIndexFormat 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Mesh::IndexFormat#Mesh::IndexFormat ret (return value: cc.Mesh::IndexFormat)
         
 --------------------------------
 -- @function [parent=#Mesh] getVertexSizeInBytes 
@@ -26,7 +25,7 @@
 --------------------------------
 -- @function [parent=#Mesh] getPrimitiveType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return Mesh::PrimitiveType#Mesh::PrimitiveType ret (return value: cc.Mesh::PrimitiveType)
         
 --------------------------------
 -- @function [parent=#Mesh] getIndexCount 

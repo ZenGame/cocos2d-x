@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ParticleSystem
 -- @extend Node,TextureProtocol
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#ParticleSystem] getStartSizeVar 
@@ -32,12 +31,12 @@
 --------------------------------
 -- @function [parent=#ParticleSystem] getPositionType 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return ParticleSystem::PositionType#ParticleSystem::PositionType ret (return value: cc.ParticleSystem::PositionType)
         
 --------------------------------
 -- @function [parent=#ParticleSystem] setPosVar 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#ParticleSystem] getEndSpin 
@@ -107,7 +106,7 @@
 --------------------------------
 -- @function [parent=#ParticleSystem] getGravity 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#ParticleSystem] getTangentialAccel 
@@ -152,7 +151,7 @@
 --------------------------------
 -- @function [parent=#ParticleSystem] getPosVar 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#ParticleSystem] updateWithNoTime 
@@ -171,7 +170,7 @@
 --------------------------------
 -- @function [parent=#ParticleSystem] setPositionType 
 -- @param self
--- @param #int positiontype
+-- @param #cc.ParticleSystem::PositionType positiontype
         
 --------------------------------
 -- @function [parent=#ParticleSystem] stopSystem 
@@ -180,7 +179,7 @@
 --------------------------------
 -- @function [parent=#ParticleSystem] getSourcePosition 
 -- @param self
--- @return vec2_table#vec2_table ret (return value: vec2_table)
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#ParticleSystem] setLifeVar 
@@ -274,7 +273,7 @@
 --------------------------------
 -- @function [parent=#ParticleSystem] setEmitterMode 
 -- @param self
--- @param #int mode
+-- @param #cc.ParticleSystem::Mode mode
         
 --------------------------------
 -- @function [parent=#ParticleSystem] getDuration 
@@ -284,7 +283,7 @@
 --------------------------------
 -- @function [parent=#ParticleSystem] setSourcePosition 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#ParticleSystem] getEndSpinVar 
@@ -334,7 +333,7 @@
 --------------------------------
 -- @function [parent=#ParticleSystem] getEmitterMode 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return ParticleSystem::Mode#ParticleSystem::Mode ret (return value: cc.ParticleSystem::Mode)
         
 --------------------------------
 -- @function [parent=#ParticleSystem] setEndSpinVar 
@@ -379,7 +378,7 @@
 --------------------------------
 -- @function [parent=#ParticleSystem] setGravity 
 -- @param self
--- @param #vec2_table vec2
+-- @param #cc.Vec2 vec2
         
 --------------------------------
 -- @function [parent=#ParticleSystem] postStep 

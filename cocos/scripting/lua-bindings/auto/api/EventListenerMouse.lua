@@ -2,7 +2,6 @@
 --------------------------------
 -- @module EventListenerMouse
 -- @extend EventListener
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#EventListenerMouse] clone 

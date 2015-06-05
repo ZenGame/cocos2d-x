@@ -2,7 +2,6 @@
 --------------------------------
 -- @module ComAudio
 -- @extend Component
--- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ComAudio] stopAllEffects 
@@ -38,8 +37,10 @@
 -- @param self
         
 --------------------------------
--- @overload self         
--- @overload self, bool         
+-- overload function: stopBackgroundMusic()
+--          
+-- overload function: stopBackgroundMusic(bool)
+--          
 -- @function [parent=#ComAudio] stopBackgroundMusic
 -- @param self
 -- @param #bool bool
@@ -72,18 +73,24 @@
 -- @param #char char
         
 --------------------------------
--- @overload self, char         
--- @overload self, char, bool         
--- @overload self         
+-- overload function: playBackgroundMusic(char)
+--          
+-- overload function: playBackgroundMusic(char, bool)
+--          
+-- overload function: playBackgroundMusic()
+--          
 -- @function [parent=#ComAudio] playBackgroundMusic
 -- @param self
 -- @param #char char
 -- @param #bool bool
 
 --------------------------------
--- @overload self, char         
--- @overload self, char, bool         
--- @overload self         
+-- overload function: playEffect(char)
+--          
+-- overload function: playEffect(char, bool)
+--          
+-- overload function: playEffect()
+--          
 -- @function [parent=#ComAudio] playEffect
 -- @param self
 -- @param #char char

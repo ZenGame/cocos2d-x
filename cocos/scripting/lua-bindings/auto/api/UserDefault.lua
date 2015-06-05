@@ -1,7 +1,6 @@
 
 --------------------------------
 -- @module UserDefault
--- @parent_module cc
 
 --------------------------------
 -- @function [parent=#UserDefault] setIntegerForKey 
@@ -10,8 +9,10 @@
 -- @param #int int
         
 --------------------------------
--- @overload self, char, float         
--- @overload self, char         
+-- overload function: getFloatForKey(char, float)
+--          
+-- overload function: getFloatForKey(char)
+--          
 -- @function [parent=#UserDefault] getFloatForKey
 -- @param self
 -- @param #char char
@@ -19,8 +20,10 @@
 -- @return float#float ret (retunr value: float)
 
 --------------------------------
--- @overload self, char, bool         
--- @overload self, char         
+-- overload function: getBoolForKey(char, bool)
+--          
+-- overload function: getBoolForKey(char)
+--          
 -- @function [parent=#UserDefault] getBoolForKey
 -- @param self
 -- @param #char char
@@ -40,8 +43,10 @@
 -- @param #float float
         
 --------------------------------
--- @overload self, char, string         
--- @overload self, char         
+-- overload function: getStringForKey(char, string)
+--          
+-- overload function: getStringForKey(char)
+--          
 -- @function [parent=#UserDefault] getStringForKey
 -- @param self
 -- @param #char char
@@ -59,8 +64,10 @@
 -- @param self
         
 --------------------------------
--- @overload self, char, int         
--- @overload self, char         
+-- overload function: getIntegerForKey(char, int)
+--          
+-- overload function: getIntegerForKey(char)
+--          
 -- @function [parent=#UserDefault] getIntegerForKey
 -- @param self
 -- @param #char char
@@ -68,8 +75,10 @@
 -- @return int#int ret (retunr value: int)
 
 --------------------------------
--- @overload self, char, double         
--- @overload self, char         
+-- overload function: getDoubleForKey(char, double)
+--          
+-- overload function: getDoubleForKey(char)
+--          
 -- @function [parent=#UserDefault] getDoubleForKey
 -- @param self
 -- @param #char char
