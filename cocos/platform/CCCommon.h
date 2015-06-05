@@ -70,6 +70,8 @@ enum class LanguageType
 // END of platform group
 /// @}
 
+void CC_DLL elog(const char * pszFormat, ...);
+
 NS_CC_END
 
 #endif    // __CC_COMMON_H__

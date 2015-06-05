@@ -18,6 +18,11 @@
 -- @param #float float
         
 --------------------------------
+-- @function [parent=#ArmatureAnimation] getCurrentFrameIndex 
+-- @param self
+-- @return int#int ret (return value: int)
+        
+--------------------------------
 -- @function [parent=#ArmatureAnimation] init 
 -- @param self
 -- @param #ccs.Armature armature
@@ -36,6 +41,11 @@
 -- @param #string str
 -- @param #int int
 -- @param #int int
+        
+--------------------------------
+-- @function [parent=#ArmatureAnimation] getCurrentPercent 
+-- @param self
+-- @return float#float ret (return value: float)
         
 --------------------------------
 -- @function [parent=#ArmatureAnimation] gotoAndPause 
@@ -71,6 +81,12 @@
 -- @function [parent=#ArmatureAnimation] getCurrentMovementID 
 -- @param self
 -- @return string#string ret (return value: string)
+        
+--------------------------------
+-- @function [parent=#ArmatureAnimation] getMovementFrameCount 
+-- @param self
+-- @param #string str
+-- @return int#int ret (return value: int)
         
 --------------------------------
 -- @function [parent=#ArmatureAnimation] setAnimationData 

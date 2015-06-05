@@ -416,4 +416,61 @@ float GLViewProtocol::getScaleY() const
     return _scaleY;
 }
 
+
+void GLViewProtocol::fly_setDesignResolutionSize(float width, float height, int nMode)
+{
+	Size size = _screenSize;
+	float realsizex = width;
+	float realsizey = height;
+	float framemode = nMode;					//使用自动填充模式;如果为1，则使用等比例缩放，不够填黑边的模式;       
+	float scalx = size.width / realsizex;
+	float scaly = size.height / realsizey;
+
+	if (framemode == 1)
+	{
+		if (scalx*realsizey > size.height)
+		{
+			//如果按X边缩放后，高度超出屏幕高度,计算按y边;
+			if (scaly*realsizex > size.width)
+			{
+				//如果按y边缩放后，宽度超出屏幕宽度;
+				//Log("cannot decide to use which size,exit");
+				Director::sharedDirector()->end();
+			}
+
+			//按高度进行缩放;
+			scalx = scaly;
+		}
+		else
+		{
+			//按宽度进行缩放;
+			scaly = scalx;
+		}
+	}
+
+	m_fFlyScaleX = scalx;
+	m_fFlyScaleY = scaly;
+
+	_scaleX = m_fFlyScaleX;
+	_scaleY = m_fFlyScaleY;
+	//m_fScaleX = m_fScaleY = MIN(m_fScaleX, m_fScaleY);
+
+	_designResolutionSize.setSize(width, height);
+
+	// calculate the rect of viewport   
+	float viewPortW = _designResolutionSize.width * _scaleX;
+	float viewPortH = _designResolutionSize.height * _scaleY;
+
+	_viewPortRect.setRect((_screenSize.width - viewPortW) / 2, (_screenSize.height - viewPortH) / 2, viewPortW, viewPortH);
+
+	// m_eResolutionPolicy=kResolutionShowAll;
+	Director::sharedDirector()->_winSizeInPoints = getDesignResolutionSize();
+	Director::sharedDirector()->createStatsLabel();
+	Director::sharedDirector()->setGLDefaultValues();
+
+	log("CCGLViewProtocol::fly_setDesignResolutionSize win size is %f %f,real size is %f %f,set scale to %f %f", size.width, size.height, realsizex, realsizey, scalx, scaly);
+}
+
+
+
 NS_CC_END

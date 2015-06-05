@@ -285,7 +285,7 @@ public:
 
         SAXState curState = _stateStack.empty() ? SAX_DICT : _stateStack.top();
         const std::string text = std::string((char*)ch,0,len);
-
+		
         switch(_state)
         {
         case SAX_KEY:

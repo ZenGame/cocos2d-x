@@ -58,11 +58,6 @@
 -- @return float#float ret (return value: float)
         
 --------------------------------
--- @function [parent=#ControlPotentiometer] getPreviousLocation 
--- @param self
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
-        
---------------------------------
 -- @function [parent=#ControlPotentiometer] distanceBetweenPointAndPoint 
 -- @param self
 -- @param #cc.Vec2 vec2
@@ -73,6 +68,11 @@
 -- @function [parent=#ControlPotentiometer] potentiometerEnded 
 -- @param self
 -- @param #cc.Vec2 vec2
+        
+--------------------------------
+-- @function [parent=#ControlPotentiometer] getPreviousLocation 
+-- @param self
+-- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
 -- @function [parent=#ControlPotentiometer] setProgressTimer 

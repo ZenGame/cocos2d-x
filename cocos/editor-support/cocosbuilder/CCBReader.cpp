@@ -243,7 +243,7 @@ Node* CCBReader::readNodeGraphFromData(std::shared_ptr<cocos2d::Data> data, Ref 
     
     Node *pNodeGraph = readFileWithCleanUp(true, std::make_shared<CCBAnimationManagerMap>());
     
-    if (pNodeGraph && _animationManager->getAutoPlaySequenceId() != -1)
+	if (pNodeGraph && _animationManager->getAutoPlaySequenceId() != -1 && _animationManager->getAutoPlaySequenceId()!=0)
     {
         // Auto play animations
         _animationManager->runAnimationsForSequenceIdTweenDuration(_animationManager->getAutoPlaySequenceId(), 0);
@@ -255,7 +255,7 @@ Node* CCBReader::readNodeGraphFromData(std::shared_ptr<cocos2d::Data> data, Ref 
         Node* pNode = iter->first;
         CCBAnimationManager* manager = iter->second;
         
-        pNode->setUserObject(manager);
+        //pNode->setUserObject(manager);
 
         if (_jsControlled)
         {

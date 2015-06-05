@@ -79,7 +79,6 @@ struct transformValues_;
 class CC_DLL Sprite : public Node, public TextureProtocol
 {
 public:
-
     static const int INDEX_NOT_INITIALIZED = -1; /// Sprite invalid index on the SpriteBatchNode
 
     /// @{

@@ -256,6 +256,13 @@ public:
      return schedule script entry ID, used for unscheduleScriptFunc().
      */
     unsigned int scheduleScriptFunc(unsigned int handler, float interval, bool paused);
+
+	//add by flyingkisser
+	void disableScriptFunc(unsigned int entryID);
+	void enableScriptFunc(unsigned int entryID);
+	void setScriptFuncInner(unsigned int entryID,float v);
+	int getScriptFuncState(unsigned int entryID);
+	SchedulerScriptHandlerEntry* findScriptHandlerEntry(unsigned int entryID);
 #endif
     /////////////////////////////////////
     

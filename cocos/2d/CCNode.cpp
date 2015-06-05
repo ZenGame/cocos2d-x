@@ -1843,9 +1843,32 @@ void Node::disableCascadeColor()
     }
 }
 
+
+AffineTransform Node::nodeToNodeTransform(Node* node)
+{
+	AffineTransform t = this->nodeToParentTransform();
+
+	for (Node *p = _parent; p != NULL; p = p->getParent())
+	{
+		t = AffineTransformConcat(t, p->nodeToParentTransform());
+		if (p == node)
+			break;
+	}
+	return t;
+}
+
+Point Node::convertToNodeSpace(Node* node, const Point& nodePoint)
+{
+	Point ret = PointApplyAffineTransform(nodePoint, nodeToNodeTransform(node));
+	return ret;
+}
+
+
 __NodeRGBA::__NodeRGBA()
 {
     CCLOG("NodeRGBA deprecated.");
 }
+
+
 
 NS_CC_END

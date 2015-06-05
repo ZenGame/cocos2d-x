@@ -113,6 +113,7 @@ void Tween::play(MovementBoneData *movementBoneData, int durationTo, int duratio
     _totalDuration = 0;
     _betweenDuration = 0;
     _fromIndex = _toIndex = 0;
+    _passLastFrame = false;
 
     bool difMovement = movementBoneData != _movementBoneData;
 

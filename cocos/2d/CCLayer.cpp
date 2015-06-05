@@ -47,6 +47,10 @@ THE SOFTWARE.
 
 #include "deprecated/CCString.h"
 
+#include "CCGLView.h"
+#include "2d/CCAction.h"
+#include "2d/CCActionInterval.h"
+
 #if CC_USE_PHYSICS
 #include "physics/CCPhysicsBody.h"
 #endif
@@ -428,6 +432,95 @@ void Layer::onTouchesCancelled(const std::vector<Touch*>& touches, Event *event)
 #endif
     CC_UNUSED_PARAM(event);
 }
+
+void Layer::fly_setTouchEnabled(bool enabled)
+{
+	this->setTouchEnabled(enabled);
+	if (!_children.empty()  && ( _children.size() > 0) )
+	{
+		for (auto& pObject : _children)
+		{
+			Layer* pChild = dynamic_cast<Layer*>(pObject);
+			if (pChild)
+			{
+				pChild->fly_setTouchEnabled(enabled);
+			}
+		}
+	}
+}
+
+void Layer::fly_runActionFadeOut(float dt)
+{
+	ActionInterval*  action = FadeOut::create(dt);
+	this->runAction(action);
+	if (!_children.empty() && (_children.size() > 0))
+	{
+		for (auto& pObject : _children)
+		{
+			Layer* pChild = dynamic_cast<Layer*>(pObject);
+			if (pChild)
+			{
+				pChild->fly_runActionFadeOut(dt);
+			}
+			else
+			{
+				Node* pChild = dynamic_cast<Node*>(pObject);
+				if (pChild)
+				{
+					ActionInterval*  action = FadeOut::create(dt);
+					pChild->runAction(action);
+				}
+			}
+		}
+	}
+}
+
+void Layer::fly_runActionFadeIn(float dt)
+{
+	ActionInterval*  action = FadeOut::create(dt);
+	this->runAction(action);
+	if (!_children.empty() && (_children.size() > 0))
+	{
+		for (auto& pObject : _children)
+		{
+			Layer* pChild = dynamic_cast<Layer*>(pObject);
+			if (pChild)
+			{
+				pChild->fly_runActionFadeIn(dt);
+			}
+			else
+			{
+				Node* pChild = dynamic_cast<Node*>(pObject);
+				if (pChild)
+				{
+					ActionInterval*  action = FadeIn::create(dt);
+					pChild->runAction(action);
+				}
+			}
+		}
+	}
+}
+
+void Layer::fly_setAutoSize(bool bAuto)
+{
+	if (bAuto)
+	{
+		float x = Director::getInstance()->getOpenGLView()->fly_getScaleX();
+		float y = Director::getInstance()->getOpenGLView()->fly_getScaleY();
+
+		if (x && y)
+		{
+			setScaleX(x);
+			setScaleY(y);
+		}
+	}
+	else
+	{
+		setScaleX(1.0f);
+		setScaleY(1.0f);
+	}
+}
+
 
 std::string Layer::getDescription() const
 {

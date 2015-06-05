@@ -341,6 +341,9 @@ public:
     
     void setGLProgram(GLProgram* program);
     GLProgram* getGLProgram() const;
+
+	//add by flyingkisser
+	int getImageFormat(){ return _imageFormat; }
     
 public:
     static const PixelFormatInfoMap& getPixelFormatInfoMap();
@@ -427,6 +430,9 @@ protected:
     static const PixelFormatInfoMap _pixelFormatInfoTables;
 
     bool _antialiasEnabled;
+
+	//add by flyingkisser
+	int _imageFormat;
 };
 
 

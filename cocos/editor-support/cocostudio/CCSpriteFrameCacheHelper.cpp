@@ -49,9 +49,9 @@ void SpriteFrameCacheHelper::purge()
     _spriteFrameCacheHelper = nullptr;
 }
 
-void SpriteFrameCacheHelper::addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath)
+void SpriteFrameCacheHelper::addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath, const std::string& prefix)
 {
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plistPath, imagePath);
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plistPath, imagePath, prefix);
 }
 
 SpriteFrameCacheHelper::SpriteFrameCacheHelper()

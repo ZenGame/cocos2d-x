@@ -465,13 +465,28 @@ void Scheduler::schedulePerFrame(const ccSchedulerFunc& callback, void *target, 
     HASH_FIND_PTR(_hashForUpdates, &target, hashElement);
     if (hashElement)
     {
-#if COCOS2D_DEBUG >= 1
-        CCASSERT(hashElement->entry->markedForDeletion,"");
-#endif
-        // TODO: check if priority has changed!
-
-        hashElement->entry->markedForDeletion = false;
-        return;
+        // check if priority has changed
+        if ((*hashElement->list)->priority != priority)
+        {
+            if (_updateHashLocked)
+            {
+                CCLOG("warning: you CANNOT change update priority in scheduled function");
+                hashElement->entry->markedForDeletion = false;
+                hashElement->entry->paused = paused;
+                return;
+            }
+            else
+            {
+            	// will be added again outside if (hashElement).
+                unscheduleUpdate(target);
+            }
+        }
+        else
+        {
+            hashElement->entry->markedForDeletion = false;
+            hashElement->entry->paused = paused;
+            return;
+        }
     }
 
     // most of the updates are going to be 0, that's way there
@@ -674,6 +689,62 @@ void Scheduler::unscheduleScriptEntry(unsigned int scheduleScriptEntryID)
     }
 }
 
+//add by flyingkisser
+void Scheduler::disableScriptFunc(unsigned int entryID)
+{
+	SchedulerScriptHandlerEntry* entry = findScriptHandlerEntry(entryID);
+	if (entry == nullptr)
+	{
+		CCLOG("Scheduler::disableScriptFunc cannot find entry %d!",entryID);
+		return;
+	}
+	entry->setPaused(true);
+}
+
+void Scheduler::enableScriptFunc(unsigned int entryID)
+{
+	SchedulerScriptHandlerEntry* entry = findScriptHandlerEntry(entryID);
+	if (entry == nullptr)
+	{
+		CCLOG("Scheduler::enableScriptFunc cannot find entry %d!", entryID);
+		return;
+	}
+	entry->setPaused(false);
+}
+
+void Scheduler::setScriptFuncInner(unsigned int entryID,float v)
+{
+	SchedulerScriptHandlerEntry* entry = findScriptHandlerEntry(entryID);
+	if (entry == nullptr)
+	{
+		CCLOG("Scheduler::setScriptFuncInner cannot find entry %d!", entryID);
+		return;
+	}
+	entry->setInterval(v);
+}
+
+int Scheduler::getScriptFuncState(unsigned int entryID)
+{
+	SchedulerScriptHandlerEntry* entry = findScriptHandlerEntry(entryID);
+	if (entry == nullptr)
+	{
+		CCLOG("Scheduler::setScriptFuncInner cannot find entry %d!", entryID);
+		return 0;
+	}
+	return entry->isPaused() ? 0 : 1;
+}
+
+SchedulerScriptHandlerEntry* Scheduler::findScriptHandlerEntry(unsigned int scheduleScriptEntryID){
+	for (ssize_t i = _scriptHandlerEntries.size() - 1; i >= 0; i--)
+	{
+		SchedulerScriptHandlerEntry* entry = _scriptHandlerEntries.at(i);
+		if (entry->getEntryId() == (int)scheduleScriptEntryID)
+		{
+			return entry;
+		}
+	}
+	return nullptr;
+}
 #endif
 
 void Scheduler::resumeTarget(void *target)

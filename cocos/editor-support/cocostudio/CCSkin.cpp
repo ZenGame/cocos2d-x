@@ -225,6 +225,7 @@ void Skin::draw(Renderer *renderer, const Mat4 &transform, bool transformUpdated
 
     //TODO implement z order
     _quadCommand.init(_globalZOrder, _texture->getName(), getGLProgramState(), _blendFunc, &_quad, 1, mv);
+	//_quadCommand.init(_globalZOrder, _texture->getName(), GLProgramState::getOrCreateWithGLProgramName("ShaderETC1"), _blendFunc, &_quad, 1, mv);
     renderer->addCommand(&_quadCommand);
 }
 

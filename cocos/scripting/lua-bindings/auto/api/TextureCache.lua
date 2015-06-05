@@ -10,6 +10,10 @@
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
+-- @function [parent=#TextureCache] textures_lock 
+-- @param self
+        
+--------------------------------
 -- @function [parent=#TextureCache] removeTextureForKey 
 -- @param self
 -- @param #string str
@@ -19,9 +23,19 @@
 -- @param self
         
 --------------------------------
+-- @function [parent=#TextureCache] getTextureKey 
+-- @param self
+-- @param #cc.Texture2D texture2d
+-- @return string#string ret (return value: string)
+        
+--------------------------------
 -- @function [parent=#TextureCache] getDescription 
 -- @param self
 -- @return string#string ret (return value: string)
+        
+--------------------------------
+-- @function [parent=#TextureCache] printAll 
+-- @param self
         
 --------------------------------
 -- @function [parent=#TextureCache] getCachedTextureInfo 
@@ -40,10 +54,25 @@
 -- @return Texture2D#Texture2D ret (retunr value: cc.Texture2D)
 
 --------------------------------
+-- @function [parent=#TextureCache] isEtcRender 
+-- @param self
+-- @param #char char
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
 -- @function [parent=#TextureCache] getTextureForKey 
 -- @param self
 -- @param #string str
 -- @return Texture2D#Texture2D ret (return value: cc.Texture2D)
+        
+--------------------------------
+-- @function [parent=#TextureCache] textures_unlock 
+-- @param self
+        
+--------------------------------
+-- @function [parent=#TextureCache] addEtcFileName 
+-- @param self
+-- @param #char char
         
 --------------------------------
 -- @function [parent=#TextureCache] removeUnusedTextures 

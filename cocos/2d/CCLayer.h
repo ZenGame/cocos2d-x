@@ -165,6 +165,13 @@ public:
     // Overrides
     virtual std::string getDescription() const override;
 
+
+	void fly_setTouchEnabled(bool enabled);
+	void fly_runActionFadeOut(float dt);
+	void fly_runActionFadeIn(float dt);
+	void fly_setAutoSize(bool bAuto);
+
+
 CC_CONSTRUCTOR_ACCESS:
     Layer();
     virtual ~Layer();

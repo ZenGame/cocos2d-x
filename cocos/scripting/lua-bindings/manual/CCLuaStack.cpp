@@ -141,7 +141,6 @@ bool LuaStack::init(void)
     _state = lua_open();
     luaL_openlibs(_state);
     toluafix_open(_state);
-
     // Register our version of the global "print" function
     const luaL_reg global_functions [] = {
         {"print", lua_print},
@@ -167,6 +166,8 @@ bool LuaStack::init(void)
     register_all_cocos2dx_spine(_state);
     register_all_cocos2dx_spine_manual(_state);
     register_glnode_manual(_state);
+
+
 #if CC_USE_PHYSICS
     register_all_cocos2dx_physics(_state);
     register_all_cocos2dx_physics_manual(_state);

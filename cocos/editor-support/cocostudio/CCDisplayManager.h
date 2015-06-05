@@ -119,6 +119,8 @@ public:
     cocos2d::Size getContentSize() const;
     cocos2d::Rect getBoundingBox() const;
 
+	cocos2d::Size getMaxSize() const;
+
     cocos2d::Vec2 getAnchorPoint() const;
     cocos2d::Vec2 getAnchorPointInPoints() const;
 
@@ -151,6 +153,8 @@ protected:
     bool _visible;
 
     Bone *_bone;
+
+	cocos2d::Size _maxSize;
 };
 
 }

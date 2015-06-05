@@ -43,6 +43,7 @@ enum
     kDefaultPadding =  5,
 };
 
+#define  MISS_MOVE_INNER 10.0f
 //
 //CCMenu
 //
@@ -231,6 +232,11 @@ void Menu::removeChild(Node* child, bool cleanup)
 
 bool Menu::onTouchBegan(Touch* touch, Event* event)
 {
+	Point pos = Director::getInstance()->convertToGL(touch->getLocationInView());
+	m_posBegin = pos;
+	m_bMoving = false;
+
+
     if (_state != Menu::State::WAITING || ! _visible || !_enabled)
     {
         return false;
@@ -258,12 +264,20 @@ bool Menu::onTouchBegan(Touch* touch, Event* event)
 
 void Menu::onTouchEnded(Touch* touch, Event* event)
 {
+	m_posBegin = Point(0,0);
     CCASSERT(_state == Menu::State::TRACKING_TOUCH, "[Menu ccTouchEnded] -- invalid state");
+	
+
     this->retain();
     if (_selectedItem)
     {
         _selectedItem->unselected();
-        _selectedItem->activate();
+		if (m_bMoving == false)
+		{
+			_selectedItem->activate();
+		}
+
+        //_selectedItem->activate();
     }
     _state = Menu::State::WAITING;
     this->release();
@@ -283,6 +297,22 @@ void Menu::onTouchCancelled(Touch* touch, Event* event)
 
 void Menu::onTouchMoved(Touch* touch, Event* event)
 {
+	Point pos = Director::getInstance()->convertToGL(touch->getLocationInView());
+	float dx = m_posBegin.x - pos.x;
+	float dy = m_posBegin.y - pos.y;
+	//m_posBegin=pos;
+	if (dx >= -MISS_MOVE_INNER && dx <= MISS_MOVE_INNER && dy >= -MISS_MOVE_INNER && dy <= MISS_MOVE_INNER)
+	{
+		//移动在可允许的范围内;
+		m_bMoving = false;
+		//CCLog("CCMenu::ccTouchMoved set m_bMoving false  %f %f",pos.x,pos.y);
+	}
+	else
+	{
+		m_bMoving = true;
+		// CCLog("CCMenu::ccTouchMoved set m_bMoving true moved %f %f",pos.x,pos.y);
+	}
+
     CCASSERT(_state == Menu::State::TRACKING_TOUCH, "[Menu ccTouchMoved] -- invalid state");
     MenuItem *currentItem = this->getItemForTouch(touch);
     if (currentItem != _selectedItem)
@@ -561,5 +591,18 @@ std::string Menu::getDescription() const
 {
     return StringUtils::format("<Menu | Tag = %d>", _tag);
 }
+
+void Menu::fly_setEnabled(bool bEnable)
+{
+	auto pChild = getChildren();
+	for (auto pObj : pChild)
+	{
+		MenuItem* item = (MenuItem*)pObj;
+		if (item)
+			item->setEnabled(bEnable);
+	}
+}
+
+
 
 NS_CC_END

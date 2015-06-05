@@ -91,6 +91,7 @@ bool EditBoxImplAndroid::initWithSize(const Size& size)
 
 void EditBoxImplAndroid::setFont(const char* pFontName, int fontSize)
 {
+	/*
 	if(_label != NULL) {
 		_label->setSystemFontName(pFontName);
 		_label->setSystemFontSize(fontSize);
@@ -100,6 +101,24 @@ void EditBoxImplAndroid::setFont(const char* pFontName, int fontSize)
 		_labelPlaceHolder->setSystemFontName(pFontName);
 		_labelPlaceHolder->setSystemFontSize(fontSize);
 	}
+	*/
+
+	if (_label != NULL) {
+
+		if (FileUtils::getInstance()->isFileExist(pFontName))
+		{
+			TTFConfig config = _label->getTTFConfig();
+			config.fontFilePath = pFontName;
+			config.fontSize = fontSize;
+			_label->setTTFConfig(config);
+		}
+		else
+		{
+			_label->setSystemFontName(pFontName);
+		}
+	}
+	setPlaceholderFont(pFontName, fontSize);
+
 }
 
 void EditBoxImplAndroid::setFontColor(const Color3B& color)
@@ -110,9 +129,26 @@ void EditBoxImplAndroid::setFontColor(const Color3B& color)
 
 void EditBoxImplAndroid::setPlaceholderFont(const char* pFontName, int fontSize)
 {
+	/*
 	if(_labelPlaceHolder != NULL) {
 		_labelPlaceHolder->setSystemFontName(pFontName);
 		_labelPlaceHolder->setSystemFontSize(fontSize);
+	}
+	*/
+
+	if (_labelPlaceHolder != NULL) {
+
+		if (FileUtils::getInstance()->isFileExist(pFontName))
+		{
+			TTFConfig config = _labelPlaceHolder->getTTFConfig();
+			config.fontFilePath = pFontName;
+			config.fontSize = fontSize;
+			_labelPlaceHolder->setTTFConfig(config);
+		}
+		else
+		{
+			_labelPlaceHolder->setSystemFontName(pFontName);
+		}
 	}
 }
 

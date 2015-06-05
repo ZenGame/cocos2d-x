@@ -389,6 +389,7 @@ void LoadingBar::copySpecialProperties(Widget *widget)
         setCapInsets(loadingBar->_capInsets);
         setPercent(loadingBar->_percent);
         setDirection(loadingBar->_direction);
+		getVirtualRenderer()->setGLProgramState(loadingBar->getVirtualRenderer()->getGLProgramState());
     }
 }
 

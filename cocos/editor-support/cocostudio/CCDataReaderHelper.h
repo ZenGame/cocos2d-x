@@ -76,11 +76,14 @@ protected:
 	{
 		AsyncStruct *asyncStruct;
 		std::queue<std::string>      configFileQueue;
+		std::queue<std::string>      textureFileQueue;
         float contentScale;
         std::string    filename;
         std::string    baseFilePath;
         float flashToolVersion;
         float cocoStudioVersion;
+		std::string    prefix;
+		//std::string    textureFileName;
 	} DataInfo;
 
 public:
@@ -158,8 +161,8 @@ public:
     static void addDataFromJsonCache(const std::string& fileContent, DataInfo *dataInfo = nullptr);
 
     static ArmatureData *decodeArmature(const rapidjson::Value& json, DataInfo *dataInfo);
-    static BoneData *decodeBone(const rapidjson::Value& json, DataInfo *dataInfo);
-    static DisplayData *decodeBoneDisplay(const rapidjson::Value& json, DataInfo *dataInfo);
+    static BoneData *decodeBone(const rapidjson::Value& json, DataInfo *dataInfo, const std::string& prefix = "");
+	static DisplayData *decodeBoneDisplay(const rapidjson::Value& json, DataInfo *dataInfo, const std::string& prefix = "");
 
     static AnimationData *decodeAnimation(const rapidjson::Value& json, DataInfo *dataInfo);
     static MovementData *decodeMovement(const rapidjson::Value& json, DataInfo *dataInfo);
@@ -171,6 +174,8 @@ public:
     static ContourData *decodeContour(const rapidjson::Value& json);
 
     static void decodeNode(BaseData *node, const rapidjson::Value& json, DataInfo *dataInfo);
+
+	static void printCachedFile();
 
 protected:
 	void loadData();

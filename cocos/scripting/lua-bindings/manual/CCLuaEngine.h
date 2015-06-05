@@ -157,9 +157,19 @@ private:
     int handleEventTouches(ScriptHandlerMgr::HandlerType type, void* data);
     int handleEventMouse(ScriptHandlerMgr::HandlerType type, void* data);
     
+	//add by flyingkisser
+ 	//void stack_lock(int i){ CCLOG("stack_lock begin %d thread %d",i,GetCurrentThreadId()); _stackLock.lock(); CCLOG("stack_lock end %d",i); }
+ 	//void stack_unlock(int i){ CCLOG("stack_unlock begin %d",i); _stackLock.unlock(); CCLOG("stack_unlock end %d",i); }
+	//void stack_lock(int i){  _stackLock.lock(); }
+	//void stack_unlock(int i){  _stackLock.unlock();  }
+ 	void stack_lock(int i){  }
+ 	void stack_unlock(int i){  }
 private:
     static LuaEngine* _defaultEngine;
     LuaStack *_stack;
+
+	//add by flyingkisser
+	std::mutex _stackLock;
 };
 
 NS_CC_END

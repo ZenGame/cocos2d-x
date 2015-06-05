@@ -154,6 +154,7 @@ bool FontFreeType::createFontObject(const std::string &fontName, int fontSize)
     return true;
 }
 
+
 FontFreeType::~FontFreeType()
 {
     if (_stroker)

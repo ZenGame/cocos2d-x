@@ -304,4 +304,7 @@
       <Filter>Dynamics\Joints</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\proj_c\runtime\frameworks\runtime-src\proj.win32\runtime.sln" />
+  </ItemGroup>
 </Project>

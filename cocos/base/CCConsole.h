@@ -60,7 +60,7 @@ static const int MAX_LOG_LENGTH = 16*1024;
  @brief Output Debug message.
  */
 void CC_DLL log(const char * format, ...) CC_FORMAT_PRINTF(1, 2);
-
+void CC_DLL elog(const char * format, ...) CC_FORMAT_PRINTF(1, 2);
 /** Console is helper class that lets the developer control the game from TCP connection.
  Console will spawn a new thread that will listen to a specified TCP port.
  Console has a basic token parser. Each token is associated with an std::function<void(int)>.

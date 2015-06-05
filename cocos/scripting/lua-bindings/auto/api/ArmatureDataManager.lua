@@ -4,11 +4,6 @@
 -- @extend Ref
 
 --------------------------------
--- @function [parent=#ArmatureDataManager] getAnimationDatas 
--- @param self
--- @return map_table#map_table ret (return value: map_table)
-        
---------------------------------
 -- @function [parent=#ArmatureDataManager] removeAnimationData 
 -- @param self
 -- @param #string str
@@ -32,10 +27,19 @@
 -- @param #string str
 
 --------------------------------
--- @function [parent=#ArmatureDataManager] removeArmatureFileInfo 
+-- @function [parent=#ArmatureDataManager] res_unlock 
+-- @param self
+        
+--------------------------------
+-- overload function: removeArmatureFileInfo(string, string)
+--          
+-- overload function: removeArmatureFileInfo(string)
+--          
+-- @function [parent=#ArmatureDataManager] removeArmatureFileInfo
 -- @param self
 -- @param #string str
-        
+-- @param #string str
+
 --------------------------------
 -- @function [parent=#ArmatureDataManager] getTextureDatas 
 -- @param self
@@ -46,6 +50,10 @@
 -- @param self
 -- @param #string str
 -- @return TextureData#TextureData ret (return value: ccs.TextureData)
+        
+--------------------------------
+-- @function [parent=#ArmatureDataManager] res_lock 
+-- @param self
         
 --------------------------------
 -- @function [parent=#ArmatureDataManager] getArmatureData 
@@ -94,6 +102,11 @@
 -- @param #string str
         
 --------------------------------
+-- @function [parent=#ArmatureDataManager] getAnimationDatas 
+-- @param self
+-- @return map_table#map_table ret (return value: map_table)
+        
+--------------------------------
 -- @function [parent=#ArmatureDataManager] isAutoLoadSpriteFile 
 -- @param self
 -- @return bool#bool ret (return value: bool)
@@ -101,6 +114,7 @@
 --------------------------------
 -- @function [parent=#ArmatureDataManager] addSpriteFrameFromFile 
 -- @param self
+-- @param #string str
 -- @param #string str
 -- @param #string str
 -- @param #string str

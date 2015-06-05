@@ -63,6 +63,9 @@ THE SOFTWARE.
 #include "CCApplication.h"
 #include "CCGLView.h"
 
+#include "cocos-sp-common.h"
+#include "CCProcessControl.h"
+
 /**
  Position of the FPS
  
@@ -79,6 +82,12 @@ NS_CC_BEGIN
 
 // singleton stuff
 static DisplayLinkDirector *s_SharedDirector = nullptr;
+
+//add by flyingkisser
+static bool s_bEngineQuit = false;
+bool fly_isEngineQuit(){
+	return s_bEngineQuit;
+}
 
 #define kDefaultFPS        60  // 60 frames per second
 extern const char* cocos2dVersion(void);
@@ -118,7 +127,7 @@ bool Director::init(void)
     // FPS
     _accumDt = 0.0f;
     _frameRate = 0.0f;
-    _FPSLabel = _drawnBatchesLabel = _drawnVerticesLabel = nullptr;
+    _FPSLabel = _drawnBatchesLabel = _drawnVerticesLabel = _MemLabel=nullptr;
     _totalFrames = _frames = 0;
     _lastUpdate = new struct timeval;
 
@@ -165,11 +174,13 @@ bool Director::init(void)
 
 Director::~Director(void)
 {
+	s_bEngineQuit = true;
     CCLOGINFO("deallocing Director: %p", this);
 
     CC_SAFE_RELEASE(_FPSLabel);
     CC_SAFE_RELEASE(_drawnVerticesLabel);
-    CC_SAFE_RELEASE(_drawnBatchesLabel);
+	CC_SAFE_RELEASE(_drawnBatchesLabel); 
+	CC_SAFE_RELEASE(_MemLabel);
 
     CC_SAFE_RELEASE(_runningScene);
     CC_SAFE_RELEASE(_notificationNode);
@@ -950,7 +961,7 @@ void Director::purgeDirector()
     CC_SAFE_RELEASE_NULL(_FPSLabel);
     CC_SAFE_RELEASE_NULL(_drawnBatchesLabel);
     CC_SAFE_RELEASE_NULL(_drawnVerticesLabel);
-
+	CC_SAFE_RELEASE_NULL(_MemLabel);
     // purge bitmap cache
     FontFNT::purgeCachedData();
 
@@ -1061,7 +1072,7 @@ void Director::showStats()
     ++_frames;
     _accumDt += _deltaTime;
     
-    if (_displayStats && _FPSLabel && _drawnBatchesLabel && _drawnVerticesLabel)
+    if (_displayStats && _FPSLabel && _drawnBatchesLabel && _drawnVerticesLabel && _MemLabel)
     {
         char buffer[30];
 
@@ -1074,6 +1085,14 @@ void Director::showStats()
             sprintf(buffer, "%.1f / %.3f", _frameRate, _secondsPerFrame);
             _FPSLabel->setString(buffer);
         }
+
+		if (getTotalFrames()%(60*3)==0)
+		{
+			//show current process memory every 60 frames
+			//int memSize = cocos2d::SP::CCProcessControl::getCurrentProcessMemory();
+			//sprintf(buffer, "mem : %d", memSize);
+			//_MemLabel->setString(buffer);
+		}
 
         auto currentCalls = (unsigned long)_renderer->getDrawnBatches();
         auto currentVerts = (unsigned long)_renderer->getDrawnVertices();
@@ -1094,6 +1113,7 @@ void Director::showStats()
         _drawnVerticesLabel->visit(_renderer, identity, false);
         _drawnBatchesLabel->visit(_renderer, identity, false);
         _FPSLabel->visit(_renderer, identity, false);
+		_MemLabel->visit(_renderer, identity, false);
     }
 }
 
@@ -1120,6 +1140,7 @@ void Director::createStatsLabel()
     if (_FPSLabel)
     {
         CC_SAFE_RELEASE_NULL(_FPSLabel);
+		CC_SAFE_RELEASE_NULL(_MemLabel);
         CC_SAFE_RELEASE_NULL(_drawnBatchesLabel);
         CC_SAFE_RELEASE_NULL(_drawnVerticesLabel);
         _textureCache->removeTextureForKey("/cc_fps_images");
@@ -1158,6 +1179,12 @@ void Director::createStatsLabel()
     _FPSLabel->initWithString("00.0", texture, 12, 32 , '.');
     _FPSLabel->setScale(scaleFactor);
 
+	_MemLabel = LabelAtlas::create();
+	_MemLabel->retain();
+	_MemLabel->setIgnoreContentScaleFactor(true);
+	_MemLabel->initWithString("00.0", texture, 12, 32, '.');
+	_MemLabel->setScale(scaleFactor);
+
     _drawnBatchesLabel = LabelAtlas::create();
     _drawnBatchesLabel->retain();
     _drawnBatchesLabel->setIgnoreContentScaleFactor(true);
@@ -1174,6 +1201,7 @@ void Director::createStatsLabel()
     Texture2D::setDefaultAlphaPixelFormat(currentFormat);
 
     const int height_spacing = 22 / CC_CONTENT_SCALE_FACTOR();
+	_MemLabel->setPosition(Vec2(0, height_spacing * 3) + CC_DIRECTOR_STATS_POSITION);
     _drawnVerticesLabel->setPosition(Vec2(0, height_spacing*2) + CC_DIRECTOR_STATS_POSITION);
     _drawnBatchesLabel->setPosition(Vec2(0, height_spacing*1) + CC_DIRECTOR_STATS_POSITION);
     _FPSLabel->setPosition(Vec2(0, height_spacing*0)+CC_DIRECTOR_STATS_POSITION);

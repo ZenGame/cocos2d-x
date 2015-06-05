@@ -474,6 +474,15 @@ void ArmatureAnimation::setFrameEventCallFunc(std::function<void(Bone *bone, con
     _frameEventListener = listener;
 }
 
+int ArmatureAnimation::getMovementFrameCount(const std::string& movementName)
+{
+	if (this->getAnimationData() == NULL) return 0;
+
+	if (this->getAnimationData()->getMovement(movementName) == NULL) return 0;
+
+	return this->getAnimationData()->getMovement(movementName)->duration;
+}
+
 void ArmatureAnimation::setUserObject(Ref *pUserObject)
 {
     CC_SAFE_RETAIN(pUserObject);

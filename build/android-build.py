@@ -197,6 +197,7 @@ def build_samples(target,ndk_build_param,android_platform,build_mode):
     build_targets = caculate_built_samples(target)
 
     current_dir = os.path.dirname(os.path.realpath(__file__))
+	
     cocos_root = os.path.join(current_dir, "..")
 
     if android_platform is not None:

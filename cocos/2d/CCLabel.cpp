@@ -713,7 +713,8 @@ bool Label::recordPlaceholderInfo(int spriteIndex)
 
 void Label::addChild(Node * child, int zOrder/* =0 */, int tag/* =0 */)
 {
-    CCASSERT(0, "addChild: is not supported on Label.");
+   // CCASSERT(0, "addChild: is not supported on Label.");
+	return Node::addChild(child, zOrder, tag);
 }
 
 void Label::sortAllChildren()
@@ -812,9 +813,11 @@ void Label::setFontScale(float fontScale)
 void Label::onDraw(const Mat4& transform, bool transformUpdated)
 {
     CC_PROFILER_START("Label - draw");
+	if (!_textureAtlas)
+		return;
 
     // Optimization: Fast Dispatch
-    if( _batchNodes.size() == 1 && _textureAtlas->getTotalQuads() == 0 )
+	if (_batchNodes.size() == 1 && _textureAtlas->getTotalQuads() == 0)
     {
         return;
     }
@@ -1340,5 +1343,7 @@ void Label::setBlendFunc(const BlendFunc &blendFunc)
         }
     }
 }
+
+
 
 NS_CC_END

@@ -4,6 +4,7 @@
 
 namespace cocosbuilder {
 
+	
 #define CCB_MEMBERVARIABLEASSIGNER_GLUE(TARGET, MEMBERVARIABLENAME, MEMBERVARIABLETYPE, MEMBERVARIABLE) \
     if (pTarget == TARGET && 0 == strcmp(pMemberVariableName, (MEMBERVARIABLENAME))) { \
         MEMBERVARIABLETYPE pOldVar = MEMBERVARIABLE; \
@@ -15,6 +16,17 @@ namespace cocosbuilder {
         } \
         return true; \
     }
+	
+
+#define FLY_CCB_MEMBERVARIABLEASSIGNER_GLUE(TARGET, MEMBERVARIABLENAME, MEMBERVARIABLETYPE, MEMBERVARIABLE) \
+                 if (pTarget == TARGET && 0 == strcmp(pMemberVariableName, (MEMBERVARIABLENAME))) { \
+                MEMBERVARIABLE=0;\
+                MEMBERVARIABLE = dynamic_cast<MEMBERVARIABLETYPE>(pNode); \
+                CC_ASSERT(MEMBERVARIABLE); \
+                MEMBERVARIABLE->retain(); \
+                m_pMap.insert(Pair(MEMBERVARIABLENAME,MEMBERVARIABLE)); \
+                 return true ; \
+				 				                 }
 
 #define CCB_MEMBERVARIABLEASSIGNER_GLUE_WEAK(TARGET, MEMBERVARIABLENAME, MEMBERVARIABLETYPE, MEMBERVARIABLE) \
     if (pTarget == TARGET && 0 == strcmp(pMemberVariableName, MEMBERVARIABLENAME)) { \

@@ -348,7 +348,7 @@ void Text::copySpecialProperties(Widget *widget)
     if (label)
     {
         setFontName(label->_fontName);
-        setFontSize(label->_labelRenderer->getSystemFontSize());
+        setFontSize(label->_fontSize);
         setString(label->getString());
         setTouchScaleChangeEnabled(label->_touchScaleChangeEnabled);
         setTextHorizontalAlignment(label->_labelRenderer->getHorizontalAlignment());

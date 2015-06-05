@@ -49,7 +49,7 @@ public:
     /**
      *	@brief	Add sprite frame to CCSpriteFrameCache, it will save display name and it's relative image name
      */
-    void addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath);
+	void addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath, const std::string& prefix = "");
 
 private:
     SpriteFrameCacheHelper();

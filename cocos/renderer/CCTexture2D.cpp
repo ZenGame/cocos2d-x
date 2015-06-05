@@ -613,7 +613,7 @@ bool Texture2D::initWithMipmaps(MipmapInfo* mipmaps, int mipmapsNum, PixelFormat
     GL::bindTexture2D(_name);
 
     if (mipmapsNum == 1)
-    {
+    { 
         glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, _antialiasEnabled ? GL_LINEAR : GL_NEAREST);
     }else
     {
@@ -738,14 +738,14 @@ bool Texture2D::initWithImage(Image *image, PixelFormat format)
     PixelFormat      renderFormat = image->getRenderFormat();
     size_t	         tempDataLen = image->getDataLen();
 
-
+	_imageFormat = (int)image->getFileType();
     if (image->getNumberOfMipmaps() > 1)
     {
         if (format != PixelFormat::NONE)
         {
             CCLOG("cocos2d: WARNING: This image has more than 1 mipmaps and we will not convert the data format");
         }
-
+		//CCLOG("cocos2d: Texture2D::initWithImage format %d with mipm",pixelFormat);
         initWithMipmaps(image->getMipmaps(), image->getNumberOfMipmaps(), image->getRenderFormat(), imageWidth, imageHeight);
         
         return true;
@@ -756,7 +756,7 @@ bool Texture2D::initWithImage(Image *image, PixelFormat format)
         {
             CCLOG("cocos2d: WARNING: This image is compressed and we cann't convert it for now");
         }
-
+		//CCLOG("cocos2d: Texture2D::initWithImage pixelFormat is %d image renderformat is %d", pixelFormat, image->getRenderFormat());
         initWithData(tempData, tempDataLen, image->getRenderFormat(), imageWidth, imageHeight, imageSize);
         return true;
     }
@@ -775,7 +775,7 @@ bool Texture2D::initWithImage(Image *image, PixelFormat format)
         ssize_t outTempDataLen = 0;
 
         pixelFormat = convertDataToFormat(tempData, tempDataLen, renderFormat, pixelFormat, &outTempData, &outTempDataLen);
-
+		//CCLOG("cocos2d: Texture2D::initWithImage format %d", pixelFormat);
         initWithData(outTempData, outTempDataLen, pixelFormat, imageWidth, imageHeight, imageSize);
 
 

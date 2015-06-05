@@ -350,6 +350,7 @@ void ImageView::copySpecialProperties(Widget *widget)
         setScale9Enabled(imageView->_scale9Enabled);
         loadTexture(imageView->_textureFile, imageView->_imageTexType);
         setCapInsets(imageView->_capInsets);
+		getVirtualRenderer()->setGLProgramState(imageView->getVirtualRenderer()->getGLProgramState());
     }
 }
 

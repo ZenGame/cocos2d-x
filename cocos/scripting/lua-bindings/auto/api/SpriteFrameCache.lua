@@ -4,16 +4,17 @@
 -- @extend Ref
 
 --------------------------------
--- overload function: addSpriteFramesWithFile(string, string)
+-- overload function: addSpriteFramesWithFile(string, string, string)
 --          
 -- overload function: addSpriteFramesWithFile(string)
 --          
--- overload function: addSpriteFramesWithFile(string, cc.Texture2D)
+-- overload function: addSpriteFramesWithFile(string, cc.Texture2D, string)
 --          
 -- @function [parent=#SpriteFrameCache] addSpriteFramesWithFile
 -- @param self
 -- @param #string str
 -- @param #cc.Texture2D texture2d
+-- @param #string str
 
 --------------------------------
 -- @function [parent=#SpriteFrameCache] addSpriteFrame 
@@ -32,10 +33,24 @@
 -- @return SpriteFrame#SpriteFrame ret (return value: cc.SpriteFrame)
         
 --------------------------------
--- @function [parent=#SpriteFrameCache] removeSpriteFramesFromFile 
+-- @function [parent=#SpriteFrameCache] removePlistFile 
 -- @param self
 -- @param #string str
         
+--------------------------------
+-- @function [parent=#SpriteFrameCache] printAll 
+-- @param self
+        
+--------------------------------
+-- overload function: removeSpriteFramesFromFile(string, string)
+--          
+-- overload function: removeSpriteFramesFromFile(string)
+--          
+-- @function [parent=#SpriteFrameCache] removeSpriteFramesFromFile
+-- @param self
+-- @param #string str
+-- @param #string str
+
 --------------------------------
 -- @function [parent=#SpriteFrameCache] init 
 -- @param self
@@ -53,6 +68,12 @@
 --------------------------------
 -- @function [parent=#SpriteFrameCache] removeSpriteFrameByName 
 -- @param self
+-- @param #string str
+        
+--------------------------------
+-- @function [parent=#SpriteFrameCache] removeSpriteFramesFromDictionary 
+-- @param self
+-- @param #map_table map
 -- @param #string str
         
 --------------------------------

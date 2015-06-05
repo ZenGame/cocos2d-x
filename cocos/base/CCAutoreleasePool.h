@@ -28,6 +28,7 @@ THE SOFTWARE.
 #include <stack>
 #include <vector>
 #include <string>
+#include <mutex>
 #include "base/CCRef.h"
 
 NS_CC_BEGIN
@@ -91,7 +92,7 @@ public:
     /**
      * Checks whether the pool contains the specified object.
      */
-    bool contains(Ref* object) const;
+    bool contains(Ref* object) ;
 
     /**
      * Dump the objects that are put into autorelease pool. It is used for debugging.
@@ -102,6 +103,10 @@ public:
      */
     void dump();
     
+	//add by flyingkisser
+	void obj_lock(){ _objLock.lock(); }
+	void obj_unlock(){ _objLock.unlock(); }
+
 private:
     /**
      * The underlying array of object managed by the pool.
@@ -114,6 +119,7 @@ private:
      */
     std::vector<Ref*> _managedObjectArray;
     std::string _name;
+	std::mutex _objLock;
     
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
     /**

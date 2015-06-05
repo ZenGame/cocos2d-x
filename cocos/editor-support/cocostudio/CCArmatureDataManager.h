@@ -157,7 +157,7 @@ public:
     /**
      *	@brief	Add sprite frame to CCSpriteFrameCache, it will save display name and it's relative image name
      */
-    void addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath, const std::string& configFilePath = "");
+    void addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath, const std::string& configFilePath = "", const std::string& prefix = "");
 
     virtual void removeArmatureFileInfo(const std::string& configFilePath);
 
@@ -171,6 +171,11 @@ public:
     const cocos2d::Map<std::string, ArmatureData*>&     getArmatureDatas() const;
     const cocos2d::Map<std::string, AnimationData*>&    getAnimationDatas() const;
     const cocos2d::Map<std::string, TextureData*>&      getTextureDatas() const;
+
+	//add by flyingkisser
+	void removeArmatureFileInfo(const std::string& configFilePath,const std::string& prefix);
+	void res_lock(){ _resLock.lock(); }
+	void res_unlock(){ _resLock.unlock(); }
 
 protected:
     void addRelativeData(const std::string& configFilePath);
@@ -200,6 +205,8 @@ private:
     bool _autoLoadSpriteFile;
 
     std::unordered_map<std::string, RelativeData> _relativeDatas;
+
+	std::mutex _resLock;
 };
 
 

@@ -211,7 +211,13 @@ static void _log(const char *format, va_list args)
 {
     char buf[MAX_LOG_LENGTH];
 
-    vsnprintf(buf, MAX_LOG_LENGTH-3, format, args);
+    int ret=vsnprintf(buf, MAX_LOG_LENGTH-3, format, args);
+	if (ret < 0 || ret >= MAX_LOG_LENGTH)
+	{
+		memset(buf, 0, sizeof(buf));
+		strcpy(buf, "log logstr is too long!!!!!!!!!!!!!!!!!");
+		//strcat_s(buf, format);
+	}
     strcat(buf, "\n");
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
@@ -236,6 +242,68 @@ static void _log(const char *format, va_list args)
 
 }
 
+static void _elog(const char *format, va_list args)
+{
+	char buf[MAX_LOG_LENGTH];
+
+	int ret = vsnprintf(buf, MAX_LOG_LENGTH - 3, format, args);
+	if (ret < 0 || ret >= MAX_LOG_LENGTH)
+	{
+		memset(buf, 0, sizeof(buf));
+		strcpy(buf, "elog logstr is too long!!!!!!!!!!!!!!!!!");
+		//strcat_s(buf, format);
+	}
+
+#if  CC_TARGET_PLATFORM ==  CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WP8
+	DWORD dwError = GetLastError();
+	char     szMsg[128] = { 0 };
+	int a=FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM, 0, dwError, 0, szMsg, sizeof(szMsg), 0);
+	if (a == 0)
+	{
+		dwError = GetLastError();
+		char sbuf[128] = { 0 };
+		sprintf_s(sbuf, " FormatMessageA failed,last error is %d", dwError);
+		strcat(buf, sbuf);
+	}
+	else
+	{
+		char sbuf[128] = { 0 };
+		sprintf_s(sbuf, " errorcode is %d,errorstr is %s", dwError,szMsg);
+		strcat(buf, sbuf);
+	}
+#else
+	char *szError = strerror(errno);
+	char sbuf[128] = { 0 };
+	sprintf(sbuf, " errorcode is %d,errorstr is %s", errno,szError);
+	strcat(buf, sbuf);
+#endif
+
+	strcat(buf, "\n");
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+	__android_log_print(ANDROID_LOG_DEBUG, "cocos2d-x debug info", "%s", buf);
+
+#elif CC_TARGET_PLATFORM ==  CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_WP8
+	//WCHAR wszBuf[MAX_LOG_LENGTH] = { 0 };
+	//MultiByteToWideChar(CP_UTF8, 0, buf, -1, wszBuf, sizeof(wszBuf));
+	//OutputDebugStringW(wszBuf);
+	//WideCharToMultiByte(CP_ACP, 0, wszBuf, -1, buf, sizeof(buf), NULL, FALSE);
+	OutputDebugStringA(buf);
+	printf("%s", buf);
+	fflush(stdout);
+#else
+	// Linux, Mac, iOS, etc
+	fprintf(stdout, "cocos2d: %s", buf);
+	fflush(stdout);
+#endif
+
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WINRT)
+	Director::getInstance()->getConsole()->log(buf);
+#endif
+
+}
+
+
 // XXX: Deprecated
 void CCLog(const char * format, ...)
 {
@@ -251,6 +319,14 @@ void log(const char * format, ...)
     va_start(args, format);
     _log(format, args);
     va_end(args);
+}
+
+void elog(const char * format, ...)
+{
+	va_list args;
+	va_start(args, format);
+	_elog(format, args);
+	va_end(args);
 }
 
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WINRT)

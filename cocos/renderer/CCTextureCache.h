@@ -177,6 +177,16 @@ public:
     //called by director, please do not called outside
     void waitForQuit();
 
+	//--add by flyingkisser
+	void printAll();
+	std::string getTextureKey(Texture2D* t);
+	void addEtcFileName(const char* strName);
+	bool isEtcRender(const char* szJpgName);
+// 	void textures_lock(){ CCLOG("textures_lock begin"); _textureLock.lock(); CCLOG("textures_lock end"); }
+// 	void textures_unlock(){ CCLOG("textures_unlock begin"); _textureLock.unlock(); CCLOG("textures_unlock end"); }
+	void textures_lock(){  _textureLock.lock();  }
+	void textures_unlock(){  _textureLock.unlock();  }
+
 private:
     void addImageAsyncCallBack(float dt);
     void loadImage();
@@ -204,6 +214,7 @@ protected:
     std::deque<ImageInfo*>* _imageInfoQueue;
 
     std::mutex _asyncStructQueueMutex;
+	std::mutex _textureLock;
     std::mutex _imageInfoMutex;
 
     std::mutex _sleepMutex;
@@ -214,6 +225,7 @@ protected:
     int _asyncRefCount;
 
     std::unordered_map<std::string, Texture2D*> _textures;
+	std::vector<std::string> _etcRenderNameList;
 };
 
 #if CC_ENABLE_CACHE_TEXTURE_DATA

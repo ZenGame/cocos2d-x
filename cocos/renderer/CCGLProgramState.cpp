@@ -282,7 +282,7 @@ GLProgramState::~GLProgramState()
 
 bool GLProgramState::init(GLProgram* glprogram)
 {
-    CCASSERT(glprogram, "invalid shader");
+    CCASSERT(glprogram, "init invalid shader");
 
     _glprogram = glprogram;
     _glprogram->retain();
@@ -311,7 +311,7 @@ void GLProgramState::resetGLProgram()
 
 void GLProgramState::apply(const Mat4& modelView)
 {
-    CCASSERT(_glprogram, "invalid glprogram");
+    CCASSERT(_glprogram, "apply invalid glprogram");
 
     // set shader
     _glprogram->use();

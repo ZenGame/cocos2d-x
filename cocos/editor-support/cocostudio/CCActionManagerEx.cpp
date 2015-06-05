@@ -67,10 +67,30 @@ void ActionManagerEx::initWithDictionary(const char* jsonName,const rapidjson::V
 		const rapidjson::Value &actionDic = DICTOOL->getDictionaryFromArray_json(dic, "actionlist", i);
 		action->initWithDictionary(actionDic,root);
 		actionList.pushBack(action);
+		
 	}
+	auto iterator = _actionDic.find(jsonName);
+	if (iterator != _actionDic.end())
+	{
+		_actionDic.erase(iterator);
+	}
+
 	_actionDic.insert(std::pair<std::string, cocos2d::Vector<ActionObject*>>(fileName, actionList));
 }
 
+int ActionManagerEx::releaseActionForFile(const char* jsonName)
+{
+	auto iterator = _actionDic.find(jsonName);
+	if (iterator == _actionDic.end())
+	{
+		return 0;
+	}
+	cocos2d::Vector<ActionObject*>  actionList = iterator->second;
+	int ret = actionList.size();
+	actionList.clear();
+	_actionDic.erase(iterator);
+	return ret;
+}
 
 ActionObject* ActionManagerEx::getActionByName(const char* jsonName,const char* actionName)
 {

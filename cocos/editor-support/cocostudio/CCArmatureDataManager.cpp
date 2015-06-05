@@ -114,10 +114,55 @@ void ArmatureDataManager::removeArmatureFileInfo(const std::string& configFilePa
             SpriteFrameCache::getInstance()->removeSpriteFramesFromFile(str.c_str());
         }
 
+		res_lock();
         _relativeDatas.erase(configFilePath);
+		res_unlock();
         DataReaderHelper::getInstance()->removeConfigFile(configFilePath);
     }
 }
+
+void ArmatureDataManager::removeArmatureFileInfo(const std::string& configFilePath,const std::string& prefix)
+{
+    if (RelativeData *data = getRelativeData(configFilePath))
+    {
+
+		//CCLOG("removeArmatureFileInfo armatures begin");
+        for (std::string str : data->armatures)
+        {
+            removeArmatureData(str.c_str());
+        }
+		//CCLOG("removeArmatureFileInfo armatures end");
+		
+		//CCLOG("removeArmatureFileInfo animations begin");
+        for (std::string str : data->animations)
+        {
+       	 	//CCLOG("removeAnimationData begin");
+            removeAnimationData(str.c_str());
+			//CCLOG("removeAnimationData end");
+        }
+		//CCLOG("removeArmatureFileInfo animations end");
+
+		//CCLOG("removeArmatureFileInfo textures begin");
+        for (std::string str : data->textures)
+        {
+            removeTextureData(str.c_str());
+        }
+		//CCLOG("removeArmatureFileInfo textures end");
+
+		//CCLOG("removeArmatureFileInfo plistFiles begin");
+        for (std::string str : data->plistFiles)
+        {
+            SpriteFrameCache::getInstance()->removeSpriteFramesFromFile(str.c_str(),prefix);
+        }
+		//CCLOG("removeArmatureFileInfo plistFiles end");
+
+		res_lock();
+        _relativeDatas.erase(configFilePath);
+		res_unlock();
+        DataReaderHelper::getInstance()->removeConfigFile(configFilePath);
+    }
+}
+
 
 
 void ArmatureDataManager::addArmatureData(const std::string& id, ArmatureData *armatureData, const std::string& configFilePath)
@@ -126,8 +171,9 @@ void ArmatureDataManager::addArmatureData(const std::string& id, ArmatureData *a
     {
         data->armatures.push_back(id);
     }
-
+	res_lock();
     _armarureDatas.insert(id, armatureData);
+	res_unlock();
 }
 
 ArmatureData *ArmatureDataManager::getArmatureData(const std::string& id)
@@ -139,7 +185,9 @@ ArmatureData *ArmatureDataManager::getArmatureData(const std::string& id)
 
 void ArmatureDataManager::removeArmatureData(const std::string& id)
 {
+	res_lock();
     _armarureDatas.erase(id);
+	res_unlock();
 }
 
 void ArmatureDataManager::addAnimationData(const std::string& id, AnimationData *animationData, const std::string& configFilePath)
@@ -148,44 +196,55 @@ void ArmatureDataManager::addAnimationData(const std::string& id, AnimationData 
     {
         data->animations.push_back(id);
     }
-
+	res_lock();
     _animationDatas.insert(id, animationData);
+	res_unlock();
 }
 
 AnimationData *ArmatureDataManager::getAnimationData(const std::string& id)
 {
     AnimationData *animationData = nullptr;
+	res_lock();
     animationData = (AnimationData *)_animationDatas.at(id);
+	res_unlock();
     return animationData;
 }
 
 void ArmatureDataManager::removeAnimationData(const std::string& id)
 {
+	res_lock();
     _animationDatas.erase(id);
+	res_unlock();
 }
 
 void ArmatureDataManager::addTextureData(const std::string& id, TextureData *textureData, const std::string& configFilePath)
 {
+	res_lock();
     if (RelativeData *data = getRelativeData(configFilePath))
     {
         data->textures.push_back(id);
     }
 
     _textureDatas.insert(id, textureData);
+	res_unlock();
 }
 
 
 TextureData *ArmatureDataManager::getTextureData(const std::string& id)
 {
+	res_lock();
     TextureData *textureData = nullptr;
     textureData = (TextureData *)_textureDatas.at(id);
+	res_unlock();
     return textureData;
 }
 
 
 void ArmatureDataManager::removeTextureData(const std::string& id)
 {
+	res_lock();
     _textureDatas.erase(id);
+	res_unlock();
 }
 
 void ArmatureDataManager::addArmatureFileInfo(const std::string& configFilePath)
@@ -193,6 +252,7 @@ void ArmatureDataManager::addArmatureFileInfo(const std::string& configFilePath)
     addRelativeData(configFilePath);
 
     _autoLoadSpriteFile = true;
+	//DataReaderHelper::getInstance()->printCachedFile();
     DataReaderHelper::getInstance()->addDataFromFile(configFilePath);
 }
 
@@ -201,6 +261,7 @@ void ArmatureDataManager::addArmatureFileInfoAsync(const std::string& configFile
     addRelativeData(configFilePath);
 
     _autoLoadSpriteFile = true;
+	//DataReaderHelper::getInstance()->printCachedFile();
     DataReaderHelper::getInstance()->addDataFromFileAsync("", "", configFilePath, target, selector);
 }
 
@@ -210,7 +271,7 @@ void ArmatureDataManager::addArmatureFileInfo(const std::string& imagePath, cons
 
     _autoLoadSpriteFile = false;
     DataReaderHelper::getInstance()->addDataFromFile(configFilePath);
-    addSpriteFrameFromFile(plistPath, imagePath);
+	addSpriteFrameFromFile(plistPath, imagePath, configFilePath);
 }
 
 void ArmatureDataManager::addArmatureFileInfoAsync(const std::string& imagePath, const std::string& plistPath, const std::string& configFilePath, Ref *target, SEL_SCHEDULE selector)
@@ -219,16 +280,17 @@ void ArmatureDataManager::addArmatureFileInfoAsync(const std::string& imagePath,
 
     _autoLoadSpriteFile = false;
     DataReaderHelper::getInstance()->addDataFromFileAsync(imagePath, plistPath, configFilePath, target, selector);
-    addSpriteFrameFromFile(plistPath, imagePath);
+	addSpriteFrameFromFile(plistPath, imagePath, configFilePath);
 }
 
-void ArmatureDataManager::addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath, const std::string& configFilePath)
+void ArmatureDataManager::addSpriteFrameFromFile(const std::string& plistPath, const std::string& imagePath, const std::string& configFilePath, const std::string& prefix)
 {
     if (RelativeData *data = getRelativeData(configFilePath))
     {
         data->plistFiles.push_back(plistPath);
     }
-    SpriteFrameCacheHelper::getInstance()->addSpriteFrameFromFile(plistPath, imagePath);
+	//CCLOG("ArmatureDataManager::addSpriteFrameFromFile %s prefix %s", plistPath.c_str(), prefix.c_str());
+    SpriteFrameCacheHelper::getInstance()->addSpriteFrameFromFile(plistPath, imagePath, prefix);
 }
 
 
@@ -252,10 +314,12 @@ const cocos2d::Map<std::string, TextureData*>& ArmatureDataManager::getTextureDa
 
 void CCArmatureDataManager::addRelativeData(const std::string& configFilePath)
 {
+	res_lock();
     if (_relativeDatas.find(configFilePath) == _relativeDatas.end())
     {
         _relativeDatas[configFilePath] = RelativeData();
     }
+	res_unlock();
 }
 
 RelativeData *CCArmatureDataManager::getRelativeData(const std::string&  configFilePath)

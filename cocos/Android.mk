@@ -172,7 +172,6 @@ physics/chipmunk/CCPhysicsWorldInfo_chipmunk.cpp \
 ../external/edtaa3func/edtaa3func.cpp \
 ../external/xxhash/xxhash.c
 
-
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/. \
                     $(LOCAL_PATH)/platform/android \
@@ -189,7 +188,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/../external/chipmunk/include/chipmunk \
                     $(LOCAL_PATH)/../external/edtaa3func \
                     $(LOCAL_PATH)/../external/xxhash \
-                    $(LOCAL_PATH)/../external/ConvertUTF
+                    $(LOCAL_PATH)/../external/ConvertUTF \
+                    $(LOCAL_PATH)/../../Global3
 
 
 LOCAL_LDLIBS := -lGLESv2 \

@@ -331,6 +331,8 @@ public:
     /** Returns the full path cache */
     const std::unordered_map<std::string, std::string>& getFullPathCache() const { return _fullPathCache; }
 
+	std::string getResourceDirectory(){ return _defaultResRootPath; }
+
 protected:
     /**
      *  The default constructor.

@@ -98,13 +98,13 @@ public:
      * @js addSpriteFrames
      * @lua addSpriteFrames
      */
-    void addSpriteFramesWithFile(const std::string& plist, const std::string& textureFileName);
+	void addSpriteFramesWithFile(const std::string& plist, const std::string& textureFileName, const std::string& prefix = "");
 
     /** Adds multiple Sprite Frames from a plist file. The texture will be associated with the created sprite frames. 
      * @js addSpriteFrames
      * @lua addSpriteFrames
      */
-    void addSpriteFramesWithFile(const std::string&plist, Texture2D *texture);
+	void addSpriteFramesWithFile(const std::string&plist, Texture2D *texture, const std::string& prefix = "");
 
     /** Adds an sprite frame with a given name.
      If the name already exists, then the contents of the old name will be replaced with the new one.
@@ -152,20 +152,39 @@ public:
     /** @deprecated use getSpriteFrameByName() instead */
     CC_DEPRECATED_ATTRIBUTE SpriteFrame* spriteFrameByName(const std::string&name) { return getSpriteFrameByName(name); }
 
+	//add by flyingkisser
+	void printAll();
+	void removeSpriteFramesFromFile(const std::string& plist, const std::string& prefix);
+	void removeSpriteFramesFromDictionary(ValueMap& dictionary, const std::string& prefix);
+	void removePlistFile(const std::string& plistFullFileName);
 private:
     /*Adds multiple Sprite Frames with a dictionary. The texture will be associated with the created sprite frames.
      */
-    void addSpriteFramesWithDictionary(ValueMap& dictionary, Texture2D *texture);
+	void addSpriteFramesWithDictionary(ValueMap& dictionary, Texture2D *texture, const std::string& prefix = "");
 
     /** Removes multiple Sprite Frames from Dictionary.
     * @since v0.99.5
     */
     void removeSpriteFramesFromDictionary(ValueMap& dictionary);
 
+// 	void frames_lock(){ CCLOG("frame lock begin"); _framesLock.lock(); CCLOG("frame lock ok"); }
+// 	void frames_unlock(){ CCLOG("frame unlock begin"); _framesLock.unlock(); CCLOG("frame unlock ok"); }
+// 	void file_lock(){ CCLOG("file lock begin"); _filesLock.lock(); CCLOG("file lock ok"); }
+// 	void file_unlock(){ CCLOG("file unlock begin"); _filesLock.unlock(); CCLOG("file unlock ok"); }
+
+	void frames_lock(){  _framesLock.lock(); }
+	void frames_unlock(){  _framesLock.unlock();  }
+	void file_lock(){  _filesLock.lock();  }
+	void file_unlock(){  _filesLock.unlock();  }
+
 protected:
-    Map<std::string, SpriteFrame*> _spriteFrames;
+    //Map<std::string, SpriteFrame*> _spriteFrames;
+	Map<int, SpriteFrame*> _spriteFramesHash;
     ValueMap _spriteFramesAliases;
     std::set<std::string>*  _loadedFileNames;
+	std::mutex	_framesLock;
+	std::mutex	_filesLock;
+
 };
 
 // end of sprite_nodes group

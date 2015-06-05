@@ -206,6 +206,8 @@ public:
     }
     virtual AnimationData *getAnimationData() const { return _animationData; }
 
+	int getMovementFrameCount(const std::string& movementName);
+
 
     /** 
      * Returns a user assigned Object
@@ -234,6 +236,16 @@ public:
      * @param userObject    A user assigned Object
      */
     virtual void setUserObject(Ref *userObject);
+	int getCurrentFrameIndex()
+	{
+		return ProcessBase::getCurrentFrameIndex();
+	}
+
+	float getCurrentPercent()
+	{
+		return ProcessBase::getCurrentPercent();
+	}
+
 protected:
 
     /**

@@ -87,6 +87,13 @@ SchedulerScriptHandlerEntry::~SchedulerScriptHandlerEntry(void)
     LUALOG("[LUA] DEL script schedule %d, entryID: %d", _handler, _entryId);
 }
 
+//add by flyingkisser
+void SchedulerScriptHandlerEntry::setInterval( float v)
+{
+	TimerScriptHandler* timer = getTimer();
+	timer->setInterval(v);
+}
+
 
 // 
 // // TouchScriptHandlerEntry
@@ -161,6 +168,8 @@ void ScriptEngineManager::destroyInstance()
         s_pSharedScriptEngineManager = nullptr;
     }
 }
+
+
 
 NS_CC_END
 

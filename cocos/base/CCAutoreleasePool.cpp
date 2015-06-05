@@ -57,7 +57,9 @@ AutoreleasePool::~AutoreleasePool()
 
 void AutoreleasePool::addObject(Ref* object)
 {
+	//obj_lock();
     _managedObjectArray.push_back(object);
+	//obj_unlock();
 }
 
 void AutoreleasePool::clear()
@@ -65,28 +67,38 @@ void AutoreleasePool::clear()
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
     _isClearing = true;
 #endif
+	//obj_lock();
     for (const auto &obj : _managedObjectArray)
     {
         obj->release();
     }
+	
     _managedObjectArray.clear();
+	//obj_unlock();
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
     _isClearing = false;
 #endif
 }
 
-bool AutoreleasePool::contains(Ref* object) const
+bool AutoreleasePool::contains(Ref* object)
 {
+	//obj_lock();
     for (const auto& obj : _managedObjectArray)
     {
-        if (obj == object)
-            return true;
+		if (obj == object){
+			
+			//obj_unlock();
+			return true;
+		}
+            
     }
+	//obj_unlock();
     return false;
 }
 
 void AutoreleasePool::dump()
 {
+	obj_lock();
     CCLOG("autorelease pool: %s, number of managed object %d\n", _name.c_str(), static_cast<int>(_managedObjectArray.size()));
     CCLOG("%20s%20s%20s", "Object pointer", "Object id", "reference count");
     for (const auto &obj : _managedObjectArray)
@@ -94,6 +106,7 @@ void AutoreleasePool::dump()
         CC_UNUSED_PARAM(obj);
         CCLOG("%20p%20u\n", obj, obj->getReferenceCount());
     }
+	obj_unlock();
 }
 
 

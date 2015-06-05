@@ -303,7 +303,29 @@ void NodeLoader::parseProperties(Node * pNode, Node * pParent, CCBReader * ccbRe
             }
             case CCBReader::PropertyType::FNT_FILE:
             {
-                std::string fntFile = ccbReader->getCCBRootPath() + this->parsePropTypeFntFile(pNode, pParent, ccbReader);
+                //std::string fntFile = ccbReader->getCCBRootPath() + this->parsePropTypeFntFile(pNode, pParent, ccbReader);
+				std::string orgnFntFile = this->parsePropTypeFntFile(pNode, pParent, ccbReader);
+				std::string fntFile = ccbReader->getCCBRootPath() + orgnFntFile;
+
+				
+				ssize_t size = 0;
+				bool bPop = FileUtils::getInstance()->isPopupNotify();
+				FileUtils::getInstance()->setPopupNotify(false);
+				Data pData = FileUtils::getInstance()->getDataFromFile(fntFile);
+				if (pData.isNull())
+				{
+					std::string commonPath = "common/font/";
+					fntFile = FileUtils::getInstance()->getResourceDirectory() + commonPath + orgnFntFile;
+					pData = FileUtils::getInstance()->getDataFromFile(fntFile.c_str());
+					if (pData.isNull())
+					{
+						//file not exists
+						FileUtils::getInstance()->setPopupNotify(bPop);
+						break;
+					}
+				}
+				FileUtils::getInstance()->setPopupNotify(bPop);
+
                 if(setProp) 
                 {
                     this->onHandlePropTypeFntFile(pNode, pParent, propertyName.c_str(), fntFile.c_str(), ccbReader);
@@ -579,8 +601,25 @@ SpriteFrame * NodeLoader::parsePropTypeSpriteFrame(Node * pNode, Node * pParent,
     {
         if (spriteSheet.length() == 0)
         {
-            spriteFile = ccbReader->getCCBRootPath() + spriteFile;
-            Texture2D * texture = Director::getInstance()->getTextureCache()->addImage(spriteFile.c_str());
+
+			std::string orgnFile = spriteFile;
+			spriteFile = ccbReader->getCCBRootPath() + spriteFile;
+			bool bPop = FileUtils::getInstance()->isPopupNotify();
+			FileUtils::getInstance()->setPopupNotify(false);
+
+			Texture2D * texture = Director::getInstance()->getTextureCache()->addImage(spriteFile.c_str());
+
+			FileUtils::getInstance()->setPopupNotify(bPop);
+			if (!texture)
+			{
+				//filePath error
+				std::string commonPath = "common/pic/";
+				spriteFile = FileUtils::getInstance()->getResourceDirectory() + commonPath + orgnFile;
+				texture = Director::getInstance()->getTextureCache()->addImage(spriteFile.c_str());
+			}
+
+//             spriteFile = ccbReader->getCCBRootPath() + spriteFile;
+//             Texture2D * texture = Director::getInstance()->getTextureCache()->addImage(spriteFile.c_str());
             if(texture != NULL) {
                 Rect bounds = Rect(0, 0, texture->getContentSize().width, texture->getContentSize().height);
                 spriteFrame = SpriteFrame::createWithTexture(texture, bounds);

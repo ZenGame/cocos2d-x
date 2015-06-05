@@ -52,9 +52,12 @@ THE SOFTWARE.
 
 #include "deprecated/CCString.h"
 
+#include "renderer/CCGLProgramCache.h"
+#include "renderer/ccShaders.h"
+#include "platform/CCFileUtils.h"
 
 NS_CC_BEGIN
-
+//GLProgramState* g_ps = NULL;
 #if CC_SPRITEBATCHNODE_RENDER_SUBPIXEL
 #define RENDER_IN_SUBPIXEL
 #else
@@ -253,6 +256,7 @@ bool Sprite::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
         // shader state
         setGLProgramState(GLProgramState::getOrCreateWithGLProgramName(GLProgram::SHADER_NAME_POSITION_TEXTURE_COLOR_NO_MVP));
 
+
         // update texture (calls updateBlendFunc)
         setTexture(texture);
         setTextureRect(rect, rotated, rect.size);
@@ -268,6 +272,29 @@ bool Sprite::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
     }
     _recursiveDirty = true;
     setDirty(true);
+
+	//add by flyingkisser
+	//CCLOG("texture is 0x%08x", texture);
+	if (result && texture)
+	{
+		if (texture->getImageFormat() ==(int) Image::Format::ETC)
+		{
+			//CCLOG("begin to set to etc shader");
+			std::string name = Director::getInstance()->getTextureCache()->getTextureKey(_texture);
+			
+			if (Director::getInstance()->getTextureCache()->isEtcRender(name.c_str()))
+			{
+				GLProgramState* etcState = GLProgramState::getOrCreateWithGLProgramName("ShaderETC1");
+				if (etcState != nullptr)
+				{
+					setGLProgramState(etcState);
+					//CCLOG("texture %s ,set this sprite to etc1 shader", name.c_str());
+				}
+			}
+		}
+		//else
+			//CCLOG("%s PixelFormat is %d,not etc %d ", Director::getInstance()->getTextureCache()->getTextureKey(_texture).c_str(), _texture->getPixelFormat(), Texture2D::PixelFormat::ETC);
+	}
     return result;
 }
 
@@ -276,6 +303,7 @@ Sprite::Sprite(void)
 , _texture(nullptr)
 , _insideBounds(true)
 {
+
 }
 
 Sprite::~Sprite(void)
@@ -348,6 +376,33 @@ void Sprite::setTexture(Texture2D *texture)
         CC_SAFE_RELEASE(_texture);
         _texture = texture;
         updateBlendFunc();
+
+
+		//add by flyingkisser
+		
+		if ( texture)
+		{
+			if (texture->getImageFormat() == (int)Image::Format::ETC)
+			{
+				//CCLOG("begin to set to etc shader");
+				std::string name = Director::getInstance()->getTextureCache()->getTextureKey(_texture);
+
+				//CCLOG("texture name %s", name.c_str());
+				if (Director::getInstance()->getTextureCache()->isEtcRender(name.c_str()))
+				{
+					GLProgramState* etcState = GLProgramState::getOrCreateWithGLProgramName("ShaderETC1");
+					if (etcState != nullptr)
+					{
+						setGLProgramState(etcState);
+						//CCLOG("texture %s ,set this sprite to etc1 shader", name.c_str());
+					}
+				}
+				//else
+					//CCLOG("name %s not match", name.c_str());
+			}
+			//else
+				//CCLOG("%s PixelFormat is %d,not etc %d ", Director::getInstance()->getTextureCache()->getTextureKey(_texture).c_str(), _texture->getPixelFormat(), Texture2D::PixelFormat::ETC);
+		}
     }
 }
 
@@ -592,6 +647,12 @@ void Sprite::draw(Renderer *renderer, const Mat4 &transform, bool transformUpdat
 
     if(_insideBounds)
     {
+		//if (is_etc_texture && g_ps != NULL)
+		//{
+			//CCLOG("use new gs 0x%08x", g_ps);
+			//_quadCommand.init(_globalZOrder, _texture->getName(), g_ps, _blendFunc, &_quad, 1, transform);
+		//}else
+		
         _quadCommand.init(_globalZOrder, _texture->getName(), getGLProgramState(), _blendFunc, &_quad, 1, transform);
         renderer->addCommand(&_quadCommand);
 #if CC_SPRITE_DEBUG_DRAW
@@ -923,10 +984,32 @@ void Sprite::setSpriteFrame(const std::string &spriteFrameName)
 {
     SpriteFrameCache *cache = SpriteFrameCache::getInstance();
     SpriteFrame *spriteFrame = cache->getSpriteFrameByName(spriteFrameName);
-
+	if (spriteFrame == 0)
+		CCLOG("Sprite::setSpriteFrame Invalid spriteFrameName %s ",spriteFrameName.c_str());
     CCASSERT(spriteFrame, "Invalid spriteFrameName");
 
     setSpriteFrame(spriteFrame);
+
+	/*
+	SpriteFrame* frame = getSpriteFrame();
+	Texture2D* texture = frame->getTexture();
+	//GLProgram* textureShader = texture->getGLProgram();
+	GLProgram* etc1shader = GLProgramCache::getInstance()->getGLProgram("ShaderETC1");
+	if (etc1shader != nullptr)
+	{
+		std::string name1 = TextureCache::getInstance()->getTextureKey(texture);
+		if (name1.find("dota_ui0.pkm") == std::string::npos && name1.find("dota_ui1.pkm") == std::string::npos)
+		{
+			//CCLOG("Button::loadTextureNormal setGLProgramState cannot set %s %s", spriteFrameName.c_str(), name1.c_str());
+		}
+		else
+		{	
+			setGLProgramState(GLProgramState::getOrCreateWithGLProgram(etc1shader));
+			//CCLOG("Button::loadTextureNormal setGLProgramState to new state %s %s ", spriteFrameName.c_str(), name1.c_str());
+		}
+
+	}
+	*/
 }
 
 void Sprite::setSpriteFrame(SpriteFrame *spriteFrame)

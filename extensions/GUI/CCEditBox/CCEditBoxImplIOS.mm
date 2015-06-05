@@ -390,10 +390,28 @@ void EditBoxImplIOS::setFont(const char* pFontName, int fontSize)
 		[_systemControl.textField setFont:textFont];
     }
 
+/*
 	_label->setSystemFontName(pFontName);
 	_label->setSystemFontSize(fontSize);
 	_labelPlaceHolder->setSystemFontName(pFontName);
 	_labelPlaceHolder->setSystemFontSize(fontSize);
+*/
+
+	if (_label != NULL) {
+
+		if (FileUtils::getInstance()->isFileExist(pFontName))
+		{
+			TTFConfig config = _label->getTTFConfig();
+			config.fontFilePath = pFontName;
+			config.fontSize = fontSize;
+			_label->setTTFConfig(config);
+		}
+		else
+		{
+			_label->setSystemFontName(pFontName);
+		}
+	}
+	setPlaceholderFont(pFontName, fontSize);
 }
 
 void EditBoxImplIOS::setFontColor(const Color3B& color)
@@ -405,6 +423,20 @@ void EditBoxImplIOS::setFontColor(const Color3B& color)
 void EditBoxImplIOS::setPlaceholderFont(const char* pFontName, int fontSize)
 {
 	// TODO need to be implemented.
+	if (_labelPlaceHolder != NULL) {
+
+		if (FileUtils::getInstance()->isFileExist(pFontName))
+		{
+			TTFConfig config = _labelPlaceHolder->getTTFConfig();
+			config.fontFilePath = pFontName;
+			config.fontSize = fontSize;
+			_labelPlaceHolder->setTTFConfig(config);
+		}
+		else
+		{
+			_labelPlaceHolder->setSystemFontName(pFontName);
+		}
+	}
 }
 
 void EditBoxImplIOS::setPlaceholderFontColor(const Color3B& color)

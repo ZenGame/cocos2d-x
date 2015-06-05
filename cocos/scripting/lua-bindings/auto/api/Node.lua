@@ -183,6 +183,12 @@
 -- @param #bool bool
 
 --------------------------------
+-- @function [parent=#Node] nodeToNodeTransform 
+-- @param self
+-- @param #cc.Node node
+-- @return AffineTransform#AffineTransform ret (return value: cc.AffineTransform)
+        
+--------------------------------
 -- @function [parent=#Node] getNodeToParentAffineTransform 
 -- @param self
 -- @return AffineTransform#AffineTransform ret (return value: cc.AffineTransform)
@@ -214,11 +220,16 @@
 -- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
--- @function [parent=#Node] convertToNodeSpace 
+-- overload function: convertToNodeSpace(cc.Node, cc.Vec2)
+--          
+-- overload function: convertToNodeSpace(cc.Vec2)
+--          
+-- @function [parent=#Node] convertToNodeSpace
 -- @param self
+-- @param #cc.Node node
 -- @param #cc.Vec2 vec2
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
-        
+-- @return Vec2#Vec2 ret (retunr value: cc.Vec2)
+
 --------------------------------
 -- @function [parent=#Node] resume 
 -- @param self

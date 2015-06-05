@@ -138,6 +138,7 @@ public:
      */
     bool saveToFile(const std::string &filename, bool isToRGB = true);
 
+
 protected:
     bool initWithJpgData(const unsigned char *  data, ssize_t dataLen);
     bool initWithPngData(const unsigned char * data, ssize_t dataLen);

@@ -30,6 +30,7 @@ THE SOFTWARE.
 #include "2d/CCSprite.h"
 #include "2d/CCSpriteFrameCache.h"
 
+
 NS_CC_EXT_BEGIN
 
 enum positions
@@ -580,9 +581,13 @@ bool Scale9Sprite::initWithSpriteFrameName(const std::string& spriteFrameName, c
     CCASSERT((SpriteFrameCache::getInstance()) != NULL, "SpriteFrameCache::getInstance() must be non-NULL");
 
     SpriteFrame *frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(spriteFrameName);
+	if (NULL == frame)
+	{
+		CCLOG("Scale9Sprite::initWithSpriteFrameName get frame %s is null", spriteFrameName.c_str());
+	}
     CCASSERT(frame != NULL, "CCSpriteFrame must be non-NULL");
 
-    if (NULL == frame) return false;
+    
 
     bool pReturn = this->initWithSpriteFrame(frame, capInsets);
     return pReturn;

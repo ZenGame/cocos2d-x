@@ -123,6 +123,11 @@
 -- @param #cc.BlendFunc blendfunc
         
 --------------------------------
+-- @function [parent=#LabelTTF] setInt 
+-- @param self
+-- @param #int int
+        
+--------------------------------
 -- @function [parent=#LabelTTF] getFontName 
 -- @param self
 -- @return string#string ret (return value: string)

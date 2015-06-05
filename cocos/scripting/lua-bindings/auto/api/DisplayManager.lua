@@ -14,6 +14,11 @@
 -- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
+-- @function [parent=#DisplayManager] getMaxSize 
+-- @param self
+-- @return size_table#size_table ret (return value: size_table)
+        
+--------------------------------
 -- @function [parent=#DisplayManager] getDisplayRenderNodeType 
 -- @param self
 -- @return DisplayType#DisplayType ret (return value: ccs.DisplayType)

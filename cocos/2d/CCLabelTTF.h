@@ -152,9 +152,14 @@ public:
     virtual std::string getDescription() const override;
     virtual void visit(Renderer *renderer, const Mat4 &parentTransform, bool parentTransformUpdated) override;
     virtual const Size& getContentSize() const override;
+
+	virtual void setInt(int v);
+	virtual void printf(const char* szFmt, ...);
+
 protected:
     Label*    _renderLabel;
     bool _contentDirty;
+	char m_szBuf[128];
 };
 
 

@@ -162,6 +162,8 @@ public:
     virtual void updateDisplayedOpacity(GLubyte parentOpacity) override;
     virtual void updateDisplayedColor(const Color3B& parentColor) override;
     virtual void disableCascadeColor() override;
+
+
 CC_CONSTRUCTOR_ACCESS:
     ProtectedNode();
     virtual ~ProtectedNode();

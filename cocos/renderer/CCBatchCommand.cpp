@@ -22,7 +22,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-
+  
 #include "renderer/CCBatchCommand.h"
 #include "renderer/ccGLStateCache.h"
 #include "renderer/CCTextureAtlas.h"

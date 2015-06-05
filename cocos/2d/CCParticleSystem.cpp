@@ -172,6 +172,11 @@ bool ParticleSystem::initWithFile(const std::string& plistFile)
     _plistFile = FileUtils::getInstance()->fullPathForFilename(plistFile);
     ValueMap dict = FileUtils::getInstance()->getValueMapFromFile(_plistFile.c_str());
 
+	if (dict.empty())
+	{
+		log("ParticleSystem::initWithFile dict is empty,plist file is %s", _plistFile.c_str());
+	}
+
     CCASSERT( !dict.empty(), "Particles: file not found");
     
     // XXX compute path from a path, should define a function somewhere to do it

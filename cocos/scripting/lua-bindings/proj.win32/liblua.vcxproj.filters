@@ -159,6 +159,9 @@
     <ClCompile Include="..\..\..\..\external\lua\tolua\tolua_to.c">
       <Filter>tolua</Filter>
     </ClCompile>
+    <ClCompile Include="..\auto\lua_cocos2dx_sp_auto.cpp">
+      <Filter>auto</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\auto\lua_cocos2dx_auto.hpp">
@@ -304,6 +307,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\external\lua\luajit\include\lualib.h">
       <Filter>luajit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\auto\lua_cocos2dx_sp_auto.hpp">
+      <Filter>auto</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

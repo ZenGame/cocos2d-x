@@ -144,7 +144,7 @@ def main():
 
         if platform == 'win32':
             with _pushd(output_dir):
-                _run_cmd('dos2unix *')
+                _run_cmd('dos2unix *.cpp *.hpp')
 
         print '---------------------------------'
         print 'Generating lua bindings succeeds.'

@@ -460,6 +460,7 @@ protected:
     LabelAtlas *_FPSLabel;
     LabelAtlas *_drawnBatchesLabel;
     LabelAtlas *_drawnVerticesLabel;
+	LabelAtlas *_MemLabel;
     
     /** Whether or not the Director is paused */
     bool _paused;
@@ -544,6 +545,8 @@ protected:
 // end of base_node group
 /// @}
 
+//add by flyingkisser
+bool fly_isEngineQuit();
 NS_CC_END
 
 #endif // __CCDIRECTOR_H__

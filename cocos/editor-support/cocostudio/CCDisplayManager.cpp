@@ -341,11 +341,19 @@ DecorativeDisplay *DisplayManager::getDecorativeDisplayByIndex( int index) const
     return _decoDisplayList.at(index);
 }
 
+cocos2d::Size DisplayManager::getMaxSize() const
+{
+	return _maxSize;
+}
+
 void DisplayManager::initDisplayList(BoneData *boneData)
 {
     _decoDisplayList.clear();
 
     CS_RETURN_IF(!boneData);
+	
+	_maxSize.width = 0;
+	_maxSize.height = 0;
 
     for(auto& object : boneData->displayDataList)
     {
@@ -355,6 +363,13 @@ void DisplayManager::initDisplayList(BoneData *boneData)
         decoDisplay->setDisplayData(displayData);
 
         DisplayFactory::createDisplay(_bone, decoDisplay);
+
+		if (decoDisplay && decoDisplay->getDisplay()) {
+			Size sz = decoDisplay->getDisplay()->getContentSize();
+
+			_maxSize.width = std::max(_maxSize.width, std::fabs(sz.width * decoDisplay->getDisplay()->getScaleX() * boneData->scaleX));
+			_maxSize.height = std::max(_maxSize.height, std::fabs(sz.height * decoDisplay->getDisplay()->getScaleY() * boneData->scaleY));
+		}
 
         _decoDisplayList.pushBack(decoDisplay);
     }

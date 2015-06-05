@@ -142,6 +142,11 @@
 -- @return int#int ret (return value: int)
         
 --------------------------------
+-- @function [parent=#Texture2D] getImageFormat 
+-- @param self
+-- @return int#int ret (return value: int)
+        
+--------------------------------
 -- @function [parent=#Texture2D] drawAtPoint 
 -- @param self
 -- @param #cc.Vec2 vec2

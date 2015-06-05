@@ -84,6 +84,7 @@ void Ref::retain()
     ++_referenceCount;
 }
 
+
 void Ref::release()
 {
     CCASSERT(_referenceCount > 0, "reference count should greater than 0");
@@ -92,8 +93,8 @@ void Ref::release()
     if (_referenceCount == 0)
     {
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
-        auto poolManager = PoolManager::getInstance();
-        if (!poolManager->getCurrentPool()->isClearing() && poolManager->isObjectInPools(this))
+        //auto poolManager = PoolManager::getInstance();
+        //if (!poolManager->getCurrentPool()->isClearing() && poolManager->isObjectInPools(this))
         {
             // Trigger an assert if the reference count is 0 but the Ref is still in autorelease pool.
             // This happens when 'autorelease/release' were not used in pairs with 'new/retain'.
@@ -122,7 +123,7 @@ void Ref::release()
             // auto obj = Node::create();
             // obj->retain();
             // obj->release();   // This `release` is the pair of `retain` of previous line.
-            CCASSERT(false, "The reference shouldn't be 0 because it is still in autorelease pool.");
+           // CCASSERT(false, "The reference shouldn't be 0 because it is still in autorelease pool.");
         }
 #endif
 

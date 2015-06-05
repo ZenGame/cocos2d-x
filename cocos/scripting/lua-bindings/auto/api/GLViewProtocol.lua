@@ -70,6 +70,13 @@
 -- @param self
         
 --------------------------------
+-- @function [parent=#GLViewProtocol] fly_setDesignResolutionSize 
+-- @param self
+-- @param #float float
+-- @param #float float
+-- @param #int int
+        
+--------------------------------
 -- @function [parent=#GLViewProtocol] swapBuffers 
 -- @param self
         
@@ -112,6 +119,16 @@
 -- @function [parent=#GLViewProtocol] getVisibleSize 
 -- @param self
 -- @return size_table#size_table ret (return value: size_table)
+        
+--------------------------------
+-- @function [parent=#GLViewProtocol] fly_getScaleY 
+-- @param self
+-- @return float#float ret (return value: float)
+        
+--------------------------------
+-- @function [parent=#GLViewProtocol] fly_getScaleX 
+-- @param self
+-- @return float#float ret (return value: float)
         
 --------------------------------
 -- @function [parent=#GLViewProtocol] isScissorEnabled 

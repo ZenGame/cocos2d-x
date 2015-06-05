@@ -82,7 +82,7 @@ void MciPlayer::Open(const char* pFileName, UINT uId)
         std::string strFile(pFileName);
         int nPos = strFile.rfind(".") + 1;
         strExt = strFile.substr(nPos, strFile.length() - nPos);
-
+		
         Close();
 
         MCI_OPEN_PARMS mciOpen = {0};

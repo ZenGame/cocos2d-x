@@ -149,11 +149,6 @@
 -- @return Vec2#Vec2 ret (return value: cc.Vec2)
         
 --------------------------------
--- @function [parent=#PhysicsBody] setEnable 
--- @param self
--- @param #bool bool
-        
---------------------------------
 -- @function [parent=#PhysicsBody] setGravityEnable 
 -- @param self
 -- @param #bool bool
@@ -208,6 +203,11 @@
 -- @function [parent=#PhysicsBody] setAngularVelocity 
 -- @param self
 -- @param #float float
+        
+--------------------------------
+-- @function [parent=#PhysicsBody] setEnable 
+-- @param self
+-- @param #bool bool
         
 --------------------------------
 -- @function [parent=#PhysicsBody] world2Local 

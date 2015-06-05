@@ -190,6 +190,7 @@ void DataReaderHelper::loadData()
         }
         else if(pAsyncStruct->configType == CocoStudio_JSON)
         {
+        	//CCLOG("DataReaderHelper::loadData thread add file %s",pDataInfo->filename.c_str());
             DataReaderHelper::addDataFromJsonCache(pAsyncStruct->fileContent.c_str(), pDataInfo);
         }
 
@@ -259,6 +260,14 @@ DataReaderHelper::~DataReaderHelper()
 	_dataReaderHelper = nullptr;
 }
 
+void DataReaderHelper::printCachedFile()
+{
+	for (unsigned int i = 0; i < _configFileList.size(); i++)
+	{
+		CCLOG("DataReaderHelper::_configFileList %s", _configFileList[i].c_str());
+	}
+}
+
 void DataReaderHelper::addDataFromFile(const std::string& filePath)
 {
     /*
@@ -268,6 +277,7 @@ void DataReaderHelper::addDataFromFile(const std::string& filePath)
     {
         if (_configFileList[i] == filePath)
         {
+			//CCLOG("DataReaderHelper::addDataFromFile file %s in cache,donnot need to load again", filePath.c_str());
             return;
         }
     }
@@ -306,6 +316,7 @@ void DataReaderHelper::addDataFromFile(const std::string& filePath)
     }
     else if(str == ".json" || str == ".ExportJson")
     {
+    	//CCLOG("DataReaderHelper::addDataFromFile add file %s",dataInfo.filename.c_str());
         DataReaderHelper::addDataFromJsonCache(contentStr, &dataInfo);
     }
 }
@@ -319,6 +330,7 @@ void DataReaderHelper::addDataFromFileAsync(const std::string& imagePath, const 
     {
         if (_configFileList[i] == filePath)
         {
+			//CCLOG("DataReaderHelper::addDataFromFileAsync file %s in cache,donnot need to load again",filePath.c_str());
             if (target && selector)
             {
                 if (_asyncRefTotalCount == 0 && _asyncRefCount == 0)
@@ -434,17 +446,21 @@ void DataReaderHelper::addDataAsyncCallBack(float dt)
         if (pAsyncStruct->imagePath != "" && pAsyncStruct->plistPath != "")
         {
             _getFileMutex.lock();
-            ArmatureDataManager::getInstance()->addSpriteFrameFromFile(pAsyncStruct->plistPath.c_str(), pAsyncStruct->imagePath.c_str());
+			ArmatureDataManager::getInstance()->addSpriteFrameFromFile(pAsyncStruct->plistPath.c_str(), pAsyncStruct->imagePath.c_str(), pDataInfo->filename.c_str());
             _getFileMutex.unlock();
         }
 
         while (!pDataInfo->configFileQueue.empty())
         {
             std::string configPath = pDataInfo->configFileQueue.front();
+			std::string textureFileName= pDataInfo->textureFileQueue.front();
             _getFileMutex.lock();
-            ArmatureDataManager::getInstance()->addSpriteFrameFromFile((pAsyncStruct->baseFilePath + configPath + ".plist").c_str(), (pAsyncStruct->baseFilePath + configPath + ".png").c_str());
-            _getFileMutex.unlock();
+			//CCLOG("DataReaderHelper::addDataAsyncCallBack begin to load plist %s texutre %s prefix %s", (pAsyncStruct->baseFilePath + configPath + ".plist").c_str(), (pAsyncStruct->baseFilePath + textureFileName).c_str(), pDataInfo->prefix.c_str());
+			//ArmatureDataManager::getInstance()->addSpriteFrameFromFile((pAsyncStruct->baseFilePath + configPath + ".plist").c_str(), (pAsyncStruct->baseFilePath + configPath + ".png").c_str(), "", pDataInfo->prefix);
+			ArmatureDataManager::getInstance()->addSpriteFrameFromFile((pAsyncStruct->baseFilePath + configPath + ".plist").c_str(), (pAsyncStruct->baseFilePath +textureFileName).c_str(), pDataInfo->filename, pDataInfo->prefix);
+			_getFileMutex.unlock();
             pDataInfo->configFileQueue.pop();
+			pDataInfo->textureFileQueue.pop();
         }
 
 
@@ -1185,12 +1201,12 @@ ContourData *DataReaderHelper::decodeContour(tinyxml2::XMLElement *contourXML, D
 void DataReaderHelper::addDataFromJsonCache(const std::string& fileContent, DataInfo *dataInfo)
 {
 	rapidjson::Document json;
-	
+	//std::string prefix = "";
 	json.Parse<0>(fileContent.c_str());
     if (json.HasParseError()) {
         CCLOG("GetParseError %s\n",json.GetParseError());
     }
-	
+	std::string prefix = dataInfo->baseFilePath;
 	dataInfo->contentScale = DICTOOL->getFloatValue_json(json, CONTENT_SCALE, 1.0f);
 	
     // Decode armatures
@@ -1204,7 +1220,9 @@ void DataReaderHelper::addDataFromJsonCache(const std::string& fileContent, Data
         {
             _dataReaderHelper->_addDataMutex.lock();
         }
-        ArmatureDataManager::getInstance()->addArmatureData(armatureData->name.c_str(), armatureData);
+		//CCLOG("ArmatureDataManager::addArmatureData %s", armatureData->name.c_str());
+        ArmatureDataManager::getInstance()->addArmatureData(armatureData->name.c_str(), armatureData,dataInfo->filename.c_str());
+		//prefix = armatureData->name;
         armatureData->release();
         if (dataInfo->asyncStruct)
         {
@@ -1223,7 +1241,8 @@ void DataReaderHelper::addDataFromJsonCache(const std::string& fileContent, Data
         {
             _dataReaderHelper->_addDataMutex.lock();
         }
-        ArmatureDataManager::getInstance()->addAnimationData(animationData->name.c_str(), animationData);
+		//CCLOG("ArmatureDataManager::addAnimationData %s", animationData->name.c_str());
+        ArmatureDataManager::getInstance()->addAnimationData(animationData->name.c_str(), animationData,dataInfo->filename.c_str());
         animationData->release();
         if (dataInfo->asyncStruct)
         {
@@ -1242,7 +1261,8 @@ void DataReaderHelper::addDataFromJsonCache(const std::string& fileContent, Data
         {
             _dataReaderHelper->_addDataMutex.lock();
         }
-        ArmatureDataManager::getInstance()->addTextureData(textureData->name.c_str(), textureData);
+		//CCLOG("ArmatureDataManager::addTextureData %s", textureData->name.c_str());
+        ArmatureDataManager::getInstance()->addTextureData((prefix + textureData->name).c_str(), textureData,dataInfo->filename.c_str());
         textureData->release();
         if (dataInfo->asyncStruct)
         {
@@ -1258,25 +1278,37 @@ void DataReaderHelper::addDataFromJsonCache(const std::string& fileContent, Data
         for (int i = 0; i < length; i++)
         {
 			const char *path = DICTOOL->getStringValueFromArray_json(json, CONFIG_FILE_PATH, i); // json[CONFIG_FILE_PATH][i].IsNull() ? NULL : json[CONFIG_FILE_PATH][i].GetString();
+			const char *texurePath = DICTOOL->getStringValueFromArray_json(json, "config_png_path", i);
             if (path == nullptr)
             {
                 CCLOG("load CONFIG_FILE_PATH error.");
                 return;
             }
+			if (texurePath == nullptr)
+			{
+				CCLOG("load config_png_path error.");
+				return;
+			}
 
             std::string filePath = path;
-            filePath = filePath.erase(filePath.find_last_of("."));
+			filePath = filePath.erase(filePath.find_last_of("."));
 
             if (dataInfo->asyncStruct)
             {
+				
+				dataInfo->prefix = prefix;
+				//dataInfo->textureFileName = std::string(texurePath);
                 dataInfo->configFileQueue.push(filePath);
+				dataInfo->textureFileQueue.push(std::string(texurePath));
+				//CCLOG("DataReaderHelper::addDataFromJsonCache async baseFilePath %s", dataInfo->baseFilePath.c_str());
             }
             else
             {
                 std::string plistPath = filePath + ".plist";
-                std::string pngPath =  filePath + ".png";
-
-                ArmatureDataManager::getInstance()->addSpriteFrameFromFile((dataInfo->baseFilePath + plistPath).c_str(), (dataInfo->baseFilePath + pngPath).c_str());
+                //std::string pngPath =  filePath + ".png";
+				std::string pngPath = texurePath;
+				//CCLOG("ArmatureDataManager::addSpriteFrameFromFile plist %s texure %s prefix %s", plistPath.c_str(), pngPath.c_str(), prefix.c_str());
+				ArmatureDataManager::getInstance()->addSpriteFrameFromFile((dataInfo->baseFilePath + plistPath).c_str(), (dataInfo->baseFilePath + pngPath).c_str(), dataInfo->filename.c_str(), prefix);
             }
         }
     }
@@ -1294,12 +1326,12 @@ ArmatureData *DataReaderHelper::decodeArmature(const rapidjson::Value& json, Dat
     }
 
 	dataInfo->cocoStudioVersion = armatureData->dataVersion = DICTOOL->getFloatValue_json(json, VERSION, 0.1f);
-
+	std::string prefix = dataInfo->baseFilePath;
 	int length = DICTOOL->getArrayCount_json(json, BONE_DATA, 0); 
     for (int i = 0; i < length; i++)
     {
         const rapidjson::Value &dic = DICTOOL->getSubDictionary_json(json, BONE_DATA, i); //json[BONE_DATA][i];
-        BoneData *boneData = decodeBone(dic, dataInfo);
+		BoneData *boneData = decodeBone(dic, dataInfo, prefix);
         armatureData->addBoneData(boneData);
         boneData->release();
 
@@ -1308,7 +1340,7 @@ ArmatureData *DataReaderHelper::decodeArmature(const rapidjson::Value& json, Dat
     return armatureData;
 }
 
-BoneData *DataReaderHelper::decodeBone(const rapidjson::Value& json, DataInfo *dataInfo)
+BoneData *DataReaderHelper::decodeBone(const rapidjson::Value& json, DataInfo *dataInfo, const std::string& prefix)
 {
     BoneData *boneData = new BoneData();
     boneData->init();
@@ -1332,7 +1364,7 @@ BoneData *DataReaderHelper::decodeBone(const rapidjson::Value& json, DataInfo *d
     for (int i = 0; i < length; i++)
     {
         const rapidjson::Value &dic = DICTOOL->getSubDictionary_json(json, DISPLAY_DATA, i); 
-        DisplayData *displayData = decodeBoneDisplay(dic, dataInfo);
+        DisplayData *displayData = decodeBoneDisplay(dic, dataInfo, prefix);
         boneData->addDisplayData(displayData);
         displayData->release();
 
@@ -1341,7 +1373,7 @@ BoneData *DataReaderHelper::decodeBone(const rapidjson::Value& json, DataInfo *d
     return boneData;
 }
 
-DisplayData *DataReaderHelper::decodeBoneDisplay(const rapidjson::Value& json, DataInfo *dataInfo)
+DisplayData *DataReaderHelper::decodeBoneDisplay(const rapidjson::Value& json, DataInfo *dataInfo, const std::string& prefix)
 {
 	DisplayType displayType =  (DisplayType)(DICTOOL->getIntValue_json(json, A_DISPLAY_TYPE, CS_DISPLAY_SPRITE));
 
@@ -1356,7 +1388,7 @@ DisplayData *DataReaderHelper::decodeBoneDisplay(const rapidjson::Value& json, D
 		const char *name =  DICTOOL->getStringValue_json(json, A_NAME);
         if(name != NULL)
         {
-            ((SpriteDisplayData *)displayData)->displayName = name;
+			((SpriteDisplayData *)displayData)->displayName = prefix + name;
         }
 		const rapidjson::Value &dicArray = DICTOOL->getSubDictionary_json(json, SKIN_DATA);
 		if(!dicArray.IsNull())
@@ -1387,7 +1419,7 @@ DisplayData *DataReaderHelper::decodeBoneDisplay(const rapidjson::Value& json, D
         const char *name = DICTOOL->getStringValue_json(json, A_NAME);
         if(name != nullptr)
         {
-            ((ArmatureDisplayData *)displayData)->displayName = name;
+			((ArmatureDisplayData *)displayData)->displayName = prefix + name;
         }
     }
     break;

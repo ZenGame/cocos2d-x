@@ -248,8 +248,8 @@ void Button::loadTextureNormal(const std::string& normal,TextureResType texType)
                 normalRenderer->setTexture(normal);
                 break;
             case TextureResType::PLIST:
-                normalRenderer->setSpriteFrame(normal);
-                break;
+				normalRenderer->setSpriteFrame(normal);
+				break;
             default:
                 break;
         }
@@ -717,7 +717,23 @@ float Button::getTitleFontSize() const
 
 void Button::setTitleFontName(const std::string& fontName)
 {
-    _titleRenderer->setSystemFontName(fontName);
+    //_titleRenderer->setSystemFontName(fontName);
+	if (FileUtils::getInstance()->isFileExist(fontName))
+	{
+		TTFConfig config = _titleRenderer->getTTFConfig();
+		config.fontFilePath = fontName;
+		config.fontSize = _titleRenderer->getSystemFontSize();
+		_titleRenderer->setTTFConfig(config);
+		//_type = FontType::TTF;
+	}
+	else
+	{
+		_titleRenderer->setSystemFontName(fontName);
+		
+		//_titleRenderer->setSystemFontSize(_fontSize);
+		
+	}
+	
 }
 
 const std::string& Button::getTitleFontName() const
@@ -774,6 +790,12 @@ void Button::copySpecialProperties(Widget *widget)
         setTitleFontSize(button->getTitleFontSize());
         setTitleColor(button->getTitleColor());
         setPressedActionEnabled(button->_pressedActionEnabled);
+
+
+		_buttonNormalRenderer->setGLProgramState(button->getVirtualRenderer()->getGLProgramState());
+		_buttonClickedRenderer->setGLProgramState(button->getVirtualRenderer()->getGLProgramState());
+		_buttonDisableRenderer->setGLProgramState(button->getVirtualRenderer()->getGLProgramState());
+		
     }
 }
 

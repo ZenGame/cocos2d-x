@@ -60,6 +60,11 @@
 -- @return map_table#map_table ret (return value: map_table)
         
 --------------------------------
+-- @function [parent=#FileUtils] getResourceDirectory 
+-- @param self
+-- @return string#string ret (return value: string)
+        
+--------------------------------
 -- @function [parent=#FileUtils] setSearchPaths 
 -- @param self
 -- @param #array_table array

@@ -380,7 +380,8 @@ bool LabelTextFormatter::createStringSprites(Label *theLabel)
                
         if( theLabel->recordLetterInfo(letterPosition,tempDefinition,i) == false)
         {
-            log("WARNING: can't find letter definition in font file for letter: %c", c);
+			TTFConfig config=theLabel->getTTFConfig();
+            log("WARNING: can't find letter definition in font file %s fontsize %d for letter: %c",config.fontFilePath.c_str(),config.fontSize,c);
             continue;
         }
 

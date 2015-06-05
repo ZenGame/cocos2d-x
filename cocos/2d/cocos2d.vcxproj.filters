@@ -55,6 +55,9 @@
     <Filter Include="3d">
       <UniqueIdentifier>{a20c4bdc-bd4c-40c1-a78a-fe31cd3ec76a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Global">
+      <UniqueIdentifier>{5f955a2a-633d-4f4e-b809-6d6bd8856009}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\physics\CCPhysicsBody.cpp">
@@ -564,6 +567,12 @@
     </ClCompile>
     <ClCompile Include="..\3d\CCSprite3DDataCache.cpp">
       <Filter>3d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Global3\CCProcessControl.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Global3\CCHash.cpp">
+      <Filter>Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1143,6 +1152,12 @@
     </ClInclude>
     <ClInclude Include="..\3d\CCSprite3DDataCache.h">
       <Filter>3d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Global3\CCProcessControl.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Global3\CCHash.h">
+      <Filter>Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -283,6 +283,34 @@ Rect LabelTTF::getBoundingBox() const
     return _renderLabel->getBoundingBox();
 }
 
+//add by flyingkisser 2013 4.8;
+void LabelTTF::setInt(int v)
+{
+	memset(m_szBuf, sizeof(m_szBuf), 0);
+	sprintf(m_szBuf, "%d", v);
+	if (_renderLabel->getString().compare(m_szBuf))
+	{
+		std::string lab = std::string(m_szBuf);
+		_renderLabel->setString(lab);
+		//_renderLabel->update();
+	}
+}
+void LabelTTF::printf(const char* szFmt, ...)
+{
+	va_list ap;
+	char szBuf[2048] = { 0 };
+	memset(m_szBuf, sizeof(m_szBuf), 0);
+	va_start(ap, szFmt);
+	vsnprintf(m_szBuf, sizeof(m_szBuf), szFmt, ap);
+	if (_renderLabel->getString().compare(m_szBuf))
+	{
+		std::string lab = std::string(m_szBuf);
+		_renderLabel->setString(lab);
+		//this->updateTexture();
+	}
+}
+
+
 #if defined(__GNUC__) && ((__GNUC__ >= 4) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 1)))
 #pragma GCC diagnostic warning "-Wdeprecated-declarations"
 #elif _MSC_VER >= 1400 //vs 2005 or higher

@@ -247,6 +247,7 @@ public:
     CC_DEPRECATED_ATTRIBUTE virtual void setFontDefinition(const FontDefinition& textDefinition);
     CC_DEPRECATED_ATTRIBUTE const FontDefinition& getFontDefinition() const { return _fontDefinition; }
 
+	
 protected:
     void onDraw(const Mat4& transform, bool transformUpdated);
 
@@ -376,7 +377,8 @@ protected:
     bool _clipEnabled;
     bool _blendFuncDirty;
     bool _insideBounds;                     /// whether or not the sprite was inside bounds the previous frame
-
+	
+	
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(Label);
 

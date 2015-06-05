@@ -1341,6 +1341,10 @@ public:
     virtual void setOpacityModifyRGB(bool bValue) {CC_UNUSED_PARAM(bValue);}
     virtual bool isOpacityModifyRGB() const { return false; };
     
+	AffineTransform nodeToNodeTransform(Node* node);
+	Point convertToNodeSpace(Node* node, const Point& nodePoint);
+
+
 CC_CONSTRUCTOR_ACCESS:
     // Nodes should be created using create();
     Node();

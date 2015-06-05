@@ -88,7 +88,7 @@ public:
      * @js NA
      */
     void release();
-
+	//void release(const char* name);
     /**
      * Releases the ownership sometime soon automatically.
      *

@@ -101,6 +101,25 @@ bool SpriteBatchNode::initWithTexture(Texture2D *tex, ssize_t capacity)
     _descendants.reserve(capacity);
     
     setGLProgramState(GLProgramState::getOrCreateWithGLProgramName(GLProgram::SHADER_NAME_POSITION_TEXTURE_COLOR));
+	
+	
+	if (tex->getImageFormat() == (int)Image::Format::ETC)
+	{
+			//CCLOG("begin to set to etc shader");
+		std::string name = Director::getInstance()->getTextureCache()->getTextureKey(tex);
+
+		if (Director::getInstance()->getTextureCache()->isEtcRender(name.c_str()))
+		{
+			GLProgramState* etcState = GLProgramState::getOrCreateWithGLProgramName("ShaderETC1_scale9");
+			if (etcState != nullptr)
+			{
+				setGLProgramState(etcState);
+				//CCLOG("Scale9Sprite texture %s ,set this sprite to etc1 shader", name.c_str());
+			}
+		}
+	}
+	
+
     return true;
 }
 

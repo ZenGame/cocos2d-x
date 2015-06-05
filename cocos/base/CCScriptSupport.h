@@ -131,6 +131,10 @@ public:
     bool isMarkedForDeletion(void) {
         return _markedForDeletion;
     }
+
+	//add by flyingkisser
+	void setPaused(bool state){ _paused = state; }
+	void setInterval(float v);
     
 private:
     SchedulerScriptHandlerEntry(int handler)

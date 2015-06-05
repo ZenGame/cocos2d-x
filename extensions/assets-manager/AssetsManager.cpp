@@ -194,7 +194,9 @@ void AssetsManager::downloadAndUncompress()
 {
     do
     {
-        if (_downloadedVersion != _version)
+    	CCLOG("_downloadedVersion %s _version %s",_downloadedVersion.c_str(),_version.c_str());
+		
+		if (_downloadedVersion != _version || FileUtils::getInstance()->isFileExist(this->_storagePath + TEMP_PACKAGE_FILE_NAME)==false)
         {
             if (! downLoad()) break;
             
@@ -326,10 +328,44 @@ bool AssetsManager::uncompress()
         if (fileName[filenameLength-1] == '/')
         {
             // Entry is a direcotry, so create it.
+			const string fileNameStr(fileName);
+			size_t startIndex = 0;
+			size_t index = fileNameStr.find("/", startIndex);
+			while (index != std::string::npos)
+			{
+				const string dir = _storagePath + fileNameStr.substr(0, index);
+
+				FILE *out = fopen(dir.c_str(), "r");
+
+				if (!out)
+				{
+					if (!createDirectory(dir.c_str()))
+					{
+						CCLOG("can not create directory %s", dir.c_str());
+						unzClose(zipfile);
+						return false;
+					}
+					else
+					{
+						CCLOG("create directory %s", dir.c_str());
+					}
+				}
+				else
+				{
+					fclose(out);
+				}
+
+				startIndex = index + 1;
+
+				index = fileNameStr.find("/", startIndex);
+
+			}
+
             // If the directory exists, it will failed scilently.
             if (!createDirectory(fullPath.c_str()))
             {
                 CCLOG("can not create directory %s", fullPath.c_str());
+				log("filename is %s", fileName);
                 unzClose(zipfile);
                 return false;
             }
@@ -458,6 +494,7 @@ bool AssetsManager::createDirectory(const char *path)
     BOOL ret = CreateDirectoryA(path, NULL);
 	if (!ret && ERROR_ALREADY_EXISTS != GetLastError())
 	{
+		elog("CreateDirectoryA failed %d",GetLastError());
 		return false;
 	}
     return true;

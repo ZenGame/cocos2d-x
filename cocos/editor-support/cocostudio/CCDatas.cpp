@@ -225,10 +225,12 @@ DisplayData *BoneData::getDisplayData(int index)
 ArmatureData::ArmatureData()
     : dataVersion(0.1f)
 {
+
 }
 
 ArmatureData::~ArmatureData()
 {
+
 }
 
 bool ArmatureData::init()

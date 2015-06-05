@@ -140,6 +140,8 @@ public:
 
     virtual std::string getDescription() const override;
 
+	void fly_setEnabled(bool bEnable);
+
 CC_CONSTRUCTOR_ACCESS:
     /**
      * @js ctor
@@ -163,6 +165,9 @@ protected:
     MenuItem* getItemForTouch(Touch * touch);
     State _state;
     MenuItem *_selectedItem;
+
+	Point m_posBegin;
+	bool m_bMoving;
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(Menu);

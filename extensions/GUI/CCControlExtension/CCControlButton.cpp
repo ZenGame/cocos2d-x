@@ -532,7 +532,15 @@ void ControlButton::needsLayout()
         // Add the margins
         if (_backgroundSprite != nullptr)
         {
-            _backgroundSprite->setContentSize(Size(titleLabelSize.width + _marginH * 2, titleLabelSize.height + _marginV * 2));
+			//edit by flyingkisser;
+			Size newsize = Size(titleLabelSize.width + _marginH * 2, titleLabelSize.height + _marginV * 2);
+			Size picsize = _backgroundSprite->getContentSize();
+			if (picsize.width < newsize.width)
+				_backgroundSprite->setContentSize(newsize);
+
+			
+
+            //_backgroundSprite->setContentSize(Size(titleLabelSize.width + _marginH * 2, titleLabelSize.height + _marginV * 2));
         }
     } 
     else
@@ -550,7 +558,11 @@ void ControlButton::needsLayout()
                 preferredSize.height = titleLabelSize.height;
             }
 
-            _backgroundSprite->setContentSize(preferredSize);
+			Size picsize = _backgroundSprite->getContentSize();
+			if (picsize.width < preferredSize.width)
+				_backgroundSprite->setContentSize(preferredSize);
+
+           // _backgroundSprite->setContentSize(preferredSize);
         }
     }
     

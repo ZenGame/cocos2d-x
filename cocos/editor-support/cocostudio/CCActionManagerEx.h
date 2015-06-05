@@ -102,6 +102,9 @@ public:
 	*/
 	void releaseActions();
 
+	//release action for one file
+	int releaseActionForFile(const char* jsonName);
+
 protected:
 	std::unordered_map<std::string, cocos2d::Vector<ActionObject*>> _actionDic;
 };

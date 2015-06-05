@@ -4,6 +4,12 @@
 -- @extend Ref
 
 --------------------------------
+-- @function [parent=#ActionManagerEx] releaseActionForFile 
+-- @param self
+-- @param #char char
+-- @return int#int ret (return value: int)
+        
+--------------------------------
 -- overload function: playActionByName(char, char, cc.CallFunc)
 --          
 -- overload function: playActionByName(char, char)

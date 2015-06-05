@@ -39,6 +39,37 @@ THE SOFTWARE.
 
 extern "C"
 {
+#if defined (__unix) || (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#ifndef __ENABLE_COMPATIBILITY_WITH_UNIX_2003__
+#define __ENABLE_COMPATIBILITY_WITH_UNIX_2003__
+#include <stdio.h>
+#include <dirent.h>
+    FILE *fopen$UNIX2003( const char *filename, const char *mode )
+    {
+        return fopen(filename, mode);
+    }
+    size_t fwrite$UNIX2003( const void *a, size_t b, size_t c, FILE *d )
+    {
+        return fwrite(a, b, c, d);
+    }
+    char *strerror$UNIX2003( int errnum )
+    {
+        
+        return strerror(errnum);
+    }
+    
+    DIR *opendir$INODE64(const char * a)
+    {
+        return opendir(a);
+    }
+    
+    struct dirent *readdir$INODE64(DIR *dir)
+    {
+        return readdir(dir);
+    }
+    
+#endif
+#endif
 #include "png.h"
 #include "tiffio.h"
 #include "base/etc1.h"
@@ -476,7 +507,7 @@ bool Image::initWithImageData(const unsigned char * data, ssize_t dataLen)
         }
 
         _fileType = detectFormat(unpackedData, unpackedLen);
-
+		//CCLOG("image file type %d etc is %d RenderFormat %d", _fileType, Format::ETC,getRenderFormat());
         switch (_fileType)
         {
         case Format::PNG:
@@ -521,7 +552,7 @@ bool Image::initWithImageData(const unsigned char * data, ssize_t dataLen)
                 break;
             }
         }
-        
+		//CCLOG("after image file type %d etc is %d RenderFormat %d", _fileType, Format::ETC, getRenderFormat());
         if(unpackedData != data)
         {
             free(unpackedData);
@@ -1330,7 +1361,7 @@ bool Image::initWithPVRv3Data(const unsigned char * data, ssize_t dataLen)
     
     if (!testFormatForPvr3TCSupport(pixelFormat))
     {
-        CCLOG("cocos2d: WARNING: Unsupported PVR Pixel Format: 0x%016llX. Re-encode it with a OpenGL pixel format variant",
+        CCLOG("cocos2d: WARNING: 1 Unsupported PVR Pixel Format: 0x%016llX. Re-encode it with a OpenGL pixel format variant",
               static_cast<unsigned long long>(pixelFormat));
         return false;
     }
@@ -1338,7 +1369,22 @@ bool Image::initWithPVRv3Data(const unsigned char * data, ssize_t dataLen)
 
     if (v3_pixel_formathash.find(pixelFormat) == v3_pixel_formathash.end())
     {
-        CCLOG("cocos2d: WARNING: Unsupported PVR Pixel Format: 0x%016llX. Re-encode it with a OpenGL pixel format variant",
+		std::map<PVR3TexturePixelFormat, Texture2D::PixelFormat>::const_iterator it;
+		it = v3_pixel_formathash.begin();
+
+		for (it = v3_pixel_formathash.begin(); it != v3_pixel_formathash.end();it++)
+		{
+			PVR3TexturePixelFormat v1=it->first;
+			Texture2D::PixelFormat v2 = it->second;
+			CCLOG("v3_pixel_formathash support key %d value %d",v1,v2);
+
+			if (pixelFormat == v1)
+				CCLOG("find this key!%d",pixelFormat);
+			
+		}
+		
+
+        CCLOG("cocos2d: WARNING: 2 Unsupported PVR Pixel Format: 0x%016llX. Re-encode it with a OpenGL pixel format variant",
               static_cast<unsigned long long>(pixelFormat));
         return false;
     }
@@ -1347,7 +1393,7 @@ bool Image::initWithPVRv3Data(const unsigned char * data, ssize_t dataLen)
 
     if (it == Texture2D::getPixelFormatInfoMap().end())
     {
-        CCLOG("cocos2d: WARNING: Unsupported PVR Pixel Format: 0x%016llX. Re-encode it with a OpenGL pixel format variant",
+        CCLOG("cocos2d: WARNING: 3 Unsupported PVR Pixel Format: 0x%016llX. Re-encode it with a OpenGL pixel format variant",
               static_cast<unsigned long long>(pixelFormat));
         return false;
     }
