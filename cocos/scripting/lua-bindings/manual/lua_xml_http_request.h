@@ -98,7 +98,7 @@ public:
     
 private:
     void _gotHeader(std::string header);
-    
+    void handle_requestResponse(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
 
     std::string                          _url;
     std::string                          _meth;
