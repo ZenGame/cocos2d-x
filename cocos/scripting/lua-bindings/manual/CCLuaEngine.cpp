@@ -850,11 +850,6 @@ int LuaEngine::handleEvent(ScriptHandlerMgr::HandlerType type,void* data)
                 return handleAssetsManagerEvent(type, data);
             }
             break;
-        case ScriptHandlerMgr::HandlerType::STUDIO_EVENT_LISTENER:
-            {
-                return handleStudioEventListener(type, data);
-            }
-            break;
         case ScriptHandlerMgr::HandlerType::ARMATURE_EVENT:
             {
                 return handleArmatureWrapper(type, data);

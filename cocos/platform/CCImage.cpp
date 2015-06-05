@@ -39,11 +39,14 @@ THE SOFTWARE.
 
 extern "C"
 {
-#if defined (__unix) || (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    // To resolve link error when building 32bits with Xcode 6.
+    // More information please refer to the discussion in https://github.com/cocos2d/cocos2d-x/pull/6986
+#if defined(__APPLE__) || defined(__unix) 
 #ifndef __ENABLE_COMPATIBILITY_WITH_UNIX_2003__
 #define __ENABLE_COMPATIBILITY_WITH_UNIX_2003__
 #include <stdio.h>
 #include <dirent.h>
+
     FILE *fopen$UNIX2003( const char *filename, const char *mode )
     {
         return fopen(filename, mode);
@@ -54,7 +57,6 @@ extern "C"
     }
     char *strerror$UNIX2003( int errnum )
     {
-        
         return strerror(errnum);
     }
     
@@ -992,7 +994,15 @@ bool Image::initWithPngData(const unsigned char * data, ssize_t dataLen)
 
         png_read_end(png_ptr, nullptr);
 
-        _preMulti = false;
+        // premultiplied alpha for RGBA8888
+        if (color_type == PNG_COLOR_TYPE_RGB_ALPHA)
+        {
+            premultipliedAlpha();
+        }
+        else
+        {
+            _preMulti = false;
+        }
 
         if (row_pointers != nullptr)
         {
@@ -1588,7 +1598,9 @@ bool Image::initWithTGAData(tImageTGA* tgaData)
         _data = tgaData->imageData;
         _dataLen = _width * _height * tgaData->pixelDepth / 8;
         _fileType = Format::TGA;
+        
         _preMulti = false;
+        
         ret = true;
         
     }while(false);
@@ -2166,7 +2178,8 @@ bool Image::saveImageToJPG(const std::string& filePath)
         cinfo.in_color_space = JCS_RGB;       /* colorspace of input image */
 
         jpeg_set_defaults(&cinfo);
-
+        jpeg_set_quality(&cinfo, 90, TRUE);
+        
         jpeg_start_compress(&cinfo, TRUE);
 
         row_stride = _width * 3; /* JSAMPLEs per row in image_buffer */
@@ -2218,6 +2231,20 @@ bool Image::saveImageToJPG(const std::string& filePath)
         bRet = true;
     } while (0);
     return bRet;
+}
+
+void Image::premultipliedAlpha()
+{
+    CCASSERT(_renderFormat == Texture2D::PixelFormat::RGBA8888, "The pixel format should be RGBA8888!");
+    
+    unsigned int* fourBytes = (unsigned int*)_data;
+    for(int i = 0; i < _width * _height; i++)
+    {
+        unsigned char* p = _data + i * 4;
+        fourBytes[i] = CC_RGB_PREMULTIPLY_ALPHA(p[0], p[1], p[2], p[3]);
+    }
+    
+    _preMulti = true;
 }
 
 NS_CC_END

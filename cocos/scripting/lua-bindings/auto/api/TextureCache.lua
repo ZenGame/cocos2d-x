@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TextureCache
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 -- @function [parent=#TextureCache] reloadTexture 
@@ -11,6 +12,10 @@
         
 --------------------------------
 -- @function [parent=#TextureCache] textures_lock 
+-- @param self
+        
+--------------------------------
+-- @function [parent=#TextureCache] unbindAllImageAsync 
 -- @param self
         
 --------------------------------
@@ -43,10 +48,8 @@
 -- @return string#string ret (return value: string)
         
 --------------------------------
--- overload function: addImage(cc.Image, string)
---          
--- overload function: addImage(string)
---          
+-- @overload self, cc.Image, string         
+-- @overload self, string         
 -- @function [parent=#TextureCache] addImage
 -- @param self
 -- @param #cc.Image image
@@ -58,6 +61,11 @@
 -- @param self
 -- @param #char char
 -- @return bool#bool ret (return value: bool)
+        
+--------------------------------
+-- @function [parent=#TextureCache] unbindImageAsync 
+-- @param self
+-- @param #string str
         
 --------------------------------
 -- @function [parent=#TextureCache] getTextureForKey 

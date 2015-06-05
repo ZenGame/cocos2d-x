@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ActionManagerEx
 -- @extend Ref
+-- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ActionManagerEx] releaseActionForFile 

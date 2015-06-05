@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ArmatureDataManager
 -- @extend Ref
+-- @parent_module ccs
 
 --------------------------------
 -- @function [parent=#ArmatureDataManager] removeAnimationData 
@@ -16,10 +17,8 @@
 -- @param #string str
         
 --------------------------------
--- overload function: addArmatureFileInfo(string, string, string)
---          
--- overload function: addArmatureFileInfo(string)
---          
+-- @overload self, string, string, string         
+-- @overload self, string         
 -- @function [parent=#ArmatureDataManager] addArmatureFileInfo
 -- @param self
 -- @param #string str

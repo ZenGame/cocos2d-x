@@ -142,6 +142,31 @@ void TextureCache::addImageAsync(const std::string &path, const std::function<vo
     _sleepCondition.notify_one();
 }
 
+void TextureCache::unbindImageAsync(const std::string& filename)
+{
+    _imageInfoMutex.lock();
+    if (_imageInfoQueue && !_imageInfoQueue->empty())
+    {
+        std::string fullpath = FileUtils::getInstance()->fullPathForFilename(filename);
+        auto found = std::find_if(_imageInfoQueue->begin(), _imageInfoQueue->end(), [&fullpath](ImageInfo* ptr)->bool{ return ptr->asyncStruct->filename == fullpath; });
+        if (found != _imageInfoQueue->end())
+        {
+            (*found)->asyncStruct->callback = nullptr;
+        }
+    }
+    _imageInfoMutex.unlock();
+}
+
+void TextureCache::unbindAllImageAsync()
+{
+    _imageInfoMutex.lock();
+    if (_imageInfoQueue && !_imageInfoQueue->empty())
+    {
+        std::for_each(_imageInfoQueue->begin(), _imageInfoQueue->end(), [](ImageInfo* ptr) { ptr->asyncStruct->callback = nullptr; });
+    }
+    _imageInfoMutex.unlock();
+}
+
 void TextureCache::loadImage()
 {
     AsyncStruct *asyncStruct = nullptr;
@@ -182,11 +207,11 @@ void TextureCache::loadImage()
            for (; pos < infoSize; pos++)
            {
                imageInfo = (*_imageInfoQueue)[pos];
-               if(imageInfo->asyncStruct->filename.compare(asyncStruct->filename))
+               if(imageInfo->asyncStruct->filename.compare(asyncStruct->filename) == 0)
                    break;
            }
            _imageInfoMutex.unlock();
-           if(infoSize == 0 || pos < infoSize)
+           if(infoSize == 0 || pos == infoSize)
                generateImage = true;
         }
 		textures_unlock();
@@ -746,6 +771,12 @@ void VolatileTextureMgr::removeTexture(Texture2D *t)
 void VolatileTextureMgr::reloadAllTextures()
 {
     _isReloading = true;
+
+    // we need to release all of the glTextures to avoid collisions of texture id's when reloading the textures onto the GPU
+    for(auto iter = _textures.begin(); iter != _textures.end(); ++iter)
+    {
+	    (*iter)->_texture->releaseGLTexture();
+    }
 
     CCLOG("reload all texture");
     auto iter = _textures.begin();
