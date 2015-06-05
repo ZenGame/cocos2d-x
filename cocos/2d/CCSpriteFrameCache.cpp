@@ -200,7 +200,6 @@ void SpriteFrameCache::addSpriteFramesWithDictionary(ValueMap& dictionary, Textu
         // add sprite frame
        // _spriteFrames.insert(spriteFrameName, spriteFrame);
 		_spriteFramesHash.insert(cocos2d::SP::CCHash::hashString(spriteFrameName.c_str()), spriteFrame);
-        spriteFrame->release();
 		//CCLOG("add frames %s",spriteFrameName.c_str());
     }
 	frames_unlock();
