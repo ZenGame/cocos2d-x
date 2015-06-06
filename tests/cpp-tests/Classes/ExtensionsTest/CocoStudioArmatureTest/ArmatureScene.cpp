@@ -298,14 +298,20 @@ void TestDirectLoading::onEnter()
 {
     ArmatureTestLayer::onEnter();
 
+//    // remove sigle resource
+//    ArmatureDataManager::getInstance()->removeArmatureFileInfo("capricorn/3/3.ExportJson");
+//
+//    // load resource directly
+//    ArmatureDataManager::getInstance()->addArmatureFileInfo("capricorn/3/3.ExportJson");
+    
     // remove sigle resource
-    ArmatureDataManager::getInstance()->removeArmatureFileInfo("armature/bear.ExportJson");
-
+    ArmatureDataManager::getInstance()->removeArmatureFileInfo("export_6/3/3.ExportJson");
+    
     // load resource directly
-    ArmatureDataManager::getInstance()->addArmatureFileInfo("armature/bear.ExportJson");
+    ArmatureDataManager::getInstance()->addArmatureFileInfo("export_6/3/3.ExportJson");
 
-    Armature *armature = Armature::create("bear");
-    armature->getAnimation()->playWithIndex(0);
+    Armature *armature = Armature::create("3");
+    armature->getAnimation()->playWithIndex(6);
     armature->setPosition(Vec2(VisibleRect::center().x, VisibleRect::center().y));
     addChild(armature);
 }
