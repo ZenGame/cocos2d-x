@@ -63,7 +63,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     auto screenSize = glview->getFrameSize();
 
-    auto designSize = Size(480, 320);
+    auto designSize = Size(960, 640);
 
     auto fileUtils = FileUtils::getInstance();
     std::vector<std::string> searchPaths;

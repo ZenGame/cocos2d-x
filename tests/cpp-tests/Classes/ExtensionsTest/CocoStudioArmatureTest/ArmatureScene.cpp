@@ -290,19 +290,41 @@ void TestAsynchronousLoading::dataLoaded(float percent)
     }
 }
 
+void loadCocos1_5_Exported()
+{
+    // remove sigle resource
+    ArmatureDataManager::getInstance()->removeArmatureFileInfo("capricorn/3/3.ExportJson");
+    
+    // load resource directly
+    ArmatureDataManager::getInstance()->addArmatureFileInfo("capricorn/3/3.ExportJson");
+}
+
+void loadCocos1_6_Exported()
+{
+    // remove sigle resource
+    ArmatureDataManager::getInstance()->removeArmatureFileInfo("export_6/3/3.ExportJson");
+    
+    // load resource directly
+    ArmatureDataManager::getInstance()->addArmatureFileInfo("export_6/3/3.ExportJson");
+}
+
+
 
 void TestDirectLoading::onEnter()
 {
     ArmatureTestLayer::onEnter();
 
-    // remove sigle resource
-    ArmatureDataManager::getInstance()->removeArmatureFileInfo("armature/bear.ExportJson");
+//    // remove sigle resource
+//    ArmatureDataManager::getInstance()->removeArmatureFileInfo("armature/bear.ExportJson");
+//
+//    // load resource directly
+//    ArmatureDataManager::getInstance()->addArmatureFileInfo("armature/bear.ExportJson");
+//    loadCocos1_5_Exported();
+    loadCocos1_6_Exported();
+    
 
-    // load resource directly
-    ArmatureDataManager::getInstance()->addArmatureFileInfo("armature/bear.ExportJson");
-
-    Armature *armature = Armature::create("bear");
-    armature->getAnimation()->playWithIndex(0);
+    Armature *armature = Armature::create("3");
+    armature->getAnimation()->playWithIndex(6);
     armature->setPosition(Vec2(VisibleRect::center().x, VisibleRect::center().y));
     addChild(armature);
 }
