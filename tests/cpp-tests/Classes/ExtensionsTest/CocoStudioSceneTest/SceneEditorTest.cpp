@@ -275,15 +275,29 @@ void LoadSceneEdtiorFileTest::onExit()
 
 cocos2d::Node* LoadSceneEdtiorFileTest::createGameScene()
 {
-    _filePath = "scenetest/LoadSceneEdtiorFileTest/FishJoy2.json";  //default is json
-    _rootNode = SceneReader::getInstance()->createNodeWithSceneFile(_filePath.c_str());
-    ActionManagerEx::getInstance()->playActionByName("startMenu_1.json", "Animation1");
-	if (_rootNode == nullptr)
-	{
-		return nullptr;
-	}
-	defaultPlay();
-    return _rootNode;
+//    _filePath = "scenetest/LoadSceneEdtiorFileTest/FishJoy2.json";  //default is json
+//    _rootNode = SceneReader::getInstance()->createNodeWithSceneFile(_filePath.c_str());
+//    ActionManagerEx::getInstance()->playActionByName("startMenu_1.json", "Animation1");
+//	if (_rootNode == nullptr)
+//	{
+//		return nullptr;
+//	}
+//	defaultPlay();
+//    return _rootNode;
+    
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("scenetest/uijpg/uijpg_0.plist");
+    Widget* widget = GUIReader::getInstance()->widgetFromJsonFile("scenetest/ui_main/main.ExportJson");
+    Widget* scrollView = Helper::seekWidgetByName(widget, "ScrollView_24");
+    scrollView->setOpacity(255);
+    
+    Widget* majorCityBg = Helper::seekWidgetByName(widget, "major_city_bg01");
+    if (ImageView* image = dynamic_cast<ImageView*>(majorCityBg)) {
+        image->loadTexture("main_yuanjing.jpg", TextureResType::PLIST);
+    }
+    
+//    Widget* subWidget = UIHelper::seekWidgetByName(widget, "major_city_bg01");
+//    bigMap:loadTexture("res/pic/uijpg/main_yuanjing.jpg",ccui.TextureResType.plistType)
+    return widget;
 }
 
 void LoadSceneEdtiorFileTest::defaultPlay()
