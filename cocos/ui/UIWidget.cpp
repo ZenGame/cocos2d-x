@@ -746,14 +746,13 @@ void Widget::moveEvent()
 
 void Widget::releaseUpEvent()
 {
-    
+	if (_touchEventListener && _touchEventSelector)
+	{
+		(_touchEventListener->*_touchEventSelector)(this, TOUCH_EVENT_ENDED);
+	}
+
     if (_touchEventCallback) {
         _touchEventCallback(this, TouchEventType::ENDED);
-    }
-    
-    if (_touchEventListener && _touchEventSelector)
-    {
-        (_touchEventListener->*_touchEventSelector)(this,TOUCH_EVENT_ENDED);
     }
 }
 
