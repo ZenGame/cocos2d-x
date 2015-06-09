@@ -361,7 +361,11 @@ void Text::copySpecialProperties(Widget *widget)
         setTextAreaSize(label->_labelRenderer->getDimensions());
     }
 }
-
+    
+    void Text::updateColor()
+    {
+        _labelRenderer->setColor(getColor());
+    }
 }
 
 NS_CC_END

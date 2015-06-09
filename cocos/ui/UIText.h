@@ -198,6 +198,7 @@ protected:
     virtual Widget* createCloneInstance() override;
     virtual void copySpecialProperties(Widget* model) override;
     virtual void adaptRenderers() override;
+    virtual void updateColor() override;
 protected:
     bool _touchScaleChangeEnabled;
     float _normalScaleValueX;
