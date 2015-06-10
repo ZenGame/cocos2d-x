@@ -223,17 +223,17 @@ void Widget::onEnter()
     updateSizeAndPosition();
     ProtectedNode::onEnter();
     
-    // For this project, we do not let label send cascade color to children
-    if (Widget* pParent = getWidgetParent())
-    {
-        if (Text* pParentText = dynamic_cast<Text*>(pParent))
-        {
-            if (pParentText->isCascadeColorEnabled())
-            {
-                this->setCascadeColorEnabled(false);
-            }
-        }
-    }
+//    // For this project, we do not let label send cascade color to children
+//    if (Widget* pParent = getWidgetParent())
+//    {
+//        if (Text* pParentText = dynamic_cast<Text*>(pParent))
+//        {
+//            if (pParentText->isCascadeColorEnabled())
+//            {
+//                this->setCascadeColorEnabled(false);
+//            }
+//        }
+//    }
 }
 
 void Widget::onExit()

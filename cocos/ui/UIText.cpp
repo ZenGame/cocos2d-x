@@ -68,6 +68,7 @@ bool Text::init()
 {
     if (Widget::init())
     {
+        this->setCascadeColorEnabled(false);
         return true;
     }
     return false;
@@ -92,6 +93,7 @@ bool Text::init(const std::string &textContent, const std::string &fontName, int
             ret = false;
             break;
         }
+        this->setCascadeColorEnabled(false);
         this->setString(textContent);
         this->setFontName(fontName);
         this->setFontSize(fontSize);
