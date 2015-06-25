@@ -353,7 +353,7 @@ int ActionNode::getActionTag()
 
 void ActionNode::setObject(Ref* node)
 {
-	log("ActionNode 0x%08x set object 0x%08x",this,node);
+	log("ActionNode %p set object %p",this,node);
     _object = node;
 }
 
