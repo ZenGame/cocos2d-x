@@ -128,7 +128,13 @@ int ActionManagerEx::releaseActionForFile(const char* jsonName)
 		return 0;
 	}
 	cocos2d::Vector<ActionObject*>  actionList = iterator->second;
-	int ret = actionList.size();
+	int ret = static_cast<int>(actionList.size());
+    for (int i = 0; i < ret; i++) {
+        ActionObject* action = actionList.at(i);
+        if (action != nullptr) {
+            action->stop();
+        }
+    }
 	actionList.clear();
 	_actionDic.erase(iterator);
 	return ret;
@@ -179,8 +185,8 @@ void ActionManagerEx::releaseActions()
     for (iter = _actionDic.begin(); iter != _actionDic.end(); iter++)
     {
         cocos2d::Vector<ActionObject*> objList = iter->second;
-        int listCount = objList.size();
-        for (int i = 0; i < listCount; i++) {
+        size_t listCount = objList.size();
+        for (size_t i = 0; i < listCount; i++) {
             ActionObject* action = objList.at(i);
             if (action != nullptr) {
                 action->stop();
