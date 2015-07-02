@@ -677,7 +677,8 @@ void Director::purgeCachedData(void)
 
     if (s_SharedDirector->getOpenGLView())
     {
-        SpriteFrameCache::getInstance()->removeUnusedSpriteFrames();
+        // ZYC: do not remove sprite frame cache, it will cause a lot of problem.
+        //SpriteFrameCache::getInstance()->removeUnusedSpriteFrames();
         _textureCache->removeUnusedTextures();
 
         // Note: some tests such as ActionsTest are leaking refcounted textures
