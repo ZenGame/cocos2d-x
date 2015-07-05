@@ -240,10 +240,6 @@ public:
      */
     float getScaleY() const;
 
-	inline float fly_getScaleX(){ return m_fFlyScaleX; }
-	inline float fly_getScaleY(){ return m_fFlyScaleY; }
-	void fly_setDesignResolutionSize(float width, float height, int nMode);
-
     /** returns the current Resolution policy */
     ResolutionPolicy getResolutionPolicy() const { return _resolutionPolicy; }
 
@@ -271,8 +267,6 @@ protected:
 
     float _scaleX;
     float _scaleY;
-	float m_fFlyScaleX;
-	float m_fFlyScaleY;
 
     ResolutionPolicy _resolutionPolicy;
 };

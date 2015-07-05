@@ -325,8 +325,6 @@ void elog(const char * format, ...)
 	va_end(args);
 }
 
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WINRT)
-
 //
 // Console code
 //
