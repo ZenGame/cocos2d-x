@@ -4,22 +4,26 @@
 -- @extend EaseBounce
 
 --------------------------------
+--  creates the action 
 -- @function [parent=#EaseBounceOut] create 
 -- @param self
--- @param #cc.ActionInterval actioninterval
+-- @param #cc.ActionInterval action
 -- @return EaseBounceOut#EaseBounceOut ret (return value: cc.EaseBounceOut)
         
 --------------------------------
+-- 
 -- @function [parent=#EaseBounceOut] clone 
 -- @param self
 -- @return EaseBounceOut#EaseBounceOut ret (return value: cc.EaseBounceOut)
         
 --------------------------------
+-- 
 -- @function [parent=#EaseBounceOut] update 
 -- @param self
--- @param #float float
+-- @param #float time
         
 --------------------------------
+-- 
 -- @function [parent=#EaseBounceOut] reverse 
 -- @param self
 -- @return EaseBounce#EaseBounce ret (return value: cc.EaseBounce)

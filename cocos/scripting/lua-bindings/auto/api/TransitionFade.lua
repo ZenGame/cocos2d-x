@@ -10,9 +10,9 @@
 --          
 -- @function [parent=#TransitionFade] create
 -- @param self
--- @param #float float
+-- @param #float duration
 -- @param #cc.Scene scene
--- @param #color3b_table color3b
--- @return TransitionFade#TransitionFade ret (retunr value: cc.TransitionFade)
+-- @param #color3b_table color
+-- @return TransitionFade#TransitionFade ret (return value: cc.TransitionFade)
 
 return nil

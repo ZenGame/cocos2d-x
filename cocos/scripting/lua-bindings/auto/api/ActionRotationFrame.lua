@@ -4,9 +4,11 @@
 -- @extend ActionFrame
 
 --------------------------------
+-- Changes rotate action rotation.<br>
+-- param rotation rotate action rotation.
 -- @function [parent=#ActionRotationFrame] setRotation 
 -- @param self
--- @param #float float
+-- @param #float rotation
         
 --------------------------------
 -- overload function: getAction(float, ccs.ActionFrame)
@@ -15,16 +17,19 @@
 --          
 -- @function [parent=#ActionRotationFrame] getAction
 -- @param self
--- @param #float float
--- @param #ccs.ActionFrame actionframe
--- @return ActionInterval#ActionInterval ret (retunr value: cc.ActionInterval)
+-- @param #float duration
+-- @param #ccs.ActionFrame srcFrame
+-- @return ActionInterval#ActionInterval ret (return value: cc.ActionInterval)
 
 --------------------------------
+-- Gets the rotate action rotation.<br>
+-- return the rotate action rotation.
 -- @function [parent=#ActionRotationFrame] getRotation 
 -- @param self
 -- @return float#float ret (return value: float)
         
 --------------------------------
+-- Default constructor
 -- @function [parent=#ActionRotationFrame] ActionRotationFrame 
 -- @param self
         

@@ -31,14 +31,15 @@ THE SOFTWARE.
 
 #include <vector>
 
-#include "2d/CCSpriteFrame.h"
+
 #include "2d/CCSprite.h"
 #include "platform/CCFileUtils.h"
 #include "base/CCNS.h"
 #include "base/ccMacros.h"
 #include "base/CCDirector.h"
+#include "renderer/CCTexture2D.h"
 #include "renderer/CCTextureCache.h"
-#include "math/TransformUtils.h"
+
 
 #include "deprecated/CCString.h"
 
@@ -54,7 +55,7 @@ SpriteFrameCache* SpriteFrameCache::getInstance()
 {
     if (! _sharedSpriteFrameCache)
     {
-        _sharedSpriteFrameCache = new SpriteFrameCache();
+        _sharedSpriteFrameCache = new (std::nothrow) SpriteFrameCache();
         _sharedSpriteFrameCache->init();
     }
 
@@ -224,6 +225,12 @@ void SpriteFrameCache::addSpriteFramesWithFile(const std::string& pszPlist, Text
 	file_unlock();
 }
 
+void SpriteFrameCache::addSpriteFramesWithFileContent(const std::string& plist_content, Texture2D *texture)
+{
+    ValueMap dict = FileUtils::getInstance()->getValueMapFromData(plist_content.c_str(), static_cast<int>(plist_content.size()));
+    addSpriteFramesWithDictionary(dict, texture);
+}
+
 void SpriteFrameCache::addSpriteFramesWithFile(const std::string& plist, const std::string& textureFileName, const std::string& prefix)
 {
 	file_lock();
@@ -345,7 +352,7 @@ void SpriteFrameCache::removeUnusedSpriteFrames()
 	_spriteFramesHash.erase(toRemoveFrames);
 	frames_unlock();
     
-    // XXX. Since we don't know the .plist file that originated the frame, we must remove all .plist from the cache
+    // FIXME:. Since we don't know the .plist file that originated the frame, we must remove all .plist from the cache
     if( removed )
     {
 		file_lock();
@@ -379,6 +386,8 @@ void SpriteFrameCache::removeSpriteFrameByName(const std::string& name)
 	frames_unlock();
     // XXX. Since we don't know the .plist file that originated the frame, we must remove all .plist from the cache
 	file_lock();
+
+    // FIXME:. Since we don't know the .plist file that originated the frame, we must remove all .plist from the cache
     _loadedFileNames->clear();
 	file_unlock();
 }
@@ -463,6 +472,17 @@ void SpriteFrameCache::removeSpriteFramesFromFile(const std::string& plist, cons
 	}
 		
 	file_unlock();
+}
+
+void SpriteFrameCache::removeSpriteFramesFromFileContent(const std::string& plist_content)
+{
+    ValueMap dict = FileUtils::getInstance()->getValueMapFromData(plist_content.data(), static_cast<int>(plist_content.size()));
+    if (dict.empty())
+    {
+        CCLOG("cocos2d:SpriteFrameCache:removeSpriteFramesFromFileContent: create dict by fail.");
+        return;
+    }
+    removeSpriteFramesFromDictionary(dict);
 }
 
 void SpriteFrameCache::removeSpriteFramesFromDictionary(ValueMap& dictionary)

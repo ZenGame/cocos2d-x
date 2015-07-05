@@ -4,22 +4,26 @@
 -- @extend ActionEase
 
 --------------------------------
+--  creates the action 
 -- @function [parent=#EaseQuadraticActionOut] create 
 -- @param self
--- @param #cc.ActionInterval actioninterval
+-- @param #cc.ActionInterval action
 -- @return EaseQuadraticActionOut#EaseQuadraticActionOut ret (return value: cc.EaseQuadraticActionOut)
         
 --------------------------------
+-- 
 -- @function [parent=#EaseQuadraticActionOut] clone 
 -- @param self
 -- @return EaseQuadraticActionOut#EaseQuadraticActionOut ret (return value: cc.EaseQuadraticActionOut)
         
 --------------------------------
+-- 
 -- @function [parent=#EaseQuadraticActionOut] update 
 -- @param self
--- @param #float float
+-- @param #float time
         
 --------------------------------
+-- 
 -- @function [parent=#EaseQuadraticActionOut] reverse 
 -- @param self
 -- @return EaseQuadraticActionOut#EaseQuadraticActionOut ret (return value: cc.EaseQuadraticActionOut)

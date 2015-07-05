@@ -4,13 +4,15 @@
 -- @extend TransitionFadeTR
 
 --------------------------------
+-- 
 -- @function [parent=#TransitionFadeBL] create 
 -- @param self
--- @param #float float
+-- @param #float t
 -- @param #cc.Scene scene
 -- @return TransitionFadeBL#TransitionFadeBL ret (return value: cc.TransitionFadeBL)
         
 --------------------------------
+-- 
 -- @function [parent=#TransitionFadeBL] actionWithSize 
 -- @param self
 -- @param #size_table size

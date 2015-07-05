@@ -4,9 +4,10 @@
 -- @extend AtlasNode,LabelProtocol
 
 --------------------------------
+-- 
 -- @function [parent=#LabelAtlas] setString 
 -- @param self
--- @param #string str
+-- @param #string label
         
 --------------------------------
 -- overload function: initWithString(string, string)
@@ -17,18 +18,20 @@
 --          
 -- @function [parent=#LabelAtlas] initWithString
 -- @param self
--- @param #string str
--- @param #cc.Texture2D texture2d
--- @param #int int
--- @param #int int
--- @param #int int
--- @return bool#bool ret (retunr value: bool)
+-- @param #string string
+-- @param #cc.Texture2D texture
+-- @param #int itemWidth
+-- @param #int itemHeight
+-- @param #int startCharMap
+-- @return bool#bool ret (return value: bool)
 
 --------------------------------
+-- 
 -- @function [parent=#LabelAtlas] updateAtlasValues 
 -- @param self
         
 --------------------------------
+-- 
 -- @function [parent=#LabelAtlas] getString 
 -- @param self
 -- @return string#string ret (return value: string)
@@ -42,14 +45,15 @@
 --          
 -- @function [parent=#LabelAtlas] create
 -- @param self
--- @param #string str
--- @param #string str
--- @param #int int
--- @param #int int
--- @param #int int
--- @return LabelAtlas#LabelAtlas ret (retunr value: cc.LabelAtlas)
+-- @param #string string
+-- @param #string charMapFile
+-- @param #int itemWidth
+-- @param #int itemHeight
+-- @param #int startCharMap
+-- @return LabelAtlas#LabelAtlas ret (return value: cc.LabelAtlas)
 
 --------------------------------
+-- 
 -- @function [parent=#LabelAtlas] getDescription 
 -- @param self
 -- @return string#string ret (return value: string)

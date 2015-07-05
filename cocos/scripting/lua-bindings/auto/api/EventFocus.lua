@@ -4,9 +4,10 @@
 -- @extend Event
 
 --------------------------------
+-- 
 -- @function [parent=#EventFocus] EventFocus 
 -- @param self
--- @param #ccui.Widget widget
--- @param #ccui.Widget widget
+-- @param #ccui.Widget widgetLoseFocus
+-- @param #ccui.Widget widgetGetFocus
         
 return nil
