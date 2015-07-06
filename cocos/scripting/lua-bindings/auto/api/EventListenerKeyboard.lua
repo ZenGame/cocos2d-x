@@ -2,6 +2,7 @@
 --------------------------------
 -- @module EventListenerKeyboard
 -- @extend EventListener
+-- @parent_module cc
 
 --------------------------------
 -- / Overrides

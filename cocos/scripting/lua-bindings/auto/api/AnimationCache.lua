@@ -2,6 +2,7 @@
 --------------------------------
 -- @module AnimationCache
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 --  Returns a Animation that was previously added.<br>

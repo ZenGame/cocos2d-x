@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ActionFadeFrame
 -- @extend ActionFrame
+-- @parent_module ccs
 
 --------------------------------
 -- Gets the fade action opacity.<br>

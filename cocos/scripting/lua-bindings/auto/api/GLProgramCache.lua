@@ -2,6 +2,7 @@
 --------------------------------
 -- @module GLProgramCache
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 --  adds a GLProgram to the cache for a given name 

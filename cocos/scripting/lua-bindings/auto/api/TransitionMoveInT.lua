@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TransitionMoveInT
 -- @extend TransitionMoveInL
+-- @parent_module cc
 
 --------------------------------
 -- 

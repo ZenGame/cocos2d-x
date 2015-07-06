@@ -2,6 +2,7 @@
 --------------------------------
 -- @module CatmullRomBy
 -- @extend CardinalSplineBy
+-- @parent_module cc
 
 --------------------------------
 --  initializes the action with a duration and an array of points 

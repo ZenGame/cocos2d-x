@@ -2,6 +2,7 @@
 --------------------------------
 -- @module LayerMultiplex
 -- @extend Layer
+-- @parent_module cc
 
 --------------------------------
 --  release the current layer and switches to another layer indexed by n.<br>

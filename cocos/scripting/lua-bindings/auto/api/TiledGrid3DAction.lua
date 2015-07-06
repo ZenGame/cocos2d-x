@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TiledGrid3DAction
 -- @extend GridAction
+-- @parent_module cc
 
 --------------------------------
 --  returns the grid 

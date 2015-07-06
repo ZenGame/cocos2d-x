@@ -18,7 +18,7 @@ int lua_cocos2dx_experimental_TMXLayer_getPositionAt(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -68,7 +68,7 @@ int lua_cocos2dx_experimental_TMXLayer_setLayerOrientation(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -117,7 +117,7 @@ int lua_cocos2dx_experimental_TMXLayer_getLayerSize(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -164,7 +164,7 @@ int lua_cocos2dx_experimental_TMXLayer_setMapTileSize(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -213,7 +213,7 @@ int lua_cocos2dx_experimental_TMXLayer_getLayerOrientation(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -260,7 +260,7 @@ int lua_cocos2dx_experimental_TMXLayer_setProperties(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -309,7 +309,7 @@ int lua_cocos2dx_experimental_TMXLayer_setLayerName(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -358,7 +358,7 @@ int lua_cocos2dx_experimental_TMXLayer_removeTileAt(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -405,7 +405,7 @@ int lua_cocos2dx_experimental_TMXLayer_getProperties(lua_State* tolua_S)
 #endif
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
 #if COCOS2D_DEBUG >= 1
@@ -454,7 +454,7 @@ int lua_cocos2dx_experimental_TMXLayer_setupTiles(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -500,7 +500,7 @@ int lua_cocos2dx_experimental_TMXLayer_setupTileSprite(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -553,7 +553,7 @@ int lua_cocos2dx_experimental_TMXLayer_setTileGID(lua_State* tolua_S)
 #endif
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
 #if COCOS2D_DEBUG >= 1
@@ -620,7 +620,7 @@ int lua_cocos2dx_experimental_TMXLayer_getMapTileSize(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -667,7 +667,7 @@ int lua_cocos2dx_experimental_TMXLayer_getProperty(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -717,7 +717,7 @@ int lua_cocos2dx_experimental_TMXLayer_setLayerSize(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -766,7 +766,7 @@ int lua_cocos2dx_experimental_TMXLayer_getLayerName(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -813,7 +813,7 @@ int lua_cocos2dx_experimental_TMXLayer_setTileSet(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -862,7 +862,7 @@ int lua_cocos2dx_experimental_TMXLayer_getTileSet(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -909,7 +909,7 @@ int lua_cocos2dx_experimental_TMXLayer_getTileAt(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXLayer*)tolua_tousertype(tolua_S,1,0);
@@ -957,7 +957,7 @@ int lua_cocos2dx_experimental_TMXLayer_create(lua_State* tolua_S)
 #endif
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertable(tolua_S,1,"cc.experimental::TMXLayer",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertable(tolua_S,1,"ccexp.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     argc = lua_gettop(tolua_S) - 1;
@@ -976,7 +976,7 @@ int lua_cocos2dx_experimental_TMXLayer_create(lua_State* tolua_S)
             return 0;
         }
         cocos2d::experimental::TMXLayer* ret = cocos2d::experimental::TMXLayer::create(arg0, arg1, arg2);
-        object_to_luaval<cocos2d::experimental::TMXLayer>(tolua_S, "cc.experimental::TMXLayer",(cocos2d::experimental::TMXLayer*)ret);
+        object_to_luaval<cocos2d::experimental::TMXLayer>(tolua_S, "ccexp.TMXLayer",(cocos2d::experimental::TMXLayer*)ret);
         return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccexp.TMXLayer:create",argc, 3);
@@ -1011,7 +1011,7 @@ int lua_cocos2dx_experimental_TMXLayer_constructor(lua_State* tolua_S)
         cobj->autorelease();
         int ID =  (int)cobj->_ID ;
         int* luaID =  &cobj->_luaID ;
-        toluafix_pushusertype_ccobject(tolua_S, ID, luaID, (void*)cobj,"cc.experimental::TMXLayer");
+        toluafix_pushusertype_ccobject(tolua_S, ID, luaID, (void*)cobj,"ccexp.TMXLayer");
         return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "ccexp.TMXLayer:TMXLayer",argc, 0);
@@ -1032,10 +1032,11 @@ static int lua_cocos2dx_experimental_TMXLayer_finalize(lua_State* tolua_S)
 
 int lua_register_cocos2dx_experimental_TMXLayer(lua_State* tolua_S)
 {
-    tolua_usertype(tolua_S,"cc.experimental::TMXLayer");
-    tolua_cclass(tolua_S,"TMXLayer","cc.experimental::TMXLayer","cc.Node",nullptr);
+    tolua_usertype(tolua_S,"ccexp.TMXLayer");
+    tolua_cclass(tolua_S,"TMXLayer","ccexp.TMXLayer","cc.Node",nullptr);
 
     tolua_beginmodule(tolua_S,"TMXLayer");
+        tolua_function(tolua_S,"new",lua_cocos2dx_experimental_TMXLayer_constructor);
         tolua_function(tolua_S,"getPositionAt",lua_cocos2dx_experimental_TMXLayer_getPositionAt);
         tolua_function(tolua_S,"setLayerOrientation",lua_cocos2dx_experimental_TMXLayer_setLayerOrientation);
         tolua_function(tolua_S,"getLayerSize",lua_cocos2dx_experimental_TMXLayer_getLayerSize);
@@ -1055,12 +1056,11 @@ int lua_register_cocos2dx_experimental_TMXLayer(lua_State* tolua_S)
         tolua_function(tolua_S,"setTileSet",lua_cocos2dx_experimental_TMXLayer_setTileSet);
         tolua_function(tolua_S,"getTileSet",lua_cocos2dx_experimental_TMXLayer_getTileSet);
         tolua_function(tolua_S,"getTileAt",lua_cocos2dx_experimental_TMXLayer_getTileAt);
-        tolua_function(tolua_S,"new",lua_cocos2dx_experimental_TMXLayer_constructor);
         tolua_function(tolua_S,"create", lua_cocos2dx_experimental_TMXLayer_create);
     tolua_endmodule(tolua_S);
     std::string typeName = typeid(cocos2d::experimental::TMXLayer).name();
-    g_luaType[typeName] = "cc.experimental::TMXLayer";
-    g_typeCast["TMXLayer"] = "cc.experimental::TMXLayer";
+    g_luaType[typeName] = "ccexp.TMXLayer";
+    g_typeCast["TMXLayer"] = "ccexp.TMXLayer";
     return 1;
 }
 
@@ -1076,7 +1076,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_setObjectGroups(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1125,7 +1125,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getProperty(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1175,7 +1175,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_setMapSize(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1224,7 +1224,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getObjectGroup(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1272,7 +1272,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getObjectGroups(lua_State* tolua_S)
 #endif
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
 #if COCOS2D_DEBUG >= 1
@@ -1321,7 +1321,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getTileSize(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1368,7 +1368,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getMapSize(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1415,7 +1415,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getProperties(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1462,7 +1462,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getPropertiesForGID(lua_State* tolua_S
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1512,7 +1512,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_setTileSize(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1561,7 +1561,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_setProperties(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1610,7 +1610,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getLayer(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1635,7 +1635,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getLayer(lua_State* tolua_S)
             return 0;
         }
         cocos2d::experimental::TMXLayer* ret = cobj->getLayer(arg0);
-        object_to_luaval<cocos2d::experimental::TMXLayer>(tolua_S, "cc.experimental::TMXLayer",(cocos2d::experimental::TMXLayer*)ret);
+        object_to_luaval<cocos2d::experimental::TMXLayer>(tolua_S, "ccexp.TMXLayer",(cocos2d::experimental::TMXLayer*)ret);
         return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "ccexp.TMXTiledMap:getLayer",argc, 1);
@@ -1660,7 +1660,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_getMapOrientation(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1707,7 +1707,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_setMapOrientation(lua_State* tolua_S)
 
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertype(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     cobj = (cocos2d::experimental::TMXTiledMap*)tolua_tousertype(tolua_S,1,0);
@@ -1754,7 +1754,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_create(lua_State* tolua_S)
 #endif
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertable(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertable(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     argc = lua_gettop(tolua_S) - 1;
@@ -1769,7 +1769,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_create(lua_State* tolua_S)
             return 0;
         }
         cocos2d::experimental::TMXTiledMap* ret = cocos2d::experimental::TMXTiledMap::create(arg0);
-        object_to_luaval<cocos2d::experimental::TMXTiledMap>(tolua_S, "cc.experimental::TMXTiledMap",(cocos2d::experimental::TMXTiledMap*)ret);
+        object_to_luaval<cocos2d::experimental::TMXTiledMap>(tolua_S, "ccexp.TMXTiledMap",(cocos2d::experimental::TMXTiledMap*)ret);
         return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccexp.TMXTiledMap:create",argc, 1);
@@ -1790,7 +1790,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_createWithXML(lua_State* tolua_S)
 #endif
 
 #if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertable(tolua_S,1,"cc.experimental::TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
+    if (!tolua_isusertable(tolua_S,1,"ccexp.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
     argc = lua_gettop(tolua_S) - 1;
@@ -1807,7 +1807,7 @@ int lua_cocos2dx_experimental_TMXTiledMap_createWithXML(lua_State* tolua_S)
             return 0;
         }
         cocos2d::experimental::TMXTiledMap* ret = cocos2d::experimental::TMXTiledMap::createWithXML(arg0, arg1);
-        object_to_luaval<cocos2d::experimental::TMXTiledMap>(tolua_S, "cc.experimental::TMXTiledMap",(cocos2d::experimental::TMXTiledMap*)ret);
+        object_to_luaval<cocos2d::experimental::TMXTiledMap>(tolua_S, "ccexp.TMXTiledMap",(cocos2d::experimental::TMXTiledMap*)ret);
         return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccexp.TMXTiledMap:createWithXML",argc, 2);
@@ -1826,8 +1826,8 @@ static int lua_cocos2dx_experimental_TMXTiledMap_finalize(lua_State* tolua_S)
 
 int lua_register_cocos2dx_experimental_TMXTiledMap(lua_State* tolua_S)
 {
-    tolua_usertype(tolua_S,"cc.experimental::TMXTiledMap");
-    tolua_cclass(tolua_S,"TMXTiledMap","cc.experimental::TMXTiledMap","cc.Node",nullptr);
+    tolua_usertype(tolua_S,"ccexp.TMXTiledMap");
+    tolua_cclass(tolua_S,"TMXTiledMap","ccexp.TMXTiledMap","cc.Node",nullptr);
 
     tolua_beginmodule(tolua_S,"TMXTiledMap");
         tolua_function(tolua_S,"setObjectGroups",lua_cocos2dx_experimental_TMXTiledMap_setObjectGroups);
@@ -1848,8 +1848,8 @@ int lua_register_cocos2dx_experimental_TMXTiledMap(lua_State* tolua_S)
         tolua_function(tolua_S,"createWithXML", lua_cocos2dx_experimental_TMXTiledMap_createWithXML);
     tolua_endmodule(tolua_S);
     std::string typeName = typeid(cocos2d::experimental::TMXTiledMap).name();
-    g_luaType[typeName] = "cc.experimental::TMXTiledMap";
-    g_typeCast["TMXTiledMap"] = "cc.experimental::TMXTiledMap";
+    g_luaType[typeName] = "ccexp.TMXTiledMap";
+    g_typeCast["TMXTiledMap"] = "ccexp.TMXTiledMap";
     return 1;
 }
 TOLUA_API int register_all_cocos2dx_experimental(lua_State* tolua_S)

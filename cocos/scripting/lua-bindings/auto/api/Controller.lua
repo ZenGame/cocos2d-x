@@ -1,6 +1,7 @@
 
 --------------------------------
 -- @module Controller
+-- @parent_module cc
 
 --------------------------------
 --  Activate receives key event from external key. e.g. back,menu.<br>

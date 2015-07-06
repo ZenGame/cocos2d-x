@@ -2,6 +2,7 @@
 --------------------------------
 -- @module EventListenerController
 -- @extend EventListener
+-- @parent_module cc
 
 --------------------------------
 -- 

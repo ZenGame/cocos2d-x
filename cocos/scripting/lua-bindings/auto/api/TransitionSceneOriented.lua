@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TransitionSceneOriented
 -- @extend TransitionScene
+-- @parent_module cc
 
 --------------------------------
 --  creates a base transition with duration and incoming scene 
@@ -9,7 +10,7 @@
 -- @param self
 -- @param #float t
 -- @param #cc.Scene scene
--- @param #cc.TransitionScene::Orientation orientation
+-- @param #int orientation
 -- @return TransitionSceneOriented#TransitionSceneOriented ret (return value: cc.TransitionSceneOriented)
         
 return nil

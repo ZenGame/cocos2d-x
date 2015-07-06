@@ -2,6 +2,7 @@
 --------------------------------
 -- @module EaseRateAction
 -- @extend ActionEase
+-- @parent_module cc
 
 --------------------------------
 --  set rate value for the actions 

@@ -1,6 +1,7 @@
 
 --------------------------------
 -- @module Ref
+-- @parent_module cc
 
 --------------------------------
 -- Releases the ownership immediately.<br>

@@ -2,6 +2,7 @@
 --------------------------------
 -- @module EaseElastic
 -- @extend ActionEase
+-- @parent_module cc
 
 --------------------------------
 --  set period of the wave in radians. 

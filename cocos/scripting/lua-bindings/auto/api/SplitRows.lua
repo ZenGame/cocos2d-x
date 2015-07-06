@@ -2,6 +2,7 @@
 --------------------------------
 -- @module SplitRows
 -- @extend TiledGrid3DAction
+-- @parent_module cc
 
 --------------------------------
 --  creates the action with the number of rows to split and the duration 

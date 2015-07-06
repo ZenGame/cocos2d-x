@@ -315,6 +315,13 @@
 
 --------------------------------
 -- 
+-- @function [parent=#Node] nodeToNodeTransform 
+-- @param self
+-- @param #cc.Node node
+-- @return AffineTransform#AffineTransform ret (return value: cc.AffineTransform)
+        
+--------------------------------
+-- 
 -- @function [parent=#Node] getNodeToParentAffineTransform 
 -- @param self
 -- @return AffineTransform#AffineTransform ret (return value: cc.AffineTransform)
@@ -367,12 +374,14 @@
 -- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
--- Converts a Vec2 to node (local) space coordinates. The result is in Points.
--- @function [parent=#Node] convertToNodeSpace 
+-- @overload self, cc.Node, vec2_table         
+-- @overload self, vec2_table         
+-- @function [parent=#Node] convertToNodeSpace
 -- @param self
--- @param #vec2_table worldPoint
+-- @param #cc.Node node
+-- @param #vec2_table nodePoint
 -- @return vec2_table#vec2_table ret (return value: vec2_table)
-        
+
 --------------------------------
 -- get the PhysicsBody the sprite have
 -- @function [parent=#Node] getPhysicsBody 

@@ -1,4 +1,5 @@
 #include "lua_cocos2dx_controller_auto.hpp"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "CCGameController.h"
 #include "tolua_fix.h"
 #include "LuaBasicConversions.h"
@@ -788,13 +789,13 @@ int lua_register_cocos2dx_controller_EventController(lua_State* tolua_S)
     tolua_cclass(tolua_S,"EventController","cc.EventController","cc.Event",nullptr);
 
     tolua_beginmodule(tolua_S,"EventController");
+        tolua_function(tolua_S,"new",lua_cocos2dx_controller_EventController_constructor);
         tolua_function(tolua_S,"getControllerEventType",lua_cocos2dx_controller_EventController_getControllerEventType);
         tolua_function(tolua_S,"setConnectStatus",lua_cocos2dx_controller_EventController_setConnectStatus);
         tolua_function(tolua_S,"isConnected",lua_cocos2dx_controller_EventController_isConnected);
         tolua_function(tolua_S,"setKeyCode",lua_cocos2dx_controller_EventController_setKeyCode);
         tolua_function(tolua_S,"getController",lua_cocos2dx_controller_EventController_getController);
         tolua_function(tolua_S,"getKeyCode",lua_cocos2dx_controller_EventController_getKeyCode);
-        tolua_function(tolua_S,"new",lua_cocos2dx_controller_EventController_constructor);
     tolua_endmodule(tolua_S);
     std::string typeName = typeid(cocos2d::EventController).name();
     g_luaType[typeName] = "cc.EventController";
@@ -870,3 +871,4 @@ TOLUA_API int register_all_cocos2dx_controller(lua_State* tolua_S)
 	return 1;
 }
 
+#endif

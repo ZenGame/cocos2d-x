@@ -2,6 +2,7 @@
 --------------------------------
 -- @module StopGrid
 -- @extend ActionInstant
+-- @parent_module cc
 
 --------------------------------
 --  Allocates and initializes the action 

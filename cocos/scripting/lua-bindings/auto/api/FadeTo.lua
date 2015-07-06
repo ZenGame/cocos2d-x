@@ -2,6 +2,7 @@
 --------------------------------
 -- @module FadeTo
 -- @extend ActionInterval
+-- @parent_module cc
 
 --------------------------------
 --  creates an action with duration and opacity 

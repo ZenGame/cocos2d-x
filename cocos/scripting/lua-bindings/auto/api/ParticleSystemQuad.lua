@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ParticleSystemQuad
 -- @extend ParticleSystem
+-- @parent_module cc
 
 --------------------------------
 --  Sets a new SpriteFrame as particle.<br>
@@ -30,12 +31,9 @@
 -- @param #cc.EventCustom event
         
 --------------------------------
--- overload function: create(string)
---          
--- overload function: create()
---          
--- overload function: create(map_table)
---          
+-- @overload self, string         
+-- @overload self         
+-- @overload self, map_table         
 -- @function [parent=#ParticleSystemQuad] create
 -- @param self
 -- @param #map_table dictionary

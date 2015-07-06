@@ -2,6 +2,7 @@
 --------------------------------
 -- @module FiniteTimeAction
 -- @extend Action
+-- @parent_module cc
 
 --------------------------------
 --  set duration in seconds of the action

@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ComAudio
 -- @extend Component
+-- @parent_module ccs
 
 --------------------------------
 -- 
@@ -44,10 +45,8 @@
 -- @param self
         
 --------------------------------
--- overload function: stopBackgroundMusic()
---          
--- overload function: stopBackgroundMusic(bool)
---          
+-- @overload self         
+-- @overload self, bool         
 -- @function [parent=#ComAudio] stopBackgroundMusic
 -- @param self
 -- @param #bool bReleaseData
@@ -86,24 +85,18 @@
 -- @param #char pszFilePath
         
 --------------------------------
--- overload function: playBackgroundMusic(char)
---          
--- overload function: playBackgroundMusic(char, bool)
---          
--- overload function: playBackgroundMusic()
---          
+-- @overload self, char         
+-- @overload self, char, bool         
+-- @overload self         
 -- @function [parent=#ComAudio] playBackgroundMusic
 -- @param self
 -- @param #char pszFilePath
 -- @param #bool bLoop
 
 --------------------------------
--- overload function: playEffect(char)
---          
--- overload function: playEffect(char, bool)
---          
--- overload function: playEffect()
---          
+-- @overload self, char         
+-- @overload self, char, bool         
+-- @overload self         
 -- @function [parent=#ComAudio] playEffect
 -- @param self
 -- @param #char pszFilePath

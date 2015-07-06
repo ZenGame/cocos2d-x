@@ -2,6 +2,7 @@
 --------------------------------
 -- @module Timer
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 --  get interval in seconds 

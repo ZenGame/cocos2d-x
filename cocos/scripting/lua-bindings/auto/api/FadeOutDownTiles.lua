@@ -2,6 +2,7 @@
 --------------------------------
 -- @module FadeOutDownTiles
 -- @extend FadeOutUpTiles
+-- @parent_module cc
 
 --------------------------------
 --  creates the action with the grid size and the duration 

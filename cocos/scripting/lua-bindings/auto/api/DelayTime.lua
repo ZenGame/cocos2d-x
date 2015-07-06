@@ -2,6 +2,7 @@
 --------------------------------
 -- @module DelayTime
 -- @extend ActionInterval
+-- @parent_module cc
 
 --------------------------------
 --  creates the action 

@@ -2,6 +2,7 @@
 --------------------------------
 -- @module Animate3D
 -- @extend ActionInterval
+-- @parent_module cc
 
 --------------------------------
 -- 
@@ -28,10 +29,8 @@
 -- @return float#float ret (return value: float)
         
 --------------------------------
--- overload function: create(cc.Animation3D, float, float)
---          
--- overload function: create(cc.Animation3D)
---          
+-- @overload self, cc.Animation3D, float, float         
+-- @overload self, cc.Animation3D         
 -- @function [parent=#Animate3D] create
 -- @param self
 -- @param #cc.Animation3D animation

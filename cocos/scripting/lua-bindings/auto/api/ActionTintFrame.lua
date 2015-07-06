@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ActionTintFrame
 -- @extend ActionFrame
+-- @parent_module ccs
 
 --------------------------------
 -- Gets the tint action color.<br>

@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ActionEase
 -- @extend ActionInterval
+-- @parent_module cc
 
 --------------------------------
 -- 

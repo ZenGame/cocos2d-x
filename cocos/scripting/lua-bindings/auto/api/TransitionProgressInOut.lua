@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TransitionProgressInOut
 -- @extend TransitionProgress
+-- @parent_module cc
 
 --------------------------------
 -- 

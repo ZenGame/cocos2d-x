@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TextBMFont
 -- @extend Widget
+-- @parent_module ccui
 
 --------------------------------
 --  init a bitmap font atlas with an initial string and the FNT file 
@@ -31,10 +32,8 @@
 -- @return string#string ret (return value: string)
         
 --------------------------------
--- overload function: create(string, string)
---          
--- overload function: create()
---          
+-- @overload self, string, string         
+-- @overload self         
 -- @function [parent=#TextBMFont] create
 -- @param self
 -- @param #string text

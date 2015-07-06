@@ -2,6 +2,7 @@
 --------------------------------
 -- @module MovementBoneData
 -- @extend Ref
+-- @parent_module ccs
 
 --------------------------------
 -- 

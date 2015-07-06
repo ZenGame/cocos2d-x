@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ScaleFrame
 -- @extend Frame
+-- @parent_module ccs
 
 --------------------------------
 -- 
@@ -37,7 +38,7 @@
 -- 
 -- @function [parent=#ScaleFrame] create 
 -- @param self
--- @return timeline::ScaleFrame#timeline::ScaleFrame ret (return value: ccs.timeline::ScaleFrame)
+-- @return ScaleFrame#ScaleFrame ret (return value: ccs.ScaleFrame)
         
 --------------------------------
 -- 
@@ -49,7 +50,7 @@
 -- 
 -- @function [parent=#ScaleFrame] clone 
 -- @param self
--- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
+-- @return Frame#Frame ret (return value: ccs.Frame)
         
 --------------------------------
 -- 

@@ -1,6 +1,7 @@
 
 --------------------------------
 -- @module UserDefault
+-- @parent_module cc
 
 --------------------------------
 -- brief Set integer value by key.<br>
@@ -11,10 +12,8 @@
 -- @param #int value
         
 --------------------------------
--- overload function: getFloatForKey(char, float)
---          
--- overload function: getFloatForKey(char)
---          
+-- @overload self, char, float         
+-- @overload self, char         
 -- @function [parent=#UserDefault] getFloatForKey
 -- @param self
 -- @param #char pKey
@@ -22,10 +21,8 @@
 -- @return float#float ret (return value: float)
 
 --------------------------------
--- overload function: getBoolForKey(char, bool)
---          
--- overload function: getBoolForKey(char)
---          
+-- @overload self, char, bool         
+-- @overload self, char         
 -- @function [parent=#UserDefault] getBoolForKey
 -- @param self
 -- @param #char pKey
@@ -49,10 +46,8 @@
 -- @param #float value
         
 --------------------------------
--- overload function: getStringForKey(char, string)
---          
--- overload function: getStringForKey(char)
---          
+-- @overload self, char, string         
+-- @overload self, char         
 -- @function [parent=#UserDefault] getStringForKey
 -- @param self
 -- @param #char pKey
@@ -74,10 +69,8 @@
 -- @param self
         
 --------------------------------
--- overload function: getIntegerForKey(char, int)
---          
--- overload function: getIntegerForKey(char)
---          
+-- @overload self, char, int         
+-- @overload self, char         
 -- @function [parent=#UserDefault] getIntegerForKey
 -- @param self
 -- @param #char pKey
@@ -85,10 +78,8 @@
 -- @return int#int ret (return value: int)
 
 --------------------------------
--- overload function: getDoubleForKey(char, double)
---          
--- overload function: getDoubleForKey(char)
---          
+-- @overload self, char, double         
+-- @overload self, char         
 -- @function [parent=#UserDefault] getDoubleForKey
 -- @param self
 -- @param #char pKey

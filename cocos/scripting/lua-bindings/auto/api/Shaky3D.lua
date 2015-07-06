@@ -2,6 +2,7 @@
 --------------------------------
 -- @module Shaky3D
 -- @extend Grid3DAction
+-- @parent_module cc
 
 --------------------------------
 --  creates the action with a range, shake Z vertices, a grid and duration 

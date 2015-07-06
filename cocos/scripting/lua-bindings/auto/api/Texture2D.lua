@@ -153,6 +153,12 @@
 -- @return int#int ret (return value: int)
         
 --------------------------------
+-- 
+-- @function [parent=#Texture2D] getImageFormat 
+-- @param self
+-- @return int#int ret (return value: int)
+        
+--------------------------------
 -- Drawing extensions to make it easy to draw basic quads using a Texture2D object.<br>
 -- These functions require GL_TEXTURE_2D and both GL_VERTEX_ARRAY and GL_TEXTURE_COORD_ARRAY client states to be enabled.<br>
 -- draws a texture at a given point 

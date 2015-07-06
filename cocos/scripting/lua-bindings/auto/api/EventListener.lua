@@ -2,6 +2,7 @@
 --------------------------------
 -- @module EventListener
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 --  Enables or disables the listener<br>

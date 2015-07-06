@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ActionManager
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 --  Gets an action given its tag an a target<br>

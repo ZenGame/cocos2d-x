@@ -2,12 +2,11 @@
 --------------------------------
 -- @module ActionFrame
 -- @extend Ref
+-- @parent_module ccs
 
 --------------------------------
--- overload function: getAction(float, ccs.ActionFrame)
---          
--- overload function: getAction(float)
---          
+-- @overload self, float, ccs.ActionFrame         
+-- @overload self, float         
 -- @function [parent=#ActionFrame] getAction
 -- @param self
 -- @param #float duration

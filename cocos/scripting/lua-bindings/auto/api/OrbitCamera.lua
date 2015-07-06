@@ -2,6 +2,7 @@
 --------------------------------
 -- @module OrbitCamera
 -- @extend ActionCamera
+-- @parent_module cc
 
 --------------------------------
 --  creates a OrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX 

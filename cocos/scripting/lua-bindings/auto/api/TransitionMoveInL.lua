@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TransitionMoveInL
 -- @extend TransitionScene,TransitionEaseScene
+-- @parent_module cc
 
 --------------------------------
 --  returns the action that will be performed 

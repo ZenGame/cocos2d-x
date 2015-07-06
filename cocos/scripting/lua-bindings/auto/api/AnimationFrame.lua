@@ -2,6 +2,7 @@
 --------------------------------
 -- @module AnimationFrame
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 -- 
@@ -10,10 +11,8 @@
 -- @param #cc.SpriteFrame frame
         
 --------------------------------
--- overload function: getUserInfo()
---          
--- overload function: getUserInfo()
---          
+-- @overload self         
+-- @overload self         
 -- @function [parent=#AnimationFrame] getUserInfo
 -- @param self
 -- @return map_table#map_table ret (return value: map_table)

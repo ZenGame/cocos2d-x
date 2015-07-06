@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ParticleFire
 -- @extend ParticleSystemQuad
+-- @parent_module cc
 
 --------------------------------
 -- 

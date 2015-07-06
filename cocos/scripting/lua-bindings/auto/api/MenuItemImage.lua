@@ -2,6 +2,7 @@
 --------------------------------
 -- @module MenuItemImage
 -- @extend MenuItemSprite
+-- @parent_module cc
 
 --------------------------------
 --  sets the sprite frame for the disabled image 

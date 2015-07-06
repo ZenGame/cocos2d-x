@@ -2,6 +2,7 @@
 --------------------------------
 -- @module MenuItemFont
 -- @extend MenuItemLabel
+-- @parent_module cc
 
 --------------------------------
 --  get font size <br>

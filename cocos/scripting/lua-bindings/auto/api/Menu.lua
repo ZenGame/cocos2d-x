@@ -17,6 +17,12 @@
         
 --------------------------------
 -- 
+-- @function [parent=#Menu] fly_setEnabled 
+-- @param self
+-- @param #bool bEnable
+        
+--------------------------------
+-- 
 -- @function [parent=#Menu] isEnabled 
 -- @param self
 -- @return bool#bool ret (return value: bool)

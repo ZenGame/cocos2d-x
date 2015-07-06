@@ -2,36 +2,37 @@
 --------------------------------
 -- @module Touch
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 --  returns the previous touch location in screen coordinates 
 -- @function [parent=#Touch] getPreviousLocationInView 
 -- @param self
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
+-- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
 --  returns the current touch location in OpenGL coordinates 
 -- @function [parent=#Touch] getLocation 
 -- @param self
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
+-- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
 --  returns the delta of 2 current touches locations in screen coordinates 
 -- @function [parent=#Touch] getDelta 
 -- @param self
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
+-- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
 --  returns the start touch location in screen coordinates 
 -- @function [parent=#Touch] getStartLocationInView 
 -- @param self
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
+-- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
 --  returns the start touch location in OpenGL coordinates 
 -- @function [parent=#Touch] getStartLocation 
 -- @param self
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
+-- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
 -- js getId<br>
@@ -52,13 +53,13 @@
 --  returns the current touch location in screen coordinates 
 -- @function [parent=#Touch] getLocationInView 
 -- @param self
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
+-- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
 --  returns the previous touch location in OpenGL coordinates 
 -- @function [parent=#Touch] getPreviousLocation 
 -- @param self
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
+-- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
 -- 

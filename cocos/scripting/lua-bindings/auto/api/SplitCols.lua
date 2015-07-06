@@ -2,6 +2,7 @@
 --------------------------------
 -- @module SplitCols
 -- @extend TiledGrid3DAction
+-- @parent_module cc
 
 --------------------------------
 --  creates the action with the number of columns to split and the duration 

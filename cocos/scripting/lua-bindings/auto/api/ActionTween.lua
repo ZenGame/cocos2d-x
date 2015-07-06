@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ActionTween
 -- @extend ActionInterval
+-- @parent_module cc
 
 --------------------------------
 --  creates an initializes the action with the property name (key), and the from and to parameters. 

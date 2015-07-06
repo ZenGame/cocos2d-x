@@ -2,6 +2,7 @@
 --------------------------------
 -- @module Action
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 --  called before the action start. It will also set the target.

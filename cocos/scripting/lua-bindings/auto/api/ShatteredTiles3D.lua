@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ShatteredTiles3D
 -- @extend TiledGrid3DAction
+-- @parent_module cc
 
 --------------------------------
 --  creates the action with a range, whether of not to shatter Z vertices, a grid size and duration 

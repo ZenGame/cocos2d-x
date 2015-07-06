@@ -2,6 +2,7 @@
 --------------------------------
 -- @module FlipY3D
 -- @extend FlipX3D
+-- @parent_module cc
 
 --------------------------------
 --  creates the action with duration 

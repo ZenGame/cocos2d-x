@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ProgressFromTo
 -- @extend ActionInterval
+-- @parent_module cc
 
 --------------------------------
 --  Creates and initializes the action with a duration, a "from" percentage and a "to" percentage 

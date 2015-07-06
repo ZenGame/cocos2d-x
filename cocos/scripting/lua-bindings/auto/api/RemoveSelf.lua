@@ -2,6 +2,7 @@
 --------------------------------
 -- @module RemoveSelf
 -- @extend ActionInstant
+-- @parent_module cc
 
 --------------------------------
 --  create the action 

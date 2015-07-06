@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ZOrderFrame
 -- @extend Frame
+-- @parent_module ccs
 
 --------------------------------
 -- 
@@ -19,13 +20,13 @@
 -- 
 -- @function [parent=#ZOrderFrame] create 
 -- @param self
--- @return timeline::ZOrderFrame#timeline::ZOrderFrame ret (return value: ccs.timeline::ZOrderFrame)
+-- @return ZOrderFrame#ZOrderFrame ret (return value: ccs.ZOrderFrame)
         
 --------------------------------
 -- 
 -- @function [parent=#ZOrderFrame] clone 
 -- @param self
--- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
+-- @return Frame#Frame ret (return value: ccs.Frame)
         
 --------------------------------
 -- 

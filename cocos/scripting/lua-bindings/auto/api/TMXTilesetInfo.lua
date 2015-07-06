@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TMXTilesetInfo
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 -- 

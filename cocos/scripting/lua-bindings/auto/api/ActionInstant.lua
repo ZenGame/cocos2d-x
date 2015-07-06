@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ActionInstant
 -- @extend FiniteTimeAction
+-- @parent_module cc
 
 --------------------------------
 -- 

@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ShakyTiles3D
 -- @extend TiledGrid3DAction
+-- @parent_module cc
 
 --------------------------------
 --  creates the action with a range, whether or not to shake Z vertices, a grid size, and duration 

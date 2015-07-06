@@ -2,6 +2,7 @@
 --------------------------------
 -- @module MenuItemLabel
 -- @extend MenuItem
+-- @parent_module cc
 
 --------------------------------
 --  Gets the color that will be used to disable the item 

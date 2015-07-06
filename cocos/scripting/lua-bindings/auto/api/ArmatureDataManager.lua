@@ -38,10 +38,17 @@
 
 --------------------------------
 -- 
--- @function [parent=#ArmatureDataManager] removeArmatureFileInfo 
+-- @function [parent=#ArmatureDataManager] res_unlock 
+-- @param self
+        
+--------------------------------
+-- @overload self, string, string         
+-- @overload self, string         
+-- @function [parent=#ArmatureDataManager] removeArmatureFileInfo
 -- @param self
 -- @param #string configFilePath
-        
+-- @param #string prefix
+
 --------------------------------
 -- 
 -- @function [parent=#ArmatureDataManager] getTextureDatas 
@@ -56,6 +63,11 @@
 -- @param self
 -- @param #string id
 -- @return TextureData#TextureData ret (return value: ccs.TextureData)
+        
+--------------------------------
+-- 
+-- @function [parent=#ArmatureDataManager] res_lock 
+-- @param self
         
 --------------------------------
 -- brief	get armature data<br>
@@ -134,6 +146,7 @@
 -- @param #string plistPath
 -- @param #string imagePath
 -- @param #string configFilePath
+-- @param #string prefix
         
 --------------------------------
 -- 

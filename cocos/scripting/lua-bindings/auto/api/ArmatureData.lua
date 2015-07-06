@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ArmatureData
 -- @extend Ref
+-- @parent_module ccs
 
 --------------------------------
 -- 

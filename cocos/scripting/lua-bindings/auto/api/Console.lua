@@ -2,6 +2,7 @@
 --------------------------------
 -- @module Console
 -- @extend Ref
+-- @parent_module cc
 
 --------------------------------
 --  stops the Console. 'stop' will be called at destruction time as well 

@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TransitionFadeUp
 -- @extend TransitionFadeTR
+-- @parent_module cc
 
 --------------------------------
 -- 

@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TransitionProgress
 -- @extend TransitionScene
+-- @parent_module cc
 
 --------------------------------
 -- 

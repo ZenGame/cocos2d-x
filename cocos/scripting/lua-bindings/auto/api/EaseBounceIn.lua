@@ -2,6 +2,7 @@
 --------------------------------
 -- @module EaseBounceIn
 -- @extend EaseBounce
+-- @parent_module cc
 
 --------------------------------
 --  creates the action 

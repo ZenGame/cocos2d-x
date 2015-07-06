@@ -2,6 +2,7 @@
 --------------------------------
 -- @module EventListenerPhysicsContact
 -- @extend EventListenerCustom
+-- @parent_module cc
 
 --------------------------------
 --  create the listener 

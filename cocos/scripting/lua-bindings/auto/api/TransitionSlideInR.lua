@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TransitionSlideInR
 -- @extend TransitionSlideInL
+-- @parent_module cc
 
 --------------------------------
 --  returns the action that will be performed by the incoming and outgoing scene 

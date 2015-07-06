@@ -1,6 +1,7 @@
 
 --------------------------------
 -- @module Helper
+-- @parent_module ccui
 
 --------------------------------
 -- brief Get a UTF8 substring from a std::string with a given start position and length<br>

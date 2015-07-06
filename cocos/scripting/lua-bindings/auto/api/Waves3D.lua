@@ -2,6 +2,7 @@
 --------------------------------
 -- @module Waves3D
 -- @extend Grid3DAction
+-- @parent_module cc
 
 --------------------------------
 --  returns the amplitude rate 

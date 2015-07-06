@@ -14,13 +14,14 @@
 -- @param #cc.Texture2D texture
         
 --------------------------------
--- @overload self, string, string         
+-- @overload self, string, string, string         
 -- @overload self, string         
--- @overload self, string, cc.Texture2D         
+-- @overload self, string, cc.Texture2D, string         
 -- @function [parent=#SpriteFrameCache] addSpriteFramesWithFile
 -- @param self
 -- @param #string plist
 -- @param #cc.Texture2D texture
+-- @param #string prefix
 
 --------------------------------
 --  Adds an sprite frame with a given name.<br>
@@ -49,14 +50,24 @@
 -- @return SpriteFrame#SpriteFrame ret (return value: cc.SpriteFrame)
         
 --------------------------------
---  Removes multiple Sprite Frames from a plist file.<br>
--- Sprite Frames stored in this file will be removed.<br>
--- It is convenient to call this method when a specific texture needs to be removed.<br>
--- since v0.99.5
--- @function [parent=#SpriteFrameCache] removeSpriteFramesFromFile 
+-- 
+-- @function [parent=#SpriteFrameCache] removePlistFile 
+-- @param self
+-- @param #string plistFullFileName
+        
+--------------------------------
+-- 
+-- @function [parent=#SpriteFrameCache] printAll 
+-- @param self
+        
+--------------------------------
+-- @overload self, string, string         
+-- @overload self, string         
+-- @function [parent=#SpriteFrameCache] removeSpriteFramesFromFile
 -- @param self
 -- @param #string plist
-        
+-- @param #string prefix
+
 --------------------------------
 -- 
 -- @function [parent=#SpriteFrameCache] init 
@@ -93,6 +104,13 @@
 -- @function [parent=#SpriteFrameCache] removeSpriteFrameByName 
 -- @param self
 -- @param #string name
+        
+--------------------------------
+-- 
+-- @function [parent=#SpriteFrameCache] removeSpriteFramesFromDictionary 
+-- @param self
+-- @param #map_table dictionary
+-- @param #string prefix
         
 --------------------------------
 --  Destroys the cache. It releases all the Sprite Frames and the retained instance. 

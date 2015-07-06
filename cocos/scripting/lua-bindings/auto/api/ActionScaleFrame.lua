@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ActionScaleFrame
 -- @extend ActionFrame
+-- @parent_module ccs
 
 --------------------------------
 -- Changes the scale action scaleY.<br>

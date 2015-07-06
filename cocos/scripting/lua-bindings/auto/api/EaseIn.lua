@@ -2,6 +2,7 @@
 --------------------------------
 -- @module EaseIn
 -- @extend EaseRateAction
+-- @parent_module cc
 
 --------------------------------
 --  Creates the action with the inner action and the rate parameter 

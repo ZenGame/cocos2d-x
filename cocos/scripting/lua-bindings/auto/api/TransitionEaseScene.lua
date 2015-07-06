@@ -1,6 +1,7 @@
 
 --------------------------------
 -- @module TransitionEaseScene
+-- @parent_module cc
 
 --------------------------------
 --  returns the Ease action that will be performed on a linear action.<br>

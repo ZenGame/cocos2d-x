@@ -2,6 +2,7 @@
 --------------------------------
 -- @module PageView
 -- @extend Layout
+-- @parent_module ccui
 
 --------------------------------
 -- brief Return user defined scroll page threshold
@@ -124,7 +125,7 @@
 -- return LayoutType
 -- @function [parent=#PageView] getLayoutType 
 -- @param self
--- @return Layout::Type#Layout::Type ret (return value: ccui.Layout::Type)
+-- @return int#int ret (return value: int)
         
 --------------------------------
 -- Returns the "class name" of widget.
@@ -144,7 +145,7 @@
 -- param type LayoutType
 -- @function [parent=#PageView] setLayoutType 
 -- @param self
--- @param #ccui.Layout::Type type
+-- @param #int type
         
 --------------------------------
 -- Default constructor

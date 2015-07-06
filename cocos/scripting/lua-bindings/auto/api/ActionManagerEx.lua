@@ -5,16 +5,6 @@
 -- @parent_module ccs
 
 --------------------------------
--- @overload self, char, char, cc.CallFunc         
--- @overload self, char, char         
--- @function [parent=#ActionManagerEx] playActionByName
--- @param self
--- @param #char jsonName
--- @param #char actionName
--- @param #cc.CallFunc func
--- @return ActionObject#ActionObject ret (return value: ccs.ActionObject)
-
---------------------------------
 -- Gets an ActionObject with a name.<br>
 -- param jsonName  UI file name<br>
 -- param actionName  action name in the UI file.<br>
@@ -25,6 +15,23 @@
 -- @param #char actionName
 -- @return ActionObject#ActionObject ret (return value: ccs.ActionObject)
         
+--------------------------------
+-- 
+-- @function [parent=#ActionManagerEx] releaseActionForFile 
+-- @param self
+-- @param #char jsonName
+-- @return int#int ret (return value: int)
+        
+--------------------------------
+-- @overload self, char, char, cc.CallFunc         
+-- @overload self, char, char         
+-- @function [parent=#ActionManagerEx] playActionByName
+-- @param self
+-- @param #char jsonName
+-- @param #char actionName
+-- @param #cc.CallFunc func
+-- @return ActionObject#ActionObject ret (return value: ccs.ActionObject)
+
 --------------------------------
 -- Release all actions.
 -- @function [parent=#ActionManagerEx] releaseActions 

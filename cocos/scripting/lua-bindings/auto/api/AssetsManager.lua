@@ -2,6 +2,7 @@
 --------------------------------
 -- @module AssetsManager
 -- @extend Node
+-- @parent_module cc
 
 --------------------------------
 -- 

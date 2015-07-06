@@ -2,6 +2,7 @@
 --------------------------------
 -- @module CallFunc
 -- @extend ActionInstant
+-- @parent_module cc
 
 --------------------------------
 --  executes the callback 

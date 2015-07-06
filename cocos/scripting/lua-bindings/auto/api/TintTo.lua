@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TintTo
 -- @extend ActionInterval
+-- @parent_module cc
 
 --------------------------------
 --  creates an action with duration and color 

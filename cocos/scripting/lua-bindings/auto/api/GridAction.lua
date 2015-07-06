@@ -2,6 +2,7 @@
 --------------------------------
 -- @module GridAction
 -- @extend ActionInterval
+-- @parent_module cc
 
 --------------------------------
 --  returns the grid 

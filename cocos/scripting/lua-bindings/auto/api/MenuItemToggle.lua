@@ -2,6 +2,7 @@
 --------------------------------
 -- @module MenuItemToggle
 -- @extend MenuItem
+-- @parent_module cc
 
 --------------------------------
 --  Sets the array that contains the subitems. 

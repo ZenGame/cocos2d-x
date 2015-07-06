@@ -2,6 +2,7 @@
 --------------------------------
 -- @module TableViewCell
 -- @extend Node
+-- @parent_module cc
 
 --------------------------------
 -- Cleans up any resources linked to this cell and resets <code>idx</code> property.

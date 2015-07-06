@@ -17,9 +17,42 @@
         
 --------------------------------
 -- 
+-- @function [parent=#Scheduler] disableScriptFunc 
+-- @param self
+-- @param #unsigned int entryID
+        
+--------------------------------
+-- 
+-- @function [parent=#Scheduler] setScriptFuncInner 
+-- @param self
+-- @param #unsigned int entryID
+-- @param #float v
+        
+--------------------------------
+-- 
+-- @function [parent=#Scheduler] getScriptFuncState 
+-- @param self
+-- @param #unsigned int entryID
+-- @return int#int ret (return value: int)
+        
+--------------------------------
+-- 
 -- @function [parent=#Scheduler] getTimeScale 
 -- @param self
 -- @return float#float ret (return value: float)
+        
+--------------------------------
+-- 
+-- @function [parent=#Scheduler] findScriptHandlerEntry 
+-- @param self
+-- @param #unsigned int entryID
+-- @return SchedulerScriptHandlerEntry#SchedulerScriptHandlerEntry ret (return value: cc.SchedulerScriptHandlerEntry)
+        
+--------------------------------
+-- 
+-- @function [parent=#Scheduler] enableScriptFunc 
+-- @param self
+-- @param #unsigned int entryID
         
 --------------------------------
 -- js ctor

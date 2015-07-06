@@ -2,6 +2,7 @@
 --------------------------------
 -- @module MenuItem
 -- @extend Node
+-- @parent_module cc
 
 --------------------------------
 --  enables or disables the item 

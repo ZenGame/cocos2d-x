@@ -2,6 +2,7 @@
 --------------------------------
 -- @module ControlSwitch
 -- @extend Control
+-- @parent_module cc
 
 --------------------------------
 -- 
@@ -10,10 +11,8 @@
 -- @param #bool enabled
         
 --------------------------------
--- overload function: setOn(bool)
---          
--- overload function: setOn(bool, bool)
---          
+-- @overload self, bool         
+-- @overload self, bool, bool         
 -- @function [parent=#ControlSwitch] setOn
 -- @param self
 -- @param #bool isOn
@@ -26,10 +25,8 @@
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
--- overload function: initWithMaskSprite(cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite, cc.Label, cc.Label)
---          
--- overload function: initWithMaskSprite(cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite)
---          
+-- @overload self, cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite, cc.Label, cc.Label         
+-- @overload self, cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite         
 -- @function [parent=#ControlSwitch] initWithMaskSprite
 -- @param self
 -- @param #cc.Sprite maskSprite
@@ -51,13 +48,11 @@
 -- @function [parent=#ControlSwitch] locationFromTouch 
 -- @param self
 -- @param #cc.Touch touch
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
+-- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
--- overload function: create(cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite)
---          
--- overload function: create(cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite, cc.Label, cc.Label)
---          
+-- @overload self, cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite         
+-- @overload self, cc.Sprite, cc.Sprite, cc.Sprite, cc.Sprite, cc.Label, cc.Label         
 -- @function [parent=#ControlSwitch] create
 -- @param self
 -- @param #cc.Sprite maskSprite

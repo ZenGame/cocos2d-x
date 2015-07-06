@@ -1,6 +1,7 @@
 
 --------------------------------
 -- @module SimpleAudioEngine
+-- @parent_module cc
 
 --------------------------------
 -- brief Preload background music<br>

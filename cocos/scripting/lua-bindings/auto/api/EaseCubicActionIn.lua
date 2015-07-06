@@ -2,6 +2,7 @@
 --------------------------------
 -- @module EaseCubicActionIn
 -- @extend ActionEase
+-- @parent_module cc
 
 --------------------------------
 --  creates the action 

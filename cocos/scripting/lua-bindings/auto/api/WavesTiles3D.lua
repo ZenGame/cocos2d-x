@@ -2,6 +2,7 @@
 --------------------------------
 -- @module WavesTiles3D
 -- @extend TiledGrid3DAction
+-- @parent_module cc
 
 --------------------------------
 --  waves amplitude rate 

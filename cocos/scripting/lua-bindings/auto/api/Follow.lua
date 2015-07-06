@@ -2,6 +2,7 @@
 --------------------------------
 -- @module Follow
 -- @extend Action
+-- @parent_module cc
 
 --------------------------------
 --  alter behavior - turn on/off boundary 

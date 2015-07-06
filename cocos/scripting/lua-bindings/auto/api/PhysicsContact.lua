@@ -2,6 +2,7 @@
 --------------------------------
 -- @module PhysicsContact
 -- @extend EventCustom
+-- @parent_module cc
 
 --------------------------------
 --  get contact data 
@@ -13,7 +14,7 @@
 --  get the event code 
 -- @function [parent=#PhysicsContact] getEventCode 
 -- @param self
--- @return PhysicsContact::EventCode#PhysicsContact::EventCode ret (return value: cc.PhysicsContact::EventCode)
+-- @return int#int ret (return value: int)
         
 --------------------------------
 --  get previous contact data 

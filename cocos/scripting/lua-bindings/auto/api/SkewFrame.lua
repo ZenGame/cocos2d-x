@@ -2,6 +2,7 @@
 --------------------------------
 -- @module SkewFrame
 -- @extend Frame
+-- @parent_module ccs
 
 --------------------------------
 -- 
@@ -31,7 +32,7 @@
 -- 
 -- @function [parent=#SkewFrame] create 
 -- @param self
--- @return timeline::SkewFrame#timeline::SkewFrame ret (return value: ccs.timeline::SkewFrame)
+-- @return SkewFrame#SkewFrame ret (return value: ccs.SkewFrame)
         
 --------------------------------
 -- 
@@ -43,7 +44,7 @@
 -- 
 -- @function [parent=#SkewFrame] clone 
 -- @param self
--- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
+-- @return Frame#Frame ret (return value: ccs.Frame)
         
 --------------------------------
 -- 
