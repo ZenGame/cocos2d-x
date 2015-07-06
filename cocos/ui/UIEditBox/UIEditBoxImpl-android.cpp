@@ -31,6 +31,7 @@
 #include "jni/Java_org_cocos2dx_lib_Cocos2dxBitmap.h"
 #include "jni/Java_org_cocos2dx_lib_Cocos2dxHelper.h"
 #include "2d/CCLabel.h"
+#include "CCFileUtils.h"
 #include "base/ccUTF8.h"
 
 NS_CC_BEGIN
@@ -117,6 +118,7 @@ void EditBoxImplAndroid::setFont(const char* pFontName, int fontSize)
 		}
 		else
 		{
+            _label->setSystemFontSize(fontSize);
 			_label->setSystemFontName(pFontName);
 		}
 	}
@@ -150,6 +152,7 @@ void EditBoxImplAndroid::setPlaceholderFont(const char* pFontName, int fontSize)
 		}
 		else
 		{
+            _labelPlaceHolder->setSystemFontSize(fontSize);
 			_labelPlaceHolder->setSystemFontName(pFontName);
 		}
 	}
