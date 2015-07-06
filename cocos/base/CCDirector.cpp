@@ -60,8 +60,8 @@ THE SOFTWARE.
 #include "platform/CCApplication.h"
 //#include "platform/CCGLViewImpl.h"
 
-#include "cocos-sp-common.h"
-#include "CCProcessControl.h"
+//#include "cocos-sp-common.h"
+//#include "CCProcessControl.h"
 
 /**
  Position of the FPS
