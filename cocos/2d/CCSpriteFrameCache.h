@@ -174,25 +174,11 @@ protected:
     */
     void removeSpriteFramesFromDictionary(ValueMap& dictionary);
 
-// 	void frames_lock(){ CCLOG("frame lock begin"); _framesLock.lock(); CCLOG("frame lock ok"); }
-// 	void frames_unlock(){ CCLOG("frame unlock begin"); _framesLock.unlock(); CCLOG("frame unlock ok"); }
-// 	void file_lock(){ CCLOG("file lock begin"); _filesLock.lock(); CCLOG("file lock ok"); }
-// 	void file_unlock(){ CCLOG("file unlock begin"); _filesLock.unlock(); CCLOG("file unlock ok"); }
-
-	void frames_lock(){  _framesLock.lock(); }
-	void frames_unlock(){  _framesLock.unlock();  }
-	void file_lock(){  _filesLock.lock();  }
-	void file_unlock(){  _filesLock.unlock();  }
-
 protected:
-    //Map<std::string, SpriteFrame*> _spriteFrames;
-	Map<int, SpriteFrame*> _spriteFramesHash;
+    Map<std::string, SpriteFrame*> _spriteFrames;
 
     ValueMap _spriteFramesAliases;
     std::set<std::string>*  _loadedFileNames;
-	std::mutex	_framesLock;
-	std::mutex	_filesLock;
-
 };
 
 // end of sprite_nodes group
