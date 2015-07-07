@@ -5,6 +5,17 @@
 -- @parent_module ccs
 
 --------------------------------
+-- Stop an Action with a name.<br>
+-- param jsonName  UI file name<br>
+-- param actionName  action name in teh UIfile.<br>
+-- return  ActionObject which named as the param name
+-- @function [parent=#ActionManagerEx] stopActionByName 
+-- @param self
+-- @param #char jsonName
+-- @param #char actionName
+-- @return ActionObject#ActionObject ret (return value: ccs.ActionObject)
+        
+--------------------------------
 -- Gets an ActionObject with a name.<br>
 -- param jsonName  UI file name<br>
 -- param actionName  action name in the UI file.<br>
@@ -14,13 +25,6 @@
 -- @param #char jsonName
 -- @param #char actionName
 -- @return ActionObject#ActionObject ret (return value: ccs.ActionObject)
-        
---------------------------------
--- 
--- @function [parent=#ActionManagerEx] releaseActionForFile 
--- @param self
--- @param #char jsonName
--- @return int#int ret (return value: int)
         
 --------------------------------
 -- @overload self, char, char, cc.CallFunc         
@@ -36,6 +40,7 @@
 -- Release all actions.
 -- @function [parent=#ActionManagerEx] releaseActions 
 -- @param self
+-- @return ActionManagerEx#ActionManagerEx self (return value: ccs.ActionManagerEx)
         
 --------------------------------
 -- Purges ActionManager point.<br>
@@ -43,6 +48,7 @@
 -- lua destroyActionManager
 -- @function [parent=#ActionManagerEx] destroyInstance 
 -- @param self
+-- @return ActionManagerEx#ActionManagerEx self (return value: ccs.ActionManagerEx)
         
 --------------------------------
 -- Gets the static instance of ActionManager.<br>

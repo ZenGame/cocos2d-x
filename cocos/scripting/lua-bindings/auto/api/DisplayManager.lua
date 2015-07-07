@@ -33,12 +33,14 @@
 -- @function [parent=#DisplayManager] removeDisplay 
 -- @param self
 -- @param #int index
+-- @return DisplayManager#DisplayManager self (return value: ccs.DisplayManager)
         
 --------------------------------
 -- 
 -- @function [parent=#DisplayManager] setForceChangeDisplay 
 -- @param self
 -- @param #bool force
+-- @return DisplayManager#DisplayManager self (return value: ccs.DisplayManager)
         
 --------------------------------
 -- 
@@ -66,6 +68,7 @@
 -- @param self
 -- @param #ccs.DisplayData displayData
 -- @param #int index
+-- @return DisplayManager#DisplayManager self (return value: ccs.DisplayManager)
 
 --------------------------------
 -- @overload self, float, float         
@@ -86,6 +89,7 @@
 -- @param self
 -- @param #int index
 -- @param #bool force
+-- @return DisplayManager#DisplayManager self (return value: ccs.DisplayManager)
         
 --------------------------------
 -- 
@@ -93,6 +97,7 @@
 -- @param self
 -- @param #string name
 -- @param #bool force
+-- @return DisplayManager#DisplayManager self (return value: ccs.DisplayManager)
         
 --------------------------------
 -- 
@@ -133,6 +138,7 @@
 -- @function [parent=#DisplayManager] setVisible 
 -- @param self
 -- @param #bool visible
+-- @return DisplayManager#DisplayManager self (return value: ccs.DisplayManager)
         
 --------------------------------
 -- 
@@ -145,5 +151,6 @@
 -- 
 -- @function [parent=#DisplayManager] DisplayManager 
 -- @param self
+-- @return DisplayManager#DisplayManager self (return value: ccs.DisplayManager)
         
 return nil

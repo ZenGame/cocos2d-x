@@ -418,10 +418,10 @@ void EditBoxImplIOS::setFont(const char* pFontName, int fontSize)
 	setPlaceholderFont(pFontName, fontSize);
 }
 
-void EditBoxImplIOS::setFontColor(const Color3B& color)
+void EditBoxImplIOS::setFontColor(const Color4B& color)
 {
-    _systemControl.textField.textColor = [UIColor colorWithRed:color.r / 255.0f green:color.g / 255.0f blue:color.b / 255.0f alpha:1.0f];
-	_label->setColor(color);
+    _systemControl.textField.textColor = [UIColor colorWithRed:color.r / 255.0f green:color.g / 255.0f blue:color.b / 255.0f alpha:color.a / 255.f];
+	_label->setTextColor(color);
 }
 
 void EditBoxImplIOS::setPlaceholderFont(const char* pFontName, int fontSize)
@@ -443,10 +443,10 @@ void EditBoxImplIOS::setPlaceholderFont(const char* pFontName, int fontSize)
 		}
 	}
 }
-
-void EditBoxImplIOS::setPlaceholderFontColor(const Color3B& color)
+    
+void EditBoxImplIOS::setPlaceholderFontColor(const Color4B &color)
 {
-	_labelPlaceHolder->setColor(color);
+    _labelPlaceHolder->setTextColor(color);
 }
 
 void EditBoxImplIOS::setInputMode(EditBox::InputMode inputMode)

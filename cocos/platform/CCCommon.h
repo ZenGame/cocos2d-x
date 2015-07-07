@@ -1,6 +1,6 @@
 /****************************************************************************
 Copyright (c) 2010-2012 cocos2d-x.org
-Copyright (c) 2013-2014 Chukong Technologies Inc.
+Copyright (c) 2013-2015 Chukong Technologies Inc.
 
 http://www.cocos2d-x.org
 
@@ -25,6 +25,7 @@ THE SOFTWARE.
 
 #ifndef __CC_COMMON_H__
 #define __CC_COMMON_H__
+/// @cond DO_NOT_SHOW
 
 #include "platform/CCPlatformMacros.h"
 
@@ -64,7 +65,11 @@ enum class LanguageType
     PORTUGUESE,
     ARABIC,
     NORWEGIAN,
-    POLISH
+    POLISH,
+    TURKISH,
+    UKRAINIAN,
+    ROMANIAN,
+    BULGARIAN
 };
 
 // END of platform group
@@ -74,4 +79,5 @@ void CC_DLL elog(const char * pszFormat, ...);
 
 NS_CC_END
 
+/// @endcond
 #endif    // __CC_COMMON_H__

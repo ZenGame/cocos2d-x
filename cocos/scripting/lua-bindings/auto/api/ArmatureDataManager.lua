@@ -16,6 +16,7 @@
 -- @function [parent=#ArmatureDataManager] removeAnimationData 
 -- @param self
 -- @param #string id
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
         
 --------------------------------
 -- Add armature data<br>
@@ -26,6 +27,7 @@
 -- @param #string id
 -- @param #ccs.ArmatureData armatureData
 -- @param #string configFilePath
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
         
 --------------------------------
 -- @overload self, string, string, string         
@@ -35,20 +37,15 @@
 -- @param #string imagePath
 -- @param #string plistPath
 -- @param #string configFilePath
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
 
 --------------------------------
 -- 
--- @function [parent=#ArmatureDataManager] res_unlock 
--- @param self
-        
---------------------------------
--- @overload self, string, string         
--- @overload self, string         
--- @function [parent=#ArmatureDataManager] removeArmatureFileInfo
+-- @function [parent=#ArmatureDataManager] removeArmatureFileInfo 
 -- @param self
 -- @param #string configFilePath
--- @param #string prefix
-
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
+        
 --------------------------------
 -- 
 -- @function [parent=#ArmatureDataManager] getTextureDatas 
@@ -63,11 +60,6 @@
 -- @param self
 -- @param #string id
 -- @return TextureData#TextureData ret (return value: ccs.TextureData)
-        
---------------------------------
--- 
--- @function [parent=#ArmatureDataManager] res_lock 
--- @param self
         
 --------------------------------
 -- brief	get armature data<br>
@@ -96,6 +88,7 @@
 -- @param #string id
 -- @param #ccs.AnimationData animationData
 -- @param #string configFilePath
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
         
 --------------------------------
 -- Init ArmatureDataManager
@@ -109,6 +102,7 @@
 -- @function [parent=#ArmatureDataManager] removeArmatureData 
 -- @param self
 -- @param #string id
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
         
 --------------------------------
 -- 
@@ -122,6 +116,7 @@
 -- @function [parent=#ArmatureDataManager] removeTextureData 
 -- @param self
 -- @param #string id
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
         
 --------------------------------
 -- brief	add texture data<br>
@@ -132,6 +127,7 @@
 -- @param #string id
 -- @param #ccs.TextureData textureData
 -- @param #string configFilePath
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
         
 --------------------------------
 -- brief	Juge whether or not need auto load sprite file
@@ -146,12 +142,13 @@
 -- @param #string plistPath
 -- @param #string imagePath
 -- @param #string configFilePath
--- @param #string prefix
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
         
 --------------------------------
 -- 
 -- @function [parent=#ArmatureDataManager] destroyInstance 
 -- @param self
+-- @return ArmatureDataManager#ArmatureDataManager self (return value: ccs.ArmatureDataManager)
         
 --------------------------------
 -- 
