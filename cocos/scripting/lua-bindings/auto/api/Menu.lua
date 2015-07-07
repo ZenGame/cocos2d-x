@@ -20,6 +20,13 @@
 -- @return Menu#Menu self (return value: cc.Menu)
         
 --------------------------------
+-- 
+-- @function [parent=#Menu] fly_setEnabled 
+-- @param self
+-- @param #bool bEnable
+-- @return Menu#Menu self (return value: cc.Menu)
+        
+--------------------------------
 -- Determines if the menu is enable.<br>
 -- see `setEnabled(bool)`.<br>
 -- return whether the menu is enabled or not.

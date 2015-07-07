@@ -28,13 +28,14 @@
 -- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
--- @overload self, string, string         
+-- @overload self, string, string, string         
 -- @overload self, string         
--- @overload self, string, cc.Texture2D         
+-- @overload self, string, cc.Texture2D, string         
 -- @function [parent=#SpriteFrameCache] addSpriteFramesWithFile
 -- @param self
 -- @param #string plist
 -- @param #cc.Texture2D texture
+-- @param #string prefix
 -- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
 
 --------------------------------
@@ -51,16 +52,27 @@
 -- @return SpriteFrame#SpriteFrame ret (return value: cc.SpriteFrame)
         
 --------------------------------
---  Removes multiple Sprite Frames from a plist file.<br>
--- Sprite Frames stored in this file will be removed.<br>
--- It is convenient to call this method when a specific texture needs to be removed.<br>
--- since v0.99.5<br>
--- param plist The name of the plist that needs to removed.
--- @function [parent=#SpriteFrameCache] removeSpriteFramesFromFile 
+-- 
+-- @function [parent=#SpriteFrameCache] removePlistFile 
 -- @param self
--- @param #string plist
+-- @param #string plistFullFileName
 -- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
+--------------------------------
+-- 
+-- @function [parent=#SpriteFrameCache] printAll 
+-- @param self
+-- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
+        
+--------------------------------
+-- @overload self, string, string         
+-- @overload self, string         
+-- @function [parent=#SpriteFrameCache] removeSpriteFramesFromFile
+-- @param self
+-- @param #string plist
+-- @param #string prefix
+-- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
+
 --------------------------------
 --  Initialize method.<br>
 -- return if success return true.
@@ -116,6 +128,14 @@
 -- @param self
 -- @param #string plist
 -- @return bool#bool ret (return value: bool)
+        
+--------------------------------
+-- 
+-- @function [parent=#SpriteFrameCache] removeSpriteFramesFromDictionary 
+-- @param self
+-- @param #map_table dictionary
+-- @param #string prefix
+-- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 --  Removes all Sprite Frames associated with the specified textures.<br>

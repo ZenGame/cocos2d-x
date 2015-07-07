@@ -28,6 +28,19 @@
 -- @return ArmatureAnimation#ArmatureAnimation self (return value: ccs.ArmatureAnimation)
         
 --------------------------------
+-- 
+-- @function [parent=#ArmatureAnimation] getCurrentPercent 
+-- @param self
+-- @return float#float ret (return value: float)
+        
+--------------------------------
+-- 
+-- @function [parent=#ArmatureAnimation] getMovementFrameCount 
+-- @param self
+-- @param #string movementName
+-- @return int#int ret (return value: int)
+        
+--------------------------------
 -- Go to specified frame and pause current movement.
 -- @function [parent=#ArmatureAnimation] gotoAndPause 
 -- @param self
@@ -93,6 +106,12 @@
 -- @param #int durationTo
 -- @param #bool loop
 -- @return ArmatureAnimation#ArmatureAnimation self (return value: ccs.ArmatureAnimation)
+        
+--------------------------------
+-- 
+-- @function [parent=#ArmatureAnimation] getCurrentFrameIndex 
+-- @param self
+-- @return int#int ret (return value: int)
         
 --------------------------------
 -- Get movement count

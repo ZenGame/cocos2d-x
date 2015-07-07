@@ -176,6 +176,12 @@
 -- @return map_table#map_table ret (return value: map_table)
         
 --------------------------------
+-- 
+-- @function [parent=#FileUtils] getResourceDirectory 
+-- @param self
+-- @return string#string ret (return value: string)
+        
+--------------------------------
 -- Removes a directory.<br>
 -- param dirPath  The full path of the directory, it must be an absolute path.<br>
 -- return True if the directory have been removed successfully, false if not.

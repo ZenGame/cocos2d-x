@@ -27,6 +27,13 @@
 -- @return ActionObject#ActionObject ret (return value: ccs.ActionObject)
         
 --------------------------------
+-- 
+-- @function [parent=#ActionManagerEx] releaseActionForFile 
+-- @param self
+-- @param #char jsonName
+-- @return int#int ret (return value: int)
+        
+--------------------------------
 -- @overload self, char, char, cc.CallFunc         
 -- @overload self, char, char         
 -- @function [parent=#ActionManagerEx] playActionByName

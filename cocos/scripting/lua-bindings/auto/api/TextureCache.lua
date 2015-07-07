@@ -42,11 +42,24 @@
 -- @return TextureCache#TextureCache self (return value: cc.TextureCache)
         
 --------------------------------
+-- 
+-- @function [parent=#TextureCache] getTextureKey 
+-- @param self
+-- @param #cc.Texture2D t
+-- @return string#string ret (return value: string)
+        
+--------------------------------
 -- js NA<br>
 -- lua NA
 -- @function [parent=#TextureCache] getDescription 
 -- @param self
 -- @return string#string ret (return value: string)
+        
+--------------------------------
+-- 
+-- @function [parent=#TextureCache] printAll 
+-- @param self
+-- @return TextureCache#TextureCache self (return value: cc.TextureCache)
         
 --------------------------------
 --  Output to CCLOG the current contents of this TextureCache.<br>
@@ -77,6 +90,13 @@
 -- @return TextureCache#TextureCache self (return value: cc.TextureCache)
         
 --------------------------------
+-- 
+-- @function [parent=#TextureCache] isEtcRender 
+-- @param self
+-- @param #char szJpgName
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
 --  Returns an already created texture. Returns nil if the texture doesn't exist.<br>
 -- param key It's the related/absolute path of the file image.<br>
 -- since v0.99.5
@@ -86,11 +106,30 @@
 -- @return Texture2D#Texture2D ret (return value: cc.Texture2D)
         
 --------------------------------
+-- 
+-- @function [parent=#TextureCache] textures_unlock 
+-- @param self
+-- @return TextureCache#TextureCache self (return value: cc.TextureCache)
+        
+--------------------------------
+-- 
+-- @function [parent=#TextureCache] addEtcFileName 
+-- @param self
+-- @param #char strName
+-- @return TextureCache#TextureCache self (return value: cc.TextureCache)
+        
+--------------------------------
 --  Removes unused textures.<br>
 -- Textures that have a retain count of 1 will be deleted.<br>
 -- It is convenient to call this method after when starting a new Scene.<br>
 -- since v0.8
 -- @function [parent=#TextureCache] removeUnusedTextures 
+-- @param self
+-- @return TextureCache#TextureCache self (return value: cc.TextureCache)
+        
+--------------------------------
+-- 
+-- @function [parent=#TextureCache] textures_lock 
 -- @param self
 -- @return TextureCache#TextureCache self (return value: cc.TextureCache)
         
