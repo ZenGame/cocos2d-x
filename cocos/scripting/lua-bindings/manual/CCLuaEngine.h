@@ -34,7 +34,7 @@ extern "C" {
 #include "base/CCScriptSupport.h"
 #include "CCLuaStack.h"
 #include "CCLuaValue.h"
-#include "LuaScriptHandlerMgr.h"
+#include "cocos2d/LuaScriptHandlerMgr.h"
 
 NS_CC_BEGIN
 
@@ -49,7 +49,7 @@ public:
     virtual ccScriptType getScriptType() {
         return kScriptTypeLua;
     };
-
+    
     LuaStack *getLuaStack(void) {
         return _stack;
     }
@@ -110,7 +110,7 @@ public:
      @return The integer value returned from the script function.
      */
     virtual int executeGlobalFunction(const char* functionName);
-
+    
     virtual int executeNodeEvent(Node* pNode, int nAction);
     virtual int executeMenuItemEvent(MenuItem* pMenuItem);
     virtual int executeNotificationEvent(__NotificationCenter* pNotificationCenter, const char* pszName);
@@ -122,7 +122,7 @@ public:
     /** execute a accelerometer event */
     virtual int executeAccelerometerEvent(Layer* pLayer, Acceleration* pAccelerationValue);
     virtual int executeEvent(int nHandler, const char* pEventName, Ref* pEventSource = NULL, const char* pEventSourceClassName = NULL);
-
+    
     virtual bool handleAssert(const char *msg);
     
     virtual bool parseConfig(ConfigType type, const std::string& str) override;
@@ -155,21 +155,10 @@ private:
     int handleEventTouch(ScriptHandlerMgr::HandlerType type, void* data);
     int handleEventTouches(ScriptHandlerMgr::HandlerType type, void* data);
     int handleEventMouse(ScriptHandlerMgr::HandlerType type, void* data);
-    int handleStudioEventListener(ScriptHandlerMgr::HandlerType type,void* data);
     
-	//add by flyingkisser
- 	//void stack_lock(int i){ CCLOG("stack_lock begin %d thread %d",i,GetCurrentThreadId()); _stackLock.lock(); CCLOG("stack_lock end %d",i); }
- 	//void stack_unlock(int i){ CCLOG("stack_unlock begin %d",i); _stackLock.unlock(); CCLOG("stack_unlock end %d",i); }
-	//void stack_lock(int i){  _stackLock.lock(); }
-	//void stack_unlock(int i){  _stackLock.unlock();  }
- 	void stack_lock(int i){  }
- 	void stack_unlock(int i){  }
 private:
     static LuaEngine* _defaultEngine;
     LuaStack *_stack;
-
-	//add by flyingkisser
-	std::mutex _stackLock;
 };
 
 NS_CC_END

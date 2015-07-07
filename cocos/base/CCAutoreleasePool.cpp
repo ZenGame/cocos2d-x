@@ -122,7 +122,7 @@ PoolManager* PoolManager::getInstance()
 {
     if (s_singleInstance == nullptr)
     {
-        s_singleInstance = new PoolManager();
+        s_singleInstance = new (std::nothrow) PoolManager();
         // Add the first auto release pool
         new AutoreleasePool("cocos2d autorelease pool");
     }

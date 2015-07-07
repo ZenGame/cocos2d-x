@@ -2,53 +2,64 @@
 --------------------------------
 -- @module PositionFrame
 -- @extend Frame
+-- @parent_module ccs
 
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] getX 
 -- @param self
 -- @return float#float ret (return value: float)
         
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] getY 
 -- @param self
 -- @return float#float ret (return value: float)
         
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] setPosition 
 -- @param self
--- @param #cc.Vec2 vec2
+-- @param #vec2_table position
         
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] setX 
 -- @param self
--- @param #float float
+-- @param #float x
         
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] setY 
 -- @param self
--- @param #float float
+-- @param #float y
         
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] getPosition 
 -- @param self
--- @return Vec2#Vec2 ret (return value: cc.Vec2)
+-- @return vec2_table#vec2_table ret (return value: vec2_table)
         
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] create 
 -- @param self
--- @return timeline::PositionFrame#timeline::PositionFrame ret (return value: ccs.timeline::PositionFrame)
+-- @return PositionFrame#PositionFrame ret (return value: ccs.PositionFrame)
         
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] apply 
 -- @param self
--- @param #float float
+-- @param #float percent
         
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] clone 
 -- @param self
--- @return timeline::Frame#timeline::Frame ret (return value: ccs.timeline::Frame)
+-- @return Frame#Frame ret (return value: ccs.Frame)
         
 --------------------------------
+-- 
 -- @function [parent=#PositionFrame] PositionFrame 
 -- @param self
         

@@ -40,7 +40,7 @@
 #include <WS2tcpip.h>
 #include <Winsock2.h>
 #define bzero(a, b) memset(a, 0, b);
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
 #include "inet_ntop_winrt.h"
 #include "CCWinRTUtils.h"
 #endif
@@ -56,12 +56,11 @@
 
 #include "base/CCDirector.h"
 #include "base/CCScheduler.h"
-#include "base/CCPlatformConfig.h"
+#include "platform/CCPlatformConfig.h"
 #include "base/CCConfiguration.h"
 #include "2d/CCScene.h"
 #include "platform/CCFileUtils.h"
 #include "renderer/CCTextureCache.h"
-#include "CCGLView.h"
 #include "base/base64.h"
 #include "base/ccUtils.h"
 NS_CC_BEGIN
@@ -112,8 +111,6 @@ static bool isFloat( std::string myString ) {
     return iss.eof() && !iss.fail(); 
 }
 
-#if CC_TARGET_PLATFORM != CC_PLATFORM_WINRT
-
 // helper free functions
 
 // dprintf() is not defined in Android
@@ -132,7 +129,7 @@ static ssize_t mydprintf(int sock, const char *format, ...)
 static void sendPrompt(int fd)
 {
     const char prompt[] = "> ";
-    send(fd, prompt, sizeof(prompt),0);
+    send(fd, prompt, strlen(prompt),0);
 }
 
 static int printSceneGraph(int fd, Node* node, int level)
@@ -184,7 +181,6 @@ static void printFileUtils(int fd)
     }
     sendPrompt(fd);
 }
-#endif
 
 
 #if defined(__MINGW32__)
@@ -234,13 +230,11 @@ static void _log(const char *format, va_list args)
     fflush(stdout);
 #else
     // Linux, Mac, iOS, etc
-    fprintf(stdout, "cocos2d: %s", buf);
+    fprintf(stdout, "%s", buf);
     fflush(stdout);
 #endif
 
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WINRT)
     Director::getInstance()->getConsole()->log(buf);
-#endif
 
 }
 
@@ -306,7 +300,7 @@ static void _elog(const char *format, va_list args)
 }
 
 
-// XXX: Deprecated
+// FIXME: Deprecated
 void CCLog(const char * format, ...)
 {
     va_list args;
@@ -330,8 +324,6 @@ void elog(const char * format, ...)
 	_elog(format, args);
 	va_end(args);
 }
-
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WINRT)
 
 //
 // Console code
@@ -405,7 +397,7 @@ bool Console::listenOnTCP(int port)
     hints.ai_family = AF_INET; // AF_UNSPEC: Do we need IPv6 ?
     hints.ai_socktype = SOCK_STREAM;
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
     WSADATA wsaData;
     n = WSAStartup(MAKEWORD(2, 2),&wsaData);
 
@@ -431,7 +423,7 @@ bool Console::listenOnTCP(int port)
             break;          /* success */
 
 /* bind error, close and try next one */
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
         closesocket(listenfd);
 #else
         close(listenfd);
@@ -518,7 +510,7 @@ void Console::commandExit(int fd, const std::string &args)
 {
     FD_CLR(fd, &_read_set);
     _fds.erase(std::remove(_fds.begin(), _fds.end(), fd), _fds.end());
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
         closesocket(fd);
 #else
         close(fd);
@@ -1151,7 +1143,7 @@ void Console::loop()
                     //receive a SIGPIPE, which will cause linux system shutdown the sending process.
                     //Add this ioctl code to check if the socket has been closed by peer.
                     
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
                     u_long n = 0;
                     ioctlsocket(fd, FIONREAD, &n);
 #else
@@ -1196,14 +1188,14 @@ void Console::loop()
     // clean up: ignore stdin, stdout and stderr
     for(const auto &fd: _fds )
     {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
         closesocket(fd);
 #else
         close(fd);
 #endif
     }
     
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
     closesocket(_listenfd);
 	WSACleanup();
 #else
@@ -1212,7 +1204,6 @@ void Console::loop()
     _running = false;
 }
 
-#endif /* #if (CC_TARGET_PLATFORM != CC_PLATFORM_WINRT) */
 
 
 NS_CC_END

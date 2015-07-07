@@ -2,46 +2,51 @@
 --------------------------------
 -- @module EventController
 -- @extend Event
+-- @parent_module cc
 
 --------------------------------
+-- 
 -- @function [parent=#EventController] getControllerEventType 
 -- @param self
--- @return EventController::ControllerEventType#EventController::ControllerEventType ret (return value: cc.EventController::ControllerEventType)
+-- @return int#int ret (return value: int)
         
 --------------------------------
+-- 
 -- @function [parent=#EventController] setConnectStatus 
 -- @param self
--- @param #bool bool
+-- @param #bool isConnected
         
 --------------------------------
+-- 
 -- @function [parent=#EventController] isConnected 
 -- @param self
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
+-- 
 -- @function [parent=#EventController] setKeyCode 
 -- @param self
--- @param #int int
+-- @param #int keyCode
         
 --------------------------------
+-- 
 -- @function [parent=#EventController] getController 
 -- @param self
 -- @return Controller#Controller ret (return value: cc.Controller)
         
 --------------------------------
+-- 
 -- @function [parent=#EventController] getKeyCode 
 -- @param self
 -- @return int#int ret (return value: int)
         
 --------------------------------
--- overload function: EventController(cc.EventController::ControllerEventType, cc.Controller, bool)
---          
--- overload function: EventController(cc.EventController::ControllerEventType, cc.Controller, int)
---          
+-- @overload self, int, cc.Controller, bool         
+-- @overload self, int, cc.Controller, int         
 -- @function [parent=#EventController] EventController
 -- @param self
--- @param #cc.EventController::ControllerEventType controllereventtype
+-- @param #int type
 -- @param #cc.Controller controller
--- @param #int int
+-- @param #int keyCode
 
 return nil

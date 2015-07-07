@@ -2,47 +2,51 @@
 --------------------------------
 -- @module ParallaxNode
 -- @extend Node
+-- @parent_module cc
 
 --------------------------------
+-- 
 -- @function [parent=#ParallaxNode] addChild 
 -- @param self
--- @param #cc.Node node
--- @param #int int
--- @param #cc.Vec2 vec2
--- @param #cc.Vec2 vec2
+-- @param #cc.Node child
+-- @param #int z
+-- @param #vec2_table parallaxRatio
+-- @param #vec2_table positionOffset
         
 --------------------------------
+-- 
 -- @function [parent=#ParallaxNode] removeAllChildrenWithCleanup 
 -- @param self
--- @param #bool bool
+-- @param #bool cleanup
         
 --------------------------------
+-- 
 -- @function [parent=#ParallaxNode] create 
 -- @param self
 -- @return ParallaxNode#ParallaxNode ret (return value: cc.ParallaxNode)
         
 --------------------------------
--- overload function: addChild(cc.Node, int, string)
---          
--- overload function: addChild(cc.Node, int, int)
---          
+-- @overload self, cc.Node, int, string         
+-- @overload self, cc.Node, int, int         
 -- @function [parent=#ParallaxNode] addChild
 -- @param self
--- @param #cc.Node node
--- @param #int int
--- @param #int int
+-- @param #cc.Node child
+-- @param #int zOrder
+-- @param #int tag
 
 --------------------------------
+-- 
 -- @function [parent=#ParallaxNode] visit 
 -- @param self
 -- @param #cc.Renderer renderer
--- @param #cc.Mat4 mat4
--- @param #unsigned int int
+-- @param #mat4_table parentTransform
+-- @param #unsigned int parentFlags
         
 --------------------------------
+-- 
 -- @function [parent=#ParallaxNode] removeChild 
 -- @param self
--- @param #cc.Node node
--- @param #bool bool
+-- @param #cc.Node child
+-- @param #bool cleanup
         
 return nil
