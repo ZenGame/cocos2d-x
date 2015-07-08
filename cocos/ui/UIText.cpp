@@ -68,7 +68,7 @@ bool Text::init()
 {
     if (Widget::init())
     {
-        this->setCascadeColorEnabled(false);
+        //this->setCascadeColorEnabled(false);
         return true;
     }
     return false;
@@ -96,7 +96,7 @@ bool Text::init(const std::string &textContent, const std::string &fontName, int
             ret = false;
             break;
         }
-        this->setCascadeColorEnabled(false);
+        //this->setCascadeColorEnabled(false);
         this->setString(textContent);
         this->setFontName(fontName);
         this->setFontSize(fontSize);
@@ -365,11 +365,6 @@ void Text::copySpecialProperties(Widget *widget)
         setContentSize(label->getContentSize());
     }
 }
-    
-    void Text::updateColor()
-    {
-        _labelRenderer->setColor(getColor());
-    }
 }
 
 NS_CC_END
