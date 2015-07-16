@@ -237,16 +237,6 @@ public:
      * @param userObject    A user assigned Object
      */
     virtual void setUserObject(Ref *userObject);
-	int getCurrentFrameIndex()
-	{
-		return ProcessBase::getCurrentFrameIndex();
-	}
-
-	float getCurrentPercent()
-	{
-		return ProcessBase::getCurrentPercent();
-	}
-
 protected:
 
     /**
