@@ -63,7 +63,10 @@ public:
         NEED_UPDATE,
         UPDATING,
         UP_TO_DATE,
-        FAIL_TO_UPDATE
+        FAIL_TO_UPDATE,
+        
+        //CUSTOM STATES
+        NEED_NATIVE_UPDATE,
     };
     
     const static std::string VERSION_ID;
@@ -183,6 +186,9 @@ protected:
      * @lua NA
      */
     virtual void onSuccess(const std::string &srcUrl, const std::string &storagePath, const std::string &customId);
+    
+    //custom code adds here
+    bool isNativeVersionSame();
     
 private:
     

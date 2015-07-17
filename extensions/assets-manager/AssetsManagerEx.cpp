@@ -214,6 +214,8 @@ void AssetsManagerEx::loadLocalManifest(const std::string& manifestUrl)
             }
         }
         prepareLocalManifest();
+        
+        
     }
 
     // Fail to load local manifest
@@ -470,10 +472,16 @@ void AssetsManagerEx::parseVersion()
     }
     else
     {
+        dispatchUpdateEvent(EventAssetsManagerEx::EventCode::REMOTE_VERSION_LOADED);
         if (_localManifest->versionEquals(_remoteManifest))
         {
             _updateState = State::UP_TO_DATE;
             dispatchUpdateEvent(EventAssetsManagerEx::EventCode::ALREADY_UP_TO_DATE);
+        }
+        else if(!isNativeVersionSame())
+        {
+            //_updateState = State::NEED_NATIVE_UPDATE;
+            dispatchUpdateEvent(EventAssetsManagerEx::EventCode::NEED_NATIVE_UPDATE);
         }
         else
         {
@@ -526,10 +534,16 @@ void AssetsManagerEx::parseManifest()
     }
     else
     {
+        dispatchUpdateEvent(EventAssetsManagerEx::EventCode::REMOTE_MANIFEST_LOADED);
         if (_localManifest->versionEquals(_remoteManifest))
         {
             _updateState = State::UP_TO_DATE;
             dispatchUpdateEvent(EventAssetsManagerEx::EventCode::ALREADY_UP_TO_DATE);
+        }
+        else if(!isNativeVersionSame())
+        {
+            _updateState = State::NEED_NATIVE_UPDATE;
+            dispatchUpdateEvent(EventAssetsManagerEx::EventCode::NEED_NATIVE_UPDATE);
         }
         else
         {
@@ -852,6 +866,7 @@ void AssetsManagerEx::onProgress(double total, double downloaded, const std::str
             _totalSize += total;
             _sizeCollected++;
             // All collected, enable total size
+            CCLOG("_sizeCollected : %d, _totalToDownload : %d", _sizeCollected, _totalToDownload);
             if (_sizeCollected == _totalToDownload)
             {
                 _totalEnabled = true;
@@ -943,6 +958,34 @@ void AssetsManagerEx::destroyDownloadedVersion()
 {
     _fileUtils->removeFile(_cacheVersionPath);
     _fileUtils->removeFile(_cacheManifestPath);
+}
+
+//custom code adds here
+bool AssetsManagerEx::isNativeVersionSame()
+{
+    if (!_localManifest || !_remoteManifest)
+        return true;
+    
+    std::string szLocalVer;
+    std::string szRemoteVer;
+    
+    std::string szVer = _localManifest->getVersion();
+    size_t found = szVer.find(".");
+    if (std::string::npos != found)
+    {
+        szLocalVer = szVer.substr(0, found);
+    }
+  
+    szVer = _remoteManifest->getVersion();
+    found = szVer.find(".");
+    if (std::string::npos != found) {
+        szRemoteVer = szVer.substr(0, found);
+    }
+    
+    if (szLocalVer != szRemoteVer)
+        return false;
+    
+    return true;
 }
 
 NS_CC_EXT_END

@@ -53,7 +53,12 @@ public:
         ERROR_UPDATING,
         UPDATE_FINISHED,
         UPDATE_FAILED,
-        ERROR_DECOMPRESS
+        ERROR_DECOMPRESS,
+        
+        //CUSTOM EVENTCODE
+        NEED_NATIVE_UPDATE,
+        REMOTE_VERSION_LOADED,
+        REMOTE_MANIFEST_LOADED,
     };
     
     inline EventCode getEventCode() const { return _code; };
