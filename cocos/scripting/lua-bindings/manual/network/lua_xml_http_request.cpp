@@ -242,10 +242,42 @@ void LuaMinXmlHttpRequest::_sendRequest()
         /** get the response data **/
         std::vector<char> *buffer = response->getResponseData();
         
-        if (statusCode == 200)
+        /*
+         http://www.w3.org/Protocols/HTTP/HTRESP.html
+         
+         Success 2xx
+         
+         These codes indicate success. The body section if present is the object returned by the request. It is a MIME format object. It is in MIME format, and may only be in text/plain, text/html or one fo the formats specified as acceptable in the request.
+         
+         OK 200
+         
+         The request was fulfilled.
+         
+         CREATED 201
+         
+         Following a POST command, this indicates success, but the textual part of the response line indicates the URI by which the newly created document should be known.
+         
+         Accepted 202
+         
+         The request has been accepted for processing, but the processing has not been completed. The request may or may not eventually be acted upon, as it may be disallowed when processing actually takes place. there is no facility for status returns from asynchronous operations such as this.
+         
+         Partial Information 203
+         
+         When received in the response to a GET command, this indicates that the returned metainformation is not a definitive set of the object from a server with a copy of the object, but is from a private overlaid web. This may include annotation information about the object, for example.
+         
+         No Response 204
+         
+         Server has received the request but there is no information to send back, and the client should stay in the same document view. This is mainly to allow input for scripts without changing the document at the same time.
+         */
+        
+        if (statusCode == 200
+            || statusCode == 201
+            || statusCode == 202
+            || statusCode == 203
+            || statusCode == 204)
         {
             //Succeeded
-            _status = 200;
+            _status = static_cast<int>(statusCode);
             _readyState = DONE;
             _data.assign(buffer->begin(), buffer->end());
             _dataSize = buffer->size();
