@@ -633,37 +633,7 @@ int lua_cocos2dx_sp_CCFileControl_unzipInBack(lua_State* tolua_S)
 #endif
     return 0;
 }
-int lua_cocos2dx_sp_CCFileControl_getPackageName(lua_State* tolua_S)
-{
-    int argc = 0;
-    bool ok  = true;
 
-#if COCOS2D_DEBUG >= 1
-    tolua_Error tolua_err;
-#endif
-
-#if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertable(tolua_S,1,"ccsp::CCFileControl",0,&tolua_err)) goto tolua_lerror;
-#endif
-
-    argc = lua_gettop(tolua_S) - 1;
-
-    if (argc == 0)
-    {
-        if(!ok)
-            return 0;
-        std::string ret = cocos2d::SP::CCFileControl::getPackageName();
-        tolua_pushcppstring(tolua_S,ret);
-        return 1;
-    }
-    CCLOG("%s has wrong number of arguments: %d, was expecting %d\n ", "getPackageName",argc, 0);
-    return 0;
-#if COCOS2D_DEBUG >= 1
-    tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_CCFileControl_getPackageName'.",&tolua_err);
-#endif
-    return 0;
-}
 int lua_cocos2dx_sp_CCFileControl_move(lua_State* tolua_S)
 {
     int argc = 0;
@@ -1039,7 +1009,6 @@ int lua_register_cocos2dx_sp_CCFileControl(lua_State* tolua_S)
     tolua_beginmodule(tolua_S,"CCFileControl");
         tolua_function(tolua_S,"unzip", lua_cocos2dx_sp_CCFileControl_unzip);
         tolua_function(tolua_S,"unzipInBack", lua_cocos2dx_sp_CCFileControl_unzipInBack);
-        tolua_function(tolua_S,"getPackageName", lua_cocos2dx_sp_CCFileControl_getPackageName);
         tolua_function(tolua_S,"move", lua_cocos2dx_sp_CCFileControl_move);
         tolua_function(tolua_S,"getSize", lua_cocos2dx_sp_CCFileControl_getSize);
         tolua_function(tolua_S,"getUnzipCurrentSize", lua_cocos2dx_sp_CCFileControl_getUnzipCurrentSize);
