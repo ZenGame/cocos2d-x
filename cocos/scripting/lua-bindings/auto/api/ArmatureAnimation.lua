@@ -23,12 +23,6 @@
 -- @param #float speedScale
         
 --------------------------------
--- 
--- @function [parent=#ArmatureAnimation] getCurrentFrameIndex 
--- @param self
--- @return int#int ret (return value: int)
-        
---------------------------------
 -- Init with a Armature<br>
 -- param armature The Armature ArmatureAnimation will bind to
 -- @function [parent=#ArmatureAnimation] init 
@@ -59,12 +53,6 @@
 -- @param #string animationName
 -- @param #int durationTo
 -- @param #int loop
-        
---------------------------------
--- 
--- @function [parent=#ArmatureAnimation] getCurrentPercent 
--- @param self
--- @return float#float ret (return value: float)
         
 --------------------------------
 -- Go to specified frame and pause current movement.

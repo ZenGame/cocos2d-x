@@ -42,11 +42,6 @@
 
 
 --------------------------------------------------------
--- the ccsp FlyInput
--- @field [parent=#ccsp] FlyInput#FlyInput FlyInput preloaded module
-
-
---------------------------------------------------------
 -- the ccsp DeviceInfoCPP
 -- @field [parent=#ccsp] DeviceInfoCPP#DeviceInfoCPP DeviceInfoCPP preloaded module
 

@@ -8663,53 +8663,6 @@ int lua_cocos2dx_studio_ArmatureAnimation_setSpeedScale(lua_State* tolua_S)
 
     return 0;
 }
-int lua_cocos2dx_studio_ArmatureAnimation_getCurrentFrameIndex(lua_State* tolua_S)
-{
-    int argc = 0;
-    cocostudio::ArmatureAnimation* cobj = nullptr;
-    bool ok  = true;
-
-#if COCOS2D_DEBUG >= 1
-    tolua_Error tolua_err;
-#endif
-
-
-#if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"ccs.ArmatureAnimation",0,&tolua_err)) goto tolua_lerror;
-#endif
-
-    cobj = (cocostudio::ArmatureAnimation*)tolua_tousertype(tolua_S,1,0);
-
-#if COCOS2D_DEBUG >= 1
-    if (!cobj) 
-    {
-        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_studio_ArmatureAnimation_getCurrentFrameIndex'", nullptr);
-        return 0;
-    }
-#endif
-
-    argc = lua_gettop(tolua_S)-1;
-    if (argc == 0) 
-    {
-        if(!ok)
-        {
-            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_studio_ArmatureAnimation_getCurrentFrameIndex'", nullptr);
-            return 0;
-        }
-        int ret = cobj->getCurrentFrameIndex();
-        tolua_pushnumber(tolua_S,(lua_Number)ret);
-        return 1;
-    }
-    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "ccs.ArmatureAnimation:getCurrentFrameIndex",argc, 0);
-    return 0;
-
-#if COCOS2D_DEBUG >= 1
-    tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_studio_ArmatureAnimation_getCurrentFrameIndex'.",&tolua_err);
-#endif
-
-    return 0;
-}
 int lua_cocos2dx_studio_ArmatureAnimation_init(lua_State* tolua_S)
 {
     int argc = 0;
@@ -8924,53 +8877,6 @@ int lua_cocos2dx_studio_ArmatureAnimation_play(lua_State* tolua_S)
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
     tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_studio_ArmatureAnimation_play'.",&tolua_err);
-#endif
-
-    return 0;
-}
-int lua_cocos2dx_studio_ArmatureAnimation_getCurrentPercent(lua_State* tolua_S)
-{
-    int argc = 0;
-    cocostudio::ArmatureAnimation* cobj = nullptr;
-    bool ok  = true;
-
-#if COCOS2D_DEBUG >= 1
-    tolua_Error tolua_err;
-#endif
-
-
-#if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertype(tolua_S,1,"ccs.ArmatureAnimation",0,&tolua_err)) goto tolua_lerror;
-#endif
-
-    cobj = (cocostudio::ArmatureAnimation*)tolua_tousertype(tolua_S,1,0);
-
-#if COCOS2D_DEBUG >= 1
-    if (!cobj) 
-    {
-        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_studio_ArmatureAnimation_getCurrentPercent'", nullptr);
-        return 0;
-    }
-#endif
-
-    argc = lua_gettop(tolua_S)-1;
-    if (argc == 0) 
-    {
-        if(!ok)
-        {
-            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_studio_ArmatureAnimation_getCurrentPercent'", nullptr);
-            return 0;
-        }
-        double ret = cobj->getCurrentPercent();
-        tolua_pushnumber(tolua_S,(lua_Number)ret);
-        return 1;
-    }
-    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "ccs.ArmatureAnimation:getCurrentPercent",argc, 0);
-    return 0;
-
-#if COCOS2D_DEBUG >= 1
-    tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_studio_ArmatureAnimation_getCurrentPercent'.",&tolua_err);
 #endif
 
     return 0;
@@ -9711,11 +9617,9 @@ int lua_register_cocos2dx_studio_ArmatureAnimation(lua_State* tolua_S)
         tolua_function(tolua_S,"getSpeedScale",lua_cocos2dx_studio_ArmatureAnimation_getSpeedScale);
         tolua_function(tolua_S,"pause",lua_cocos2dx_studio_ArmatureAnimation_pause);
         tolua_function(tolua_S,"setSpeedScale",lua_cocos2dx_studio_ArmatureAnimation_setSpeedScale);
-        tolua_function(tolua_S,"getCurrentFrameIndex",lua_cocos2dx_studio_ArmatureAnimation_getCurrentFrameIndex);
         tolua_function(tolua_S,"init",lua_cocos2dx_studio_ArmatureAnimation_init);
         tolua_function(tolua_S,"playWithIndexes",lua_cocos2dx_studio_ArmatureAnimation_playWithIndexes);
         tolua_function(tolua_S,"play",lua_cocos2dx_studio_ArmatureAnimation_play);
-        tolua_function(tolua_S,"getCurrentPercent",lua_cocos2dx_studio_ArmatureAnimation_getCurrentPercent);
         tolua_function(tolua_S,"gotoAndPause",lua_cocos2dx_studio_ArmatureAnimation_gotoAndPause);
         tolua_function(tolua_S,"resume",lua_cocos2dx_studio_ArmatureAnimation_resume);
         tolua_function(tolua_S,"stop",lua_cocos2dx_studio_ArmatureAnimation_stop);

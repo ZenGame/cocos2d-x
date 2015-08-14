@@ -1,3 +1,4 @@
+#include "base/ccConfig.h"
 #ifndef __cocos2dx_sp_h__
 #define __cocos2dx_sp_h__
 
@@ -10,12 +11,6 @@ extern "C" {
 #endif
 
 int register_all_cocos2dx_sp(lua_State* tolua_S);
-
-
-
-
-
-
 
 
 
