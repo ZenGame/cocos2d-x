@@ -3383,6 +3383,215 @@ int lua_register_cocos2dx_sp_CCProcessControl(lua_State* tolua_S)
     g_typeCast["CCProcessControl"] = "ccsp.CCProcessControl";
     return 1;
 }
+
+int lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLevel(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"ccsp.CCZenSDKWrapper",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 2)
+    {
+        const char* arg0;
+        const char* arg1;
+        std::string arg0_tmp; ok &= luaval_to_std_string(tolua_S, 2, &arg0_tmp, "ccsp.CCZenSDKWrapper:TrackEventLevel"); arg0 = arg0_tmp.c_str();
+        std::string arg1_tmp; ok &= luaval_to_std_string(tolua_S, 3, &arg1_tmp, "ccsp.CCZenSDKWrapper:TrackEventLevel"); arg1 = arg1_tmp.c_str();
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLevel'", nullptr);
+            return 0;
+        }
+        cocos2d::SP::CCZenSDKWrapper::TrackEventLevel(arg0, arg1);
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccsp.CCZenSDKWrapper:TrackEventLevel",argc, 2);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLevel'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLogin(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"ccsp.CCZenSDKWrapper",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 1)
+    {
+        const char* arg0;
+        std::string arg0_tmp; ok &= luaval_to_std_string(tolua_S, 2, &arg0_tmp, "ccsp.CCZenSDKWrapper:TrackEventLogin"); arg0 = arg0_tmp.c_str();
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLogin'", nullptr);
+            return 0;
+        }
+        cocos2d::SP::CCZenSDKWrapper::TrackEventLogin(arg0);
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccsp.CCZenSDKWrapper:TrackEventLogin",argc, 1);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLogin'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLaunch(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"ccsp.CCZenSDKWrapper",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 0)
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLaunch'", nullptr);
+            return 0;
+        }
+        cocos2d::SP::CCZenSDKWrapper::TrackEventLaunch();
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccsp.CCZenSDKWrapper:TrackEventLaunch",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLaunch'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventPurchase(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"ccsp.CCZenSDKWrapper",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 5)
+    {
+        const char* arg0;
+        const char* arg1;
+        const char* arg2;
+        double arg3;
+        std::string arg4;
+        std::string arg0_tmp; ok &= luaval_to_std_string(tolua_S, 2, &arg0_tmp, "ccsp.CCZenSDKWrapper:TrackEventPurchase"); arg0 = arg0_tmp.c_str();
+        std::string arg1_tmp; ok &= luaval_to_std_string(tolua_S, 3, &arg1_tmp, "ccsp.CCZenSDKWrapper:TrackEventPurchase"); arg1 = arg1_tmp.c_str();
+        std::string arg2_tmp; ok &= luaval_to_std_string(tolua_S, 4, &arg2_tmp, "ccsp.CCZenSDKWrapper:TrackEventPurchase"); arg2 = arg2_tmp.c_str();
+        ok &= luaval_to_number(tolua_S, 5,&arg3, "ccsp.CCZenSDKWrapper:TrackEventPurchase");
+        ok &= luaval_to_std_string(tolua_S, 6,&arg4, "ccsp.CCZenSDKWrapper:TrackEventPurchase");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventPurchase'", nullptr);
+            return 0;
+        }
+        cocos2d::SP::CCZenSDKWrapper::TrackEventPurchase(arg0, arg1, arg2, arg3, arg4);
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccsp.CCZenSDKWrapper:TrackEventPurchase",argc, 5);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventPurchase'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_cocos2dx_sp_CCZenSDKWrapper_TrackEvent(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"ccsp.CCZenSDKWrapper",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 2)
+    {
+        const char* arg0;
+        const char* arg1;
+        std::string arg0_tmp; ok &= luaval_to_std_string(tolua_S, 2, &arg0_tmp, "ccsp.CCZenSDKWrapper:TrackEvent"); arg0 = arg0_tmp.c_str();
+        std::string arg1_tmp; ok &= luaval_to_std_string(tolua_S, 3, &arg1_tmp, "ccsp.CCZenSDKWrapper:TrackEvent"); arg1 = arg1_tmp.c_str();
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEvent'", nullptr);
+            return 0;
+        }
+        cocos2d::SP::CCZenSDKWrapper::TrackEvent(arg0, arg1);
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccsp.CCZenSDKWrapper:TrackEvent",argc, 2);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_CCZenSDKWrapper_TrackEvent'.",&tolua_err);
+#endif
+    return 0;
+}
+static int lua_cocos2dx_sp_CCZenSDKWrapper_finalize(lua_State* tolua_S)
+{
+    printf("luabindings: finalizing LUA object (CCZenSDKWrapper)");
+    return 0;
+}
+
+int lua_register_cocos2dx_sp_CCZenSDKWrapper(lua_State* tolua_S)
+{
+    tolua_usertype(tolua_S,"ccsp.CCZenSDKWrapper");
+    tolua_cclass(tolua_S,"CCZenSDKWrapper","ccsp.CCZenSDKWrapper","cc.Ref",nullptr);
+
+    tolua_beginmodule(tolua_S,"CCZenSDKWrapper");
+        tolua_function(tolua_S,"TrackEventLevel", lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLevel);
+        tolua_function(tolua_S,"TrackEventLogin", lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLogin);
+        tolua_function(tolua_S,"TrackEventLaunch", lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventLaunch);
+        tolua_function(tolua_S,"TrackEventPurchase", lua_cocos2dx_sp_CCZenSDKWrapper_TrackEventPurchase);
+        tolua_function(tolua_S,"TrackEvent", lua_cocos2dx_sp_CCZenSDKWrapper_TrackEvent);
+    tolua_endmodule(tolua_S);
+    std::string typeName = typeid(cocos2d::SP::CCZenSDKWrapper).name();
+    g_luaType[typeName] = "ccsp.CCZenSDKWrapper";
+    g_typeCast["CCZenSDKWrapper"] = "ccsp.CCZenSDKWrapper";
+    return 1;
+}
 TOLUA_API int register_all_cocos2dx_sp(lua_State* tolua_S)
 {
 	tolua_open(tolua_S);
@@ -3395,6 +3604,7 @@ TOLUA_API int register_all_cocos2dx_sp(lua_State* tolua_S)
 	lua_register_cocos2dx_sp_CCMD5(tolua_S);
 	lua_register_cocos2dx_sp_CCUtil(tolua_S);
 	lua_register_cocos2dx_sp_PicMgr(tolua_S);
+	lua_register_cocos2dx_sp_CCZenSDKWrapper(tolua_S);
 	lua_register_cocos2dx_sp_CCProcessControl(tolua_S);
 	lua_register_cocos2dx_sp_CCFile(tolua_S);
 	lua_register_cocos2dx_sp_CCFileControl(tolua_S);

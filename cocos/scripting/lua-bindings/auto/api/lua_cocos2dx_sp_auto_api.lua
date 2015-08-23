@@ -61,4 +61,9 @@
 -- @field [parent=#ccsp] CCProcessControl#CCProcessControl CCProcessControl preloaded module
 
 
+--------------------------------------------------------
+-- the ccsp CCZenSDKWrapper
+-- @field [parent=#ccsp] CCZenSDKWrapper#CCZenSDKWrapper CCZenSDKWrapper preloaded module
+
+
 return nil

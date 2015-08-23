@@ -134,7 +134,7 @@
 -- Get movement count
 -- @function [parent=#ArmatureAnimation] getMovementCount 
 -- @param self
--- @return long#long ret (return value: long)
+-- @return int#int ret (return value: int)
         
 --------------------------------
 -- Create with a Armature<br>
