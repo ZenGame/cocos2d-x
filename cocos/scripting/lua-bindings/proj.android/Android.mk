@@ -12,6 +12,7 @@ LOCAL_SRC_FILES := ../manual/platform/android/CCLuaJavaBridge.cpp \
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../.. \
                     $(LOCAL_PATH)/../manual \
                     $(LOCAL_PATH)/../../../../external/lua/tolua \
+                    $(LOCAL_PATH)/../../../../external/lua/lua \
                     $(LOCAL_PATH)/../manual/platform/android \
                     $(LOCAL_PATH)/../manual/platform/android/jni
 
@@ -20,7 +21,7 @@ LOCAL_EXPORT_LDLIBS := -lGLESv2 \
                        -lz \
                        -landroid
 
-LOCAL_STATIC_LIBRARIES := luajit_static
+#LOCAL_STATIC_LIBRARIES := luajit_static
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -56,6 +57,8 @@ LOCAL_SRC_FILES := ../manual/CCLuaBridge.cpp \
           ../../../../external/xxtea/xxtea.cpp \
           ../auto/lua_cocos2dx_audioengine_auto.cpp \
           ../manual/audioengine/lua_cocos2dx_audioengine_manual.cpp
+
+LOCAL_SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../../external/lua/lua/*.c)
 
 #3d
 LOCAL_SRC_FILES += ../manual/3d/lua_cocos2dx_3d_manual.cpp \
@@ -172,5 +175,5 @@ LOCAL_STATIC_LIBRARIES := cocos2dx_static
 
 include $(BUILD_STATIC_LIBRARY)
 
-$(call import-module,lua/luajit/prebuilt/android)
+#$(call import-module,lua/luajit/prebuilt/android)
 $(call import-module,.)
