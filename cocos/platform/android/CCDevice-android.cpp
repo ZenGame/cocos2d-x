@@ -131,22 +131,25 @@ public:
            jstring jstrFont = methodInfo.env->NewStringUTF(fullPathOrFontName.c_str());
 
            if(!methodInfo.env->CallStaticBooleanMethod(methodInfo.classID, methodInfo.methodID, strArray,
+               jstrFont, (int)fontSize, textTintR, textTintG, textTintB, eAlignMask, nWidth, nHeight, shadow, shadowDeltaX, -shadowDeltaY, shadowBlur, shadowOpacity, stroke, strokeColorR, strokeColorG, strokeColorB, strokeSize))
+           {
+                return false;
+           }
+
+           if (!shadow)
            {
                shadowDeltaX = 0.0f;
                shadowDeltaY = 0.0f;
                shadowBlur = 0.0f;
                shadowOpacity = 0.0f;
            }
+           
            if (!stroke)
            {
                strokeColorR = 0.0f;
                strokeColorG = 0.0f;
                strokeColorB = 0.0f;
                strokeSize = 0.0f;
-           }
-               jstrFont, (int)fontSize, textTintR, textTintG, textTintB, eAlignMask, nWidth, nHeight, shadow, shadowDeltaX, -shadowDeltaY, shadowBlur, shadowOpacity, stroke, strokeColorR, strokeColorG, strokeColorB, strokeSize))
-           {
-                return false;
            }
 
            methodInfo.env->DeleteLocalRef(strArray);
