@@ -11,8 +11,8 @@ LOCAL_SRC_FILES := ../manual/platform/android/CCLuaJavaBridge.cpp \
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../.. \
                     $(LOCAL_PATH)/../manual \
-                    $(LOCAL_PATH)/../../../../external/lua/tolua \
                     $(LOCAL_PATH)/../../lua \
+                    $(LOCAL_PATH)/../../../../external/lua/tolua \
                     $(LOCAL_PATH)/../manual/platform/android \
                     $(LOCAL_PATH)/../manual/platform/android/jni
 
@@ -20,8 +20,6 @@ LOCAL_EXPORT_LDLIBS := -lGLESv2 \
                        -llog \
                        -lz \
                        -landroid
-
-#LOCAL_STATIC_LIBRARIES := luajit_static
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -125,7 +123,7 @@ LOCAL_SRC_FILES += ../manual/extension/lua_cocos2dx_extension_manual.cpp \
                    ../auto/lua_cocos2dx_extension_auto.cpp \
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../../external/lua/tolua \
-                    $(LOCAL_PATH)/../../../../external/lua/luajit/include \
+                    $(LOCAL_PATH)/../../lua \
                     $(LOCAL_PATH)/../../../2d \
                     $(LOCAL_PATH)/../../../3d \
                     $(LOCAL_PATH)/../../../network \
@@ -153,7 +151,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../../external/lua/tolua \
                     $(LOCAL_PATH)/../../../../external/lua/quick
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../../../external/lua/tolua \
-                           $(LOCAL_PATH)/../../../../external/lua/luajit/include \
+                           $(LOCAL_PATH)/../../lua \
                            $(LOCAL_PATH)/../auto \
                            $(LOCAL_PATH)/../manual \
                            $(LOCAL_PATH)/../manual/cocos2d \
@@ -175,5 +173,4 @@ LOCAL_STATIC_LIBRARIES := cocos2dx_static
 
 include $(BUILD_STATIC_LIBRARY)
 
-#$(call import-module,lua/luajit/prebuilt/android)
 $(call import-module,.)
