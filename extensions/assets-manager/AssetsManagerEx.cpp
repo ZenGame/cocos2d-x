@@ -73,6 +73,7 @@ AssetsManagerEx::AssetsManagerEx(const std::string& manifestUrl, const std::stri
 , _totalToDownload(0)
 , _totalWaitToDownload(0)
 , _inited(false)
+, _isTotalDownLoadNotified(false)
 {
     // Init variables
     _eventDispatcher = Director::getInstance()->getEventDispatcher();
@@ -257,6 +258,21 @@ const Manifest* AssetsManagerEx::getLocalManifest() const
 const Manifest* AssetsManagerEx::getRemoteManifest() const
 {
     return _remoteManifest;
+}
+
+int AssetsManagerEx::getTotalToDownLoadFiles()
+{
+    return _totalToDownload;
+}
+
+bool AssetsManagerEx::isTotalToDownLoadFilesNotified()
+{
+    return _isTotalDownLoadNotified;
+}
+
+void AssetsManagerEx::setTotalToDownLoadFilesNotified(bool b)
+{
+    _isTotalDownLoadNotified = b;
 }
 
 const std::string& AssetsManagerEx::getStoragePath() const

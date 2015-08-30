@@ -111,6 +111,11 @@ public:
      */
     const Manifest* getRemoteManifest() const;
     
+    int getTotalToDownLoadFiles();
+    
+    bool isTotalToDownLoadFilesNotified();
+    void setTotalToDownLoadFilesNotified(bool b);
+    
 CC_CONSTRUCTOR_ACCESS:
     
     AssetsManagerEx(const std::string& manifestUrl, const std::string& storagePath);
@@ -270,6 +275,8 @@ private:
     
     //! Marker for whether the assets manager is inited
     bool _inited;
+    
+    bool _isTotalDownLoadNotified;
 };
 
 NS_CC_EXT_END
