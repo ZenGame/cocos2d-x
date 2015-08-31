@@ -207,6 +207,11 @@ static bool configureCURL(CURL *handle, char *errorBuffer)
     if (code != CURLE_OK) {
         return false;
     }
+    code = curl_easy_setopt(handle, CURLOPT_ACCEPT_ENCODING, "gzip");
+    if (code != CURLE_OK) {
+        return false;
+    }
+    
     if (s_sslCaFilename.empty()) {
         curl_easy_setopt(handle, CURLOPT_SSL_VERIFYPEER, 0L);
         curl_easy_setopt(handle, CURLOPT_SSL_VERIFYHOST, 0L);
