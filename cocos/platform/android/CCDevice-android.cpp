@@ -62,7 +62,7 @@ void Device::setAccelerometerEnabled(bool isEnabled)
 
 void Device::setAccelerometerInterval(float interval)
 {
-  setAccelerometerIntervalJni(interval);
+    setAccelerometerIntervalJni(interval);
 }
 
 class BitmapDC
@@ -81,24 +81,24 @@ public:
     }
 
     bool getBitmapFromJavaShadowStroke( const char *text,
-                      int nWidth,
-                      int nHeight,
-                      Device::TextAlign eAlignMask,
-                      const char * pFontName,
-                      float fontSize,
-                      float textTintR     = 1.0,
-                      float textTintG     = 1.0,
-                      float textTintB     = 1.0,
-                      bool shadow       = false,
-                      float shadowDeltaX    = 0.0,
-                      float shadowDeltaY    = 0.0,
-                      float shadowBlur    = 0.0,
-                      float shadowOpacity   = 0.0,
-                      bool stroke       = false,
-                      float strokeColorR    = 0.0,
-                      float strokeColorG    = 0.0,
-                      float strokeColorB    = 0.0,
-                      float strokeSize    = 0.0 )
+                                        int nWidth,
+                                        int nHeight,
+                                        Device::TextAlign eAlignMask,
+                                        const char * pFontName,
+                                        float fontSize,
+                                        float textTintR         = 1.0,
+                                        float textTintG         = 1.0,
+                                        float textTintB         = 1.0,
+                                        bool shadow             = false,
+                                        float shadowDeltaX      = 0.0,
+                                        float shadowDeltaY      = 0.0,
+                                        float shadowBlur        = 0.0,
+                                        float shadowOpacity     = 0.0,
+                                        bool stroke             = false,
+                                        float strokeColorR      = 0.0,
+                                        float strokeColorG      = 0.0,
+                                        float strokeColorB      = 0.0,
+                                        float strokeSize        = 0.0 )
     {
            JniMethodInfo methodInfo;
            if (! JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/lib/Cocos2dxBitmap", "createTextBitmapShadowStroke",
@@ -111,12 +111,12 @@ public:
            // Do a full lookup for the font path using FileUtils in case the given font name is a relative path to a font file asset,
            // or the path has been mapped to a different location in the app package:
            std::string fullPathOrFontName = FileUtils::getInstance()->fullPathForFilename(pFontName);
-
+            
            // If the path name returned includes the 'assets' dir then that needs to be removed, because the android.content.Context
            // requires this portion of the path to be omitted for assets inside the app package.
            if (fullPathOrFontName.find("assets/") == 0)
            {
-               fullPathOrFontName = fullPathOrFontName.substr(strlen("assets/")); // Chop out the 'assets/' portion of the path.
+               fullPathOrFontName = fullPathOrFontName.substr(strlen("assets/"));   // Chop out the 'assets/' portion of the path.
            }
 
            /**create bitmap
@@ -125,7 +125,7 @@ public:
             * and data.
             * use this approach to decrease the jni call number
            */
-           // jstring jstrText = methodInfo.env->NewStringUTF(text);
+          
             CCLOG("====== getBitmapFromJavaShadowStroke =====");
             CCLOG(text ? text : "no text input");
             CCLOG("====== end getBitmapFromJavaShadowStroke text =====");
@@ -133,24 +133,16 @@ public:
            int count = strlen(text);
            jbyteArray strArray = methodInfo.env->NewByteArray(count);
            methodInfo.env->SetByteArrayRegion(strArray, 0, count, reinterpret_cast<const jbyte*>(text));
-
            jstring jstrFont = methodInfo.env->NewStringUTF(fullPathOrFontName.c_str());
 
-           if(!methodInfo.env->CallStaticBooleanMethod(methodInfo.classID, methodInfo.methodID, strArray,
-               jstrFont, (int)fontSize, textTintR, textTintG, textTintB, eAlignMask, nWidth, nHeight, shadow, shadowDeltaX, -shadowDeltaY, shadowBlur, shadowOpacity, stroke, strokeColorR, strokeColorG, strokeColorB, strokeSize))
-           {
                 CCLOG("====== getBitmapFromJavaShadowStroke CallStaticBooleanMethod Failed =====");
-                return false;
-           }
-
-           if (!shadow)
+           if(!shadow)
            {
                shadowDeltaX = 0.0f;
                shadowDeltaY = 0.0f;
                shadowBlur = 0.0f;
                shadowOpacity = 0.0f;
            }
-           
            if (!stroke)
            {
                strokeColorR = 0.0f;
@@ -182,27 +174,27 @@ static BitmapDC& sharedBitmapDC()
 Data Device::getTextureDataForText(const char * text, const FontDefinition& textDefinition, TextAlign align, int &width, int &height, bool& hasPremultipliedAlpha)
 {
     Data ret;
-    do
+    do 
     {
         BitmapDC &dc = sharedBitmapDC();
 
-        if(! dc.getBitmapFromJavaShadowStroke(text,
-            (int)textDefinition._dimensions.width,
-            (int)textDefinition._dimensions.height,
+        if(! dc.getBitmapFromJavaShadowStroke(text, 
+            (int)textDefinition._dimensions.width, 
+            (int)textDefinition._dimensions.height, 
             align, textDefinition._fontName.c_str(),
             textDefinition._fontSize,
-            textDefinition._fontFillColor.r / 255.0f,
-            textDefinition._fontFillColor.g / 255.0f,
-            textDefinition._fontFillColor.b / 255.0f,
+            textDefinition._fontFillColor.r / 255.0f, 
+            textDefinition._fontFillColor.g / 255.0f, 
+            textDefinition._fontFillColor.b / 255.0f, 
             textDefinition._shadow._shadowEnabled,
-            textDefinition._shadow._shadowOffset.width,
-            textDefinition._shadow._shadowOffset.height,
-            textDefinition._shadow._shadowBlur,
+            textDefinition._shadow._shadowOffset.width, 
+            textDefinition._shadow._shadowOffset.height, 
+            textDefinition._shadow._shadowBlur, 
             textDefinition._shadow._shadowOpacity,
-            textDefinition._stroke._strokeEnabled,
-            textDefinition._stroke._strokeColor.r / 255.0f,
-            textDefinition._stroke._strokeColor.g / 255.0f,
-            textDefinition._stroke._strokeColor.b / 255.0f,
+            textDefinition._stroke._strokeEnabled, 
+            textDefinition._stroke._strokeColor.r / 255.0f, 
+            textDefinition._stroke._strokeColor.g / 255.0f, 
+            textDefinition._stroke._strokeColor.b / 255.0f, 
             textDefinition._stroke._strokeSize )) { break;};
 
         width = dc._width;
