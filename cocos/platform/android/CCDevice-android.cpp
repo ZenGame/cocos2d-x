@@ -126,6 +126,10 @@ public:
             * use this approach to decrease the jni call number
            */
            // jstring jstrText = methodInfo.env->NewStringUTF(text);
+            CCLOG("====== getBitmapFromJavaShadowStroke =====");
+            CCLOG(text ? text : "no text input");
+            CCLOG("====== end getBitmapFromJavaShadowStroke text =====");
+
            int count = strlen(text);
            jbyteArray strArray = methodInfo.env->NewByteArray(count);
            methodInfo.env->SetByteArrayRegion(strArray, 0, count, reinterpret_cast<const jbyte*>(text));
@@ -135,6 +139,7 @@ public:
            if(!methodInfo.env->CallStaticBooleanMethod(methodInfo.classID, methodInfo.methodID, strArray,
                jstrFont, (int)fontSize, textTintR, textTintG, textTintB, eAlignMask, nWidth, nHeight, shadow, shadowDeltaX, -shadowDeltaY, shadowBlur, shadowOpacity, stroke, strokeColorR, strokeColorG, strokeColorB, strokeSize))
            {
+                CCLOG("====== getBitmapFromJavaShadowStroke CallStaticBooleanMethod Failed =====");
                 return false;
            }
 
@@ -153,16 +158,12 @@ public:
                strokeColorB = 0.0f;
                strokeSize = 0.0f;
            }
-           if(!methodInfo.env->CallStaticBooleanMethod(methodInfo.classID, methodInfo.methodID, strArray,
-               jstrFont, (int)fontSize, textTintR, textTintG, textTintB, eAlignMask, nWidth, nHeight, shadow, shadowDeltaX, -shadowDeltaY, shadowBlur, shadowOpacity, stroke, strokeColorR, strokeColorG, strokeColorB, strokeSize))
-           {
-                return false;
-           }
 
            methodInfo.env->DeleteLocalRef(strArray);
            methodInfo.env->DeleteLocalRef(jstrFont);
            methodInfo.env->DeleteLocalRef(methodInfo.classID);
-
+      
+            CCLOG("====== getBitmapFromJavaShadowStroke Finished =====");
            return true;
     }
 
