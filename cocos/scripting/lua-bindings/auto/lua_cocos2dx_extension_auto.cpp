@@ -13085,6 +13085,53 @@ int lua_cocos2dx_extension_AssetsManagerEx_checkUpdate(lua_State* tolua_S)
 
     return 0;
 }
+int lua_cocos2dx_extension_AssetsManagerEx_isTotalToDownLoadFilesNotified(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::extension::AssetsManagerEx* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.AssetsManagerEx",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::extension::AssetsManagerEx*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_extension_AssetsManagerEx_isTotalToDownLoadFilesNotified'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_extension_AssetsManagerEx_isTotalToDownLoadFilesNotified'", nullptr);
+            return 0;
+        }
+        bool ret = cobj->isTotalToDownLoadFilesNotified();
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AssetsManagerEx:isTotalToDownLoadFilesNotified",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_extension_AssetsManagerEx_isTotalToDownLoadFilesNotified'.",&tolua_err);
+#endif
+
+    return 0;
+}
 int lua_cocos2dx_extension_AssetsManagerEx_getStoragePath(lua_State* tolua_S)
 {
     int argc = 0;
@@ -13174,6 +13221,55 @@ int lua_cocos2dx_extension_AssetsManagerEx_update(lua_State* tolua_S)
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
     tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_extension_AssetsManagerEx_update'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_cocos2dx_extension_AssetsManagerEx_setTotalToDownLoadFilesNotified(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::extension::AssetsManagerEx* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.AssetsManagerEx",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::extension::AssetsManagerEx*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_extension_AssetsManagerEx_setTotalToDownLoadFilesNotified'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) 
+    {
+        bool arg0;
+
+        ok &= luaval_to_boolean(tolua_S, 2,&arg0, "cc.AssetsManagerEx:setTotalToDownLoadFilesNotified");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_extension_AssetsManagerEx_setTotalToDownLoadFilesNotified'", nullptr);
+            return 0;
+        }
+        cobj->setTotalToDownLoadFilesNotified(arg0);
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AssetsManagerEx:setTotalToDownLoadFilesNotified",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_extension_AssetsManagerEx_setTotalToDownLoadFilesNotified'.",&tolua_err);
 #endif
 
     return 0;
@@ -13318,6 +13414,53 @@ int lua_cocos2dx_extension_AssetsManagerEx_downloadFailedAssets(lua_State* tolua
 
     return 0;
 }
+int lua_cocos2dx_extension_AssetsManagerEx_getTotalToDownLoadFiles(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::extension::AssetsManagerEx* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.AssetsManagerEx",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::extension::AssetsManagerEx*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_extension_AssetsManagerEx_getTotalToDownLoadFiles'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_extension_AssetsManagerEx_getTotalToDownLoadFiles'", nullptr);
+            return 0;
+        }
+        int ret = cobj->getTotalToDownLoadFiles();
+        tolua_pushnumber(tolua_S,(lua_Number)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AssetsManagerEx:getTotalToDownLoadFiles",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_extension_AssetsManagerEx_getTotalToDownLoadFiles'.",&tolua_err);
+#endif
+
+    return 0;
+}
 int lua_cocos2dx_extension_AssetsManagerEx_create(lua_State* tolua_S)
 {
     int argc = 0;
@@ -13370,11 +13513,14 @@ int lua_register_cocos2dx_extension_AssetsManagerEx(lua_State* tolua_S)
     tolua_beginmodule(tolua_S,"AssetsManagerEx");
         tolua_function(tolua_S,"getState",lua_cocos2dx_extension_AssetsManagerEx_getState);
         tolua_function(tolua_S,"checkUpdate",lua_cocos2dx_extension_AssetsManagerEx_checkUpdate);
+        tolua_function(tolua_S,"isTotalToDownLoadFilesNotified",lua_cocos2dx_extension_AssetsManagerEx_isTotalToDownLoadFilesNotified);
         tolua_function(tolua_S,"getStoragePath",lua_cocos2dx_extension_AssetsManagerEx_getStoragePath);
         tolua_function(tolua_S,"update",lua_cocos2dx_extension_AssetsManagerEx_update);
+        tolua_function(tolua_S,"setTotalToDownLoadFilesNotified",lua_cocos2dx_extension_AssetsManagerEx_setTotalToDownLoadFilesNotified);
         tolua_function(tolua_S,"getLocalManifest",lua_cocos2dx_extension_AssetsManagerEx_getLocalManifest);
         tolua_function(tolua_S,"getRemoteManifest",lua_cocos2dx_extension_AssetsManagerEx_getRemoteManifest);
         tolua_function(tolua_S,"downloadFailedAssets",lua_cocos2dx_extension_AssetsManagerEx_downloadFailedAssets);
+        tolua_function(tolua_S,"getTotalToDownLoadFiles",lua_cocos2dx_extension_AssetsManagerEx_getTotalToDownLoadFiles);
         tolua_function(tolua_S,"create", lua_cocos2dx_extension_AssetsManagerEx_create);
     tolua_endmodule(tolua_S);
     std::string typeName = typeid(cocos2d::extension::AssetsManagerEx).name();
