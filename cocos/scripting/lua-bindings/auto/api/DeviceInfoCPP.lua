@@ -29,6 +29,12 @@
         
 --------------------------------
 -- 
+-- @function [parent=#DeviceInfoCPP] isProductionBuild 
+-- @param self
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
+-- 
 -- @function [parent=#DeviceInfoCPP] getGPUInfo 
 -- @param self
 -- @return string#string ret (return value: string)

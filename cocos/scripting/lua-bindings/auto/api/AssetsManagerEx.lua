@@ -18,6 +18,12 @@
 -- @param self
         
 --------------------------------
+-- 
+-- @function [parent=#AssetsManagerEx] isTotalToDownLoadFilesNotified 
+-- @param self
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
 --  @brief Gets storage path.
 -- @function [parent=#AssetsManagerEx] getStoragePath 
 -- @param self
@@ -27,6 +33,12 @@
 --  @brief Update with the current local manifest.
 -- @function [parent=#AssetsManagerEx] update 
 -- @param self
+        
+--------------------------------
+-- 
+-- @function [parent=#AssetsManagerEx] setTotalToDownLoadFilesNotified 
+-- @param self
+-- @param #bool b
         
 --------------------------------
 --  @brief Function for retrieve the local manifest object
@@ -44,6 +56,12 @@
 --  @brief Reupdate all failed assets under the current AssetsManagerEx context
 -- @function [parent=#AssetsManagerEx] downloadFailedAssets 
 -- @param self
+        
+--------------------------------
+-- 
+-- @function [parent=#AssetsManagerEx] getTotalToDownLoadFiles 
+-- @param self
+-- @return int#int ret (return value: int)
         
 --------------------------------
 --  @brief Create function for creating a new AssetsManagerEx<br>
