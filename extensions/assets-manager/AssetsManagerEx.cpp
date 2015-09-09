@@ -198,7 +198,7 @@ void AssetsManagerEx::loadLocalManifest(const std::string& manifestUrl)
     // Load local manifest in app package
     
     // add for google extension app
-    const static std::string manifestExtUrl = "update/project_ext.manifest";
+    const static std::string manifestExtUrl = "res/update/project_ext.manifest";
     if(FileUtils::getInstance()->isFileExist(manifestExtUrl)) {
         _localManifest->parse(manifestExtUrl);
     }
