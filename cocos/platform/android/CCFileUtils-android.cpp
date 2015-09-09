@@ -404,7 +404,9 @@ unsigned char* FileUtilsAndroid::getFileData(const std::string& filename, const 
                     unsigned char* ret = zf->getFileData(relativePath, &filesize);
                     if (filesize > 0 && ret != nullptr) {
                         data = ret;
-                        *size = filesize;
+                        if (size) {
+                            *size = filesize;
+                        }
                     }else if(ret != nullptr)
                     {
                         free(ret);
