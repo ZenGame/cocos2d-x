@@ -32,6 +32,8 @@ THE SOFTWARE.
 #include "android/asset_manager.h"
 #include "android/asset_manager_jni.h"
 
+#include "base/ZipUtils.h"
+
 #include <stdlib.h>
 
 #define  LOG_TAG    "CCFileUtils-android.cpp"
@@ -39,9 +41,26 @@ THE SOFTWARE.
 
 using namespace std;
 
+std::string getObbFullFileName();
+
 NS_CC_BEGIN
 
 AAssetManager* FileUtilsAndroid::assetmanager = nullptr;
+
+
+ZipFile* GetObbZip()
+{
+    static ZipFile* obbfile = nullptr;
+    if (obbfile == nullptr) {
+        std::string filename = getObbFullFileName();
+        if (filename.empty()) {
+            return nullptr;
+        }
+        obbfile = new ZipFile(filename);
+    }
+    
+    return obbfile;
+}
 
 void FileUtilsAndroid::setassetmanager(AAssetManager* a) {
     if (nullptr == a) {
@@ -158,6 +177,14 @@ bool FileUtilsAndroid::isFileExistInternal(const std::string& strFilePath) const
                 AAsset_close(aa);
             } else {
                 // CCLOG("[AssetManager] ... in APK %s, found = false!", strFilePath.c_str());
+                //check obb
+                ZipFile *zf = GetObbZip();
+                if (zf) {
+                    if (zf->fileExists(s))
+                    {
+                        bFound = true;
+                    }
+                }
             }
         }
     }
@@ -221,26 +248,53 @@ Data FileUtilsAndroid::getData(const std::string& filename, bool forString)
                                relativePath.c_str(),
                                AASSET_MODE_UNKNOWN);
         if (nullptr == asset) {
-            LOGD("asset is nullptr");
-            return Data::Null;
+            //get from obb
+            ZipFile* zf = GetObbZip();
+            if (zf) {
+                if (zf->fileExists(relativePath)) {
+                    ssize_t filesize = 0;
+                    unsigned char* ret = zf->getFileData(relativePath, &filesize);
+                    if (filesize > 0 && ret != nullptr) {
+                        if (forString) {
+                            data = (unsigned char*) malloc(filesize + 1);
+                            memcpy(data, ret, filesize);
+                            data[filesize] = '\0';
+                        }else
+                        {
+                            data = ret;
+                        }
+                        size = filesize;
+                    }else if(ret != nullptr)
+                    {
+                        free(ret);
+                    }
+                }
+            }
+            
+            if (data == nullptr) {
+                LOGD("asset is nullptr");
+                return Data::Null;
+            }
         }
 
-        off_t fileSize = AAsset_getLength(asset);
-
-        if (forString)
-        {
-            data = (unsigned char*) malloc(fileSize + 1);
-            data[fileSize] = '\0';
+        if (data == nullptr) {
+            off_t fileSize = AAsset_getLength(asset);
+            
+            if (forString)
+            {
+                data = (unsigned char*) malloc(fileSize + 1);
+                data[fileSize] = '\0';
+            }
+            else
+            {
+                data = (unsigned char*) malloc(fileSize);
+            }
+            
+            int bytesread = AAsset_read(asset, (void*)data, fileSize);
+            size = bytesread;
+            
+            AAsset_close(asset);
         }
-        else
-        {
-            data = (unsigned char*) malloc(fileSize);
-        }
-
-        int bytesread = AAsset_read(asset, (void*)data, fileSize);
-        size = bytesread;
-
-        AAsset_close(asset);
     }
     else
     {
@@ -342,21 +396,41 @@ unsigned char* FileUtilsAndroid::getFileData(const std::string& filename, const 
                                relativePath.c_str(),
                                AASSET_MODE_UNKNOWN);
         if (nullptr == asset) {
-            LOGD("asset is nullptr");
-            return nullptr;
+            //get from obb
+            ZipFile* zf = GetObbZip();
+            if (zf) {
+                if (zf->fileExists(relativePath)) {
+                    ssize_t filesize = 0;
+                    unsigned char* ret = zf->getFileData(relativePath, &filesize);
+                    if (filesize > 0 && ret != nullptr) {
+                        data = ret;
+                        *size = filesize;
+                    }else if(ret != nullptr)
+                    {
+                        free(ret);
+                    }
+                }
+            }
+            
+            if (data == nullptr) {
+                LOGD("asset is nullptr");
+                return nullptr;
+            }
         }
 
-        off_t fileSize = AAsset_getLength(asset);
-
-        data = (unsigned char*) malloc(fileSize);
-
-        int bytesread = AAsset_read(asset, (void*)data, fileSize);
-        if (size)
-        {
-            *size = bytesread;
+        if (data == nullptr) {
+            off_t fileSize = AAsset_getLength(asset);
+            
+            data = (unsigned char*) malloc(fileSize);
+            
+            int bytesread = AAsset_read(asset, (void*)data, fileSize);
+            if (size)
+            {
+                *size = bytesread;
+            }
+            
+            AAsset_close(asset);
         }
-
-        AAsset_close(asset);
     }
     else
     {
