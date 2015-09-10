@@ -33,6 +33,7 @@ THE SOFTWARE.
 #include "android/asset_manager_jni.h"
 
 #include "base/ZipUtils.h"
+#include <mutex>
 
 #include <stdlib.h>
 
@@ -46,13 +47,26 @@ std::string getObbFullFileName();
 NS_CC_BEGIN
 
 AAssetManager* FileUtilsAndroid::assetmanager = nullptr;
-
+static std::mutex obbzipfilemutex;
+static std::string getOBBName()
+{
+    static bool bgeted = false;
+    static std::string strObbName;
+    if (bgeted == false) {
+        strObbName = getObbFullFileName();
+        bgeted = true;
+    }
+    
+    return strObbName;
+}
 
 ZipFile* GetObbZip()
 {
     static ZipFile* obbfile = nullptr;
+//    ZipFile* obbfile = nullptr;
     if (obbfile == nullptr) {
-        std::string filename = getObbFullFileName();
+        
+        std::string filename = getOBBName();
         if (filename.empty()) {
             return nullptr;
         }
@@ -180,10 +194,12 @@ bool FileUtilsAndroid::isFileExistInternal(const std::string& strFilePath) const
                 //check obb
                 ZipFile *zf = GetObbZip();
                 if (zf) {
+                    obbzipfilemutex.lock();
                     if (zf->fileExists(s))
                     {
                         bFound = true;
                     }
+                    obbzipfilemutex.unlock();
                 }
             }
         }
@@ -251,6 +267,7 @@ Data FileUtilsAndroid::getData(const std::string& filename, bool forString)
             //get from obb
             ZipFile* zf = GetObbZip();
             if (zf) {
+                obbzipfilemutex.lock();
                 if (zf->fileExists(relativePath)) {
                     ssize_t filesize = 0;
                     unsigned char* ret = zf->getFileData(relativePath, &filesize);
@@ -269,6 +286,7 @@ Data FileUtilsAndroid::getData(const std::string& filename, bool forString)
                         free(ret);
                     }
                 }
+                obbzipfilemutex.unlock();
             }
             
             if (data == nullptr) {
@@ -399,6 +417,7 @@ unsigned char* FileUtilsAndroid::getFileData(const std::string& filename, const 
             //get from obb
             ZipFile* zf = GetObbZip();
             if (zf) {
+                obbzipfilemutex.lock();
                 if (zf->fileExists(relativePath)) {
                     ssize_t filesize = 0;
                     unsigned char* ret = zf->getFileData(relativePath, &filesize);
@@ -412,6 +431,7 @@ unsigned char* FileUtilsAndroid::getFileData(const std::string& filename, const 
                         free(ret);
                     }
                 }
+                obbzipfilemutex.unlock();
             }
             
             if (data == nullptr) {
