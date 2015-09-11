@@ -273,9 +273,11 @@ Data FileUtilsAndroid::getData(const std::string& filename, bool forString)
                     unsigned char* ret = zf->getFileData(relativePath, &filesize);
                     if (filesize > 0 && ret != nullptr) {
                         if (forString) {
+//                            LOGD("memory leak in read file");
                             data = (unsigned char*) malloc(filesize + 1);
                             memcpy(data, ret, filesize);
                             data[filesize] = '\0';
+                            free(ret);
                         }else
                         {
                             data = ret;
