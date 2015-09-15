@@ -11,13 +11,13 @@
         
 --------------------------------
 -- 
--- @function [parent=#DeviceInfoCPP] getModel 
+-- @function [parent=#DeviceInfoCPP] getPackageName 
 -- @param self
 -- @return string#string ret (return value: string)
         
 --------------------------------
 -- 
--- @function [parent=#DeviceInfoCPP] getPackageName 
+-- @function [parent=#DeviceInfoCPP] getModel 
 -- @param self
 -- @return string#string ret (return value: string)
         
@@ -32,6 +32,12 @@
 -- @function [parent=#DeviceInfoCPP] isProductionBuild 
 -- @param self
 -- @return bool#bool ret (return value: bool)
+        
+--------------------------------
+-- 
+-- @function [parent=#DeviceInfoCPP] getUniqueGeneratedID 
+-- @param self
+-- @return string#string ret (return value: string)
         
 --------------------------------
 -- 

@@ -2791,40 +2791,6 @@ int lua_cocos2dx_sp_DeviceInfoCPP_getManufacturer(lua_State* tolua_S)
 #endif
     return 0;
 }
-int lua_cocos2dx_sp_DeviceInfoCPP_getModel(lua_State* tolua_S)
-{
-    int argc = 0;
-    bool ok  = true;
-
-#if COCOS2D_DEBUG >= 1
-    tolua_Error tolua_err;
-#endif
-
-#if COCOS2D_DEBUG >= 1
-    if (!tolua_isusertable(tolua_S,1,"ccsp.DeviceInfoCPP",0,&tolua_err)) goto tolua_lerror;
-#endif
-
-    argc = lua_gettop(tolua_S) - 1;
-
-    if (argc == 0)
-    {
-        if(!ok)
-        {
-            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_sp_DeviceInfoCPP_getModel'", nullptr);
-            return 0;
-        }
-        std::string ret = cocos2d::SP::DeviceInfoCPP::getModel();
-        tolua_pushcppstring(tolua_S,ret);
-        return 1;
-    }
-    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccsp.DeviceInfoCPP:getModel",argc, 0);
-    return 0;
-#if COCOS2D_DEBUG >= 1
-    tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_DeviceInfoCPP_getModel'.",&tolua_err);
-#endif
-    return 0;
-}
 int lua_cocos2dx_sp_DeviceInfoCPP_getPackageName(lua_State* tolua_S)
 {
     int argc = 0;
@@ -2856,6 +2822,40 @@ int lua_cocos2dx_sp_DeviceInfoCPP_getPackageName(lua_State* tolua_S)
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
     tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_DeviceInfoCPP_getPackageName'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_cocos2dx_sp_DeviceInfoCPP_getModel(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"ccsp.DeviceInfoCPP",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 0)
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_sp_DeviceInfoCPP_getModel'", nullptr);
+            return 0;
+        }
+        std::string ret = cocos2d::SP::DeviceInfoCPP::getModel();
+        tolua_pushcppstring(tolua_S,ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccsp.DeviceInfoCPP:getModel",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_DeviceInfoCPP_getModel'.",&tolua_err);
 #endif
     return 0;
 }
@@ -2924,6 +2924,40 @@ int lua_cocos2dx_sp_DeviceInfoCPP_isProductionBuild(lua_State* tolua_S)
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
     tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_DeviceInfoCPP_isProductionBuild'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_cocos2dx_sp_DeviceInfoCPP_getUniqueGeneratedID(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"ccsp.DeviceInfoCPP",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 0)
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_cocos2dx_sp_DeviceInfoCPP_getUniqueGeneratedID'", nullptr);
+            return 0;
+        }
+        std::string ret = cocos2d::SP::DeviceInfoCPP::getUniqueGeneratedID();
+        tolua_pushcppstring(tolua_S,ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "ccsp.DeviceInfoCPP:getUniqueGeneratedID",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_sp_DeviceInfoCPP_getUniqueGeneratedID'.",&tolua_err);
 #endif
     return 0;
 }
@@ -3008,10 +3042,11 @@ int lua_register_cocos2dx_sp_DeviceInfoCPP(lua_State* tolua_S)
 
     tolua_beginmodule(tolua_S,"DeviceInfoCPP");
         tolua_function(tolua_S,"getManufacturer", lua_cocos2dx_sp_DeviceInfoCPP_getManufacturer);
-        tolua_function(tolua_S,"getModel", lua_cocos2dx_sp_DeviceInfoCPP_getModel);
         tolua_function(tolua_S,"getPackageName", lua_cocos2dx_sp_DeviceInfoCPP_getPackageName);
+        tolua_function(tolua_S,"getModel", lua_cocos2dx_sp_DeviceInfoCPP_getModel);
         tolua_function(tolua_S,"getUDID", lua_cocos2dx_sp_DeviceInfoCPP_getUDID);
         tolua_function(tolua_S,"isProductionBuild", lua_cocos2dx_sp_DeviceInfoCPP_isProductionBuild);
+        tolua_function(tolua_S,"getUniqueGeneratedID", lua_cocos2dx_sp_DeviceInfoCPP_getUniqueGeneratedID);
         tolua_function(tolua_S,"getGPUInfo", lua_cocos2dx_sp_DeviceInfoCPP_getGPUInfo);
         tolua_function(tolua_S,"getOS", lua_cocos2dx_sp_DeviceInfoCPP_getOS);
     tolua_endmodule(tolua_S);
